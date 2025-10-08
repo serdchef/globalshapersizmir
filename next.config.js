@@ -24,6 +24,11 @@ const nextConfig = {
   // Backend proxy configuration
   async rewrites() {
     return [
+      // Ensure sitemap.xml explicitly resolves to the pages route for crawlers
+      {
+        source: '/sitemap.xml',
+        destination: '/sitemap.xml.tsx',
+      },
       {
         source: '/api/backend/:path*',
         destination: 'http://localhost:8000/api/:path*',
