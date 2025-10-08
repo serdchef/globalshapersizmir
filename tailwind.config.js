@@ -20,9 +20,10 @@ module.exports = {
         'mindcraft-light': '#F8FAFC',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Space Grotesk', 'system-ui', 'sans-serif'],
-        body: ['Manrope', 'Inter', 'system-ui', 'sans-serif'],
+        // Use Noto Sans (latin-ext) as primary sans to support Turkish characters
+        sans: ['"Noto Sans"', 'Inter', 'system-ui', 'sans-serif'],
+        display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+        body: ['"Manrope"', 'Inter', 'system-ui', 'sans-serif'],
       },
     },
   },
