@@ -4,7 +4,7 @@ import { Sparkles, Brain, Heart, Rocket } from 'lucide-react'
 
 export default function Hero() {
   return (
-  <section className="relative min-h-[70vh] flex justify-center overflow-hidden">
+  <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 gradient-bg">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)]"></div>
