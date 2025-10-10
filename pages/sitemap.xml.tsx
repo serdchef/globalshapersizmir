@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next'
 import { modulesData } from '@/utils/modulesData'
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://glabalshapersizmir-us6d.vercel.app'
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.globalshapersizmirhub.com'
 
 function urlEntry(loc: string, lastmod = new Date().toISOString()) {
   return `
