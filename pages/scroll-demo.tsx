@@ -140,13 +140,13 @@ export default function ScrollDemoPage() {
                     </p>
                     <div className="flex gap-3">
                       <Link
-                        href="/hakkimizda"
+                        href="/about"
                         className="px-4 py-2 bg-white text-gs-navy rounded-lg font-semibold hover:bg-gray-100 transition-colors"
                       >
                         About Page
                       </Link>
                       <Link
-                        href="/projeler"
+                        href="/projects"
                         className="px-4 py-2 bg-white/20 text-white rounded-lg font-semibold hover:bg-white/30 transition-colors"
                       >
                         Projects Page

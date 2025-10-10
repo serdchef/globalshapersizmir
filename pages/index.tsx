@@ -62,13 +62,13 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.6 }}
                 className="flex flex-col sm:flex-row gap-6 justify-center items-center"
               >
-                <Link href="/projeler" className="group relative px-10 py-5 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-2xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-flex items-center gap-3">
+                <Link href="/projects" className="group relative px-10 py-5 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-2xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-flex items-center gap-3">
                   <Rocket className="w-6 h-6 group-hover:translate-y-[-2px] transition-transform" />
                   <span>Explore Our Projects</span>
                   <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
                 </Link>
                 
-                <Link href="/hakkimizda" className="group px-10 py-5 bg-white/80 backdrop-blur-xl border-2 border-gray-200 text-gray-900 rounded-2xl font-bold text-lg hover:border-purple-600 hover:text-purple-600 hover:shadow-xl transition-all duration-300 inline-flex items-center gap-3">
+                <Link href="/about" className="group px-10 py-5 bg-white/80 backdrop-blur-xl border-2 border-gray-200 text-gray-900 rounded-2xl font-bold text-lg hover:border-purple-600 hover:text-purple-600 hover:shadow-xl transition-all duration-300 inline-flex items-center gap-3">
                   <span>About Us</span>
                   <Sparkles className="w-6 h-6 group-hover:rotate-12 transition-transform" />
                 </Link>
@@ -257,7 +257,7 @@ export default function Home() {
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.2, duration: 0.6 }}
                   >
-                    <Link href={isFirst ? '/projeler/mindcraft' : `/projeler/${project.slug}`}>
+                    <Link href={isFirst ? '/projects/mindcraft' : `/projects/${project.slug}`}>
                       <div className="group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
                         {/* Gradient Header with Icon */}
                         <div className={`relative h-80 bg-gradient-to-br ${gradientFrom} ${gradientVia} ${gradientTo} overflow-hidden`}>
@@ -373,7 +373,7 @@ export default function Home() {
               transition={{ delay: 0.4 }}
               className="text-center mt-16"
             >
-              <Link href="/projeler" className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-gs-blue to-gs-purple text-white rounded-2xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300">
+              <Link href="/projects" className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-gs-blue to-gs-purple text-white rounded-2xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300">
                 View All Projects
                 <ArrowRight className="w-6 h-6" />
               </Link>
@@ -402,7 +402,7 @@ export default function Home() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <Link href={`/uyeler/${member.slug}`}>
+                  <Link href={`/members/${member.slug}`}>
                     <div className="group text-center">
                       <div className="relative w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gradient-to-br from-gs-blue to-gs-purple p-1">
                         <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
@@ -420,7 +420,7 @@ export default function Home() {
             </div>
 
             <div className="text-center">
-              <Link href="/uyeler" className="inline-flex items-center gap-2 px-8 py-4 bg-gs-navy text-white rounded-lg font-semibold hover:bg-gs-blue transition-colors">
+              <Link href="/members" className="inline-flex items-center gap-2 px-8 py-4 bg-gs-navy text-white rounded-lg font-semibold hover:bg-gs-blue transition-colors">
                 View Full Team
                 <ArrowRight className="w-5 h-5" />
               </Link>
@@ -442,7 +442,7 @@ export default function Home() {
               <p className="text-xl text-gray-200 mb-8">
                 Contact us to learn more about our projects or explore collaboration opportunities.
               </p>
-              <Link href="/iletisim" className="inline-block px-8 py-4 bg-white text-gs-navy rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+              <Link href="/contact" className="inline-block px-8 py-4 bg-white text-gs-navy rounded-lg font-semibold hover:bg-gray-100 transition-colors">
                 Contact Us
               </Link>
             </motion.div>

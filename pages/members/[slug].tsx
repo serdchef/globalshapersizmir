@@ -30,7 +30,7 @@ export default function MemberPage({ member }: MemberPageProps) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <Link href="/uyeler" className="inline-flex items-center text-white/80 hover:text-white mb-8 transition-colors">
+              <Link href="/members" className="inline-flex items-center text-white/80 hover:text-white mb-8 transition-colors">
                 <ArrowLeft className="w-5 h-5 mr-2" />
                 All Members
               </Link>
@@ -129,7 +129,7 @@ export default function MemberPage({ member }: MemberPageProps) {
         {/* Back to Team */}
         <section className="py-16 bg-gray-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <Link href="/uyeler" className="inline-flex items-center gap-2 px-8 py-4 bg-gs-navy text-white rounded-lg font-semibold hover:bg-gs-blue transition-colors">
+            <Link href="/members" className="inline-flex items-center gap-2 px-8 py-4 bg-gs-navy text-white rounded-lg font-semibold hover:bg-gs-blue transition-colors">
               <ArrowLeft className="w-5 h-5" />
               Back to All Members
             </Link>

@@ -51,10 +51,10 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              <li><Link href="/hakkimizda" className="text-gray-300 hover:text-white transition-colors">About</Link></li>
-              <li><Link href="/uyeler" className="text-gray-300 hover:text-white transition-colors">Members</Link></li>
-              <li><Link href="/projeler" className="text-gray-300 hover:text-white transition-colors">Projects</Link></li>
-              <li><Link href="/iletisim" className="text-gray-300 hover:text-white transition-colors">Contact</Link></li>
+              <li><Link href="/about" className="text-gray-300 hover:text-white transition-colors">About</Link></li>
+              <li><Link href="/members" className="text-gray-300 hover:text-white transition-colors">Members</Link></li>
+              <li><Link href="/projects" className="text-gray-300 hover:text-white transition-colors">Projects</Link></li>
+              <li><Link href="/contact" className="text-gray-300 hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
 
@@ -62,8 +62,8 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4">Our Projects</h4>
             <ul className="space-y-2 text-gray-300">
-              <li><Link href="/projeler/mindcraft" className="hover:text-white transition-colors">Mindcraft</Link></li>
-              <li><Link href="/projeler/financial-literacy" className="hover:text-white transition-colors">Financial Literacy</Link></li>
+              <li><Link href="/projects/mindcraft" className="hover:text-white transition-colors">Mindcraft</Link></li>
+              <li><Link href="/projects/financial-literacy" className="hover:text-white transition-colors">Financial Literacy</Link></li>
             </ul>
           </div>
         </div>

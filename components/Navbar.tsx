@@ -8,10 +8,10 @@ export default function Navbar() {
 
   const navLinks = [
     { name: 'Home', href: '/' },
-    { name: 'About', href: '/hakkimizda' },
-    { name: 'Members', href: '/uyeler' },
-    { name: 'Projects', href: '/projeler' },
-    { name: 'Contact', href: '/iletisim' },
+    { name: 'About', href: '/about' },
+    { name: 'Members', href: '/members' },
+    { name: 'Projects', href: '/projects' },
+    { name: 'Contact', href: '/contact' },
   ]
 
   return (

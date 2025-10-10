@@ -57,7 +57,7 @@ The platform makes learning fun with interactive demos, quizzes and AI playgroun
     category: 'Education & Technology',
     links: {
       website: "http://localhost:3000",
-      documentation: "/projeler/mindcraft/docs"
+  documentation: "/projects/mindcraft/docs"
     },
     impact: {
       reach: "5,000+ students",
@@ -124,7 +124,7 @@ Our program has enabled participants to act 85% more consciously in their financ
     status: 'active',
     category: 'Education & Finance',
     links: {
-      documentation: "/projeler/financial-literacy/curriculum"
+  documentation: "/projects/financial-literacy/curriculum"
     },
     impact: {
       reach: "2,000+ participants",

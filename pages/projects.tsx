@@ -51,7 +51,7 @@ export default function ProjectsPage() {
                   transition={{ delay: index * 0.15, duration: 0.6 }}
                 >
                   {project.slug === 'mindcraft' ? (
-                    <Link href="/projeler/mindcraft">
+                    <Link href="/projects/mindcraft">
                       <div className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-full">
                       {/* Project Image/Gradient */}
                       <div className="relative h-80 bg-gradient-to-br from-gs-blue via-gs-purple to-gs-orange overflow-hidden">
@@ -135,7 +135,7 @@ export default function ProjectsPage() {
                     </div>
                     </Link>
                   ) : (
-                  <Link href={`/projeler/${project.slug}`}>
+                  <Link href={`/projects/${project.slug}`}>
                     <div className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-full">
                       {/* Project Image/Gradient */}
                       <div className="relative h-80 bg-gradient-to-br from-gs-blue via-gs-purple to-gs-orange overflow-hidden">
@@ -189,7 +189,7 @@ export default function ProjectsPage() {
             <p className="text-xl text-gray-600 mb-8">
               Get in touch to learn more about our projects or to volunteer.
             </p>
-            <Link href="/iletisim" className="inline-block px-8 py-4 bg-gradient-to-r from-gs-blue to-gs-purple text-white rounded-lg font-semibold hover:shadow-lg transition-all">
+            <Link href="/contact" className="inline-block px-8 py-4 bg-gradient-to-r from-gs-blue to-gs-purple text-white rounded-lg font-semibold hover:shadow-lg transition-all">
               Get in Touch
             </Link>
           </div>

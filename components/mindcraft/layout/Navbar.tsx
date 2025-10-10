@@ -15,10 +15,10 @@ export default function Navbar() {
   }, [])
 
   const navLinks = [
-    { name: 'Home', href: '/projeler/mindcraft' },
-    { name: 'Modules', href: '/projeler/mindcraft/modules' },
-    { name: 'AI Playground', href: '/projeler/mindcraft/playground' },
-    { name: 'Gallery', href: '/projeler/mindcraft/gallery' },
+  { name: 'Home', href: '/projects/mindcraft' },
+  { name: 'Modules', href: '/projects/mindcraft/modules' },
+  { name: 'AI Playground', href: '/projects/mindcraft/playground' },
+  { name: 'Gallery', href: '/projects/mindcraft/gallery' },
   ]
 
   return (

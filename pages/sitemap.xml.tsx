@@ -16,10 +16,10 @@ function urlEntry(loc: string, lastmod = new Date().toISOString()) {
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   const staticPages = [
     '/',
-    '/hakkimizda',
-    '/uyeler',
-    '/projeler',
-    '/iletisim',
+    '/about',
+    '/members',
+    '/projects',
+    '/contact',
     '/mindcraft-pages/playground',
     '/mindcraft-pages/gallery',
   ]

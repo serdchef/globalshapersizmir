@@ -50,7 +50,7 @@ export default function MembersPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1, duration: 0.5 }}
                 >
-                  <Link href={`/uyeler/${member.slug}`}>
+                  <Link href={`/members/${member.slug}`}>
                     <div className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-full">
                       {/* Member Photo */}
                       <div className="relative h-80 bg-gradient-to-br from-gs-blue via-gs-purple to-gs-orange overflow-hidden">
@@ -112,7 +112,7 @@ export default function MembersPage() {
               <p className="text-xl text-gray-600 mb-8">
                 Get in touch to become a member of Global Shapers Izmir Hub or volunteer for our projects.
               </p>
-            <Link href="/iletisim" className="inline-block px-8 py-4 bg-gradient-to-r from-gs-purple to-gs-blue text-white rounded-lg font-semibold hover:shadow-lg transition-all">
+            <Link href="/contact" className="inline-block px-8 py-4 bg-gradient-to-r from-gs-purple to-gs-blue text-white rounded-lg font-semibold hover:shadow-lg transition-all">
               Get in Touch
             </Link>
           </div>
