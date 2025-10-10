@@ -64,6 +64,31 @@ export default function MemberPage({ member }: MemberPageProps) {
                   <p className="text-2xl text-gs-orange font-semibold mb-6">
                     {member.role}
                   </p>
+                  {/* Social icons shown directly under name/role for visibility */}
+                  <div className="flex items-center gap-4 mb-6">
+                    {(member.email || member.social.email) && (
+                      <a
+                        href={`mailto:${member.email || member.social.email}`}
+                        className="p-3 bg-white/10 backdrop-blur-sm rounded-lg hover:bg-white/20 transition-colors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Email"
+                      >
+                        <Mail className="w-6 h-6 text-white" />
+                      </a>
+                    )}
+                    {(member.linkedin || member.social.linkedin) && (
+                      <a
+                        href={member.linkedin || member.social.linkedin}
+                        className="p-3 bg-white/10 backdrop-blur-sm rounded-lg hover:bg-white/20 transition-colors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="LinkedIn"
+                      >
+                        <Linkedin className="w-6 h-6 text-white" />
+                      </a>
+                    )}
+                  </div>
                   <p className="text-xl text-gray-200 mb-8">
                     {member.shortBio}
                   </p>
