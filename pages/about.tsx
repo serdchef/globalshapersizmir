@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { motion } from 'framer-motion'
@@ -7,187 +8,256 @@ export default function AboutPage() {
   return (
     <>
       <Head>
-        <title>About - Global Shapers Izmir Hub</title>
-        <meta name="description" content="About Global Shapers Izmir Hub" />
+        <title>About Us - Global Shapers Izmir Hub</title>
+        <meta name="description" content="Learn about Global Shapers Izmir Hub - Building a better future by unlocking the potential of young people" />
       </Head>
 
       <Navbar />
 
       <main className="pt-20">
-        {/* Hero */}
-        <section className="bg-gradient-to-br from-gs-navy via-gs-blue to-gs-purple py-20">
+        {/* Hero Section */}
+  <section className="bg-gradient-to-br from-gs-navy via-gs-blue to-gs-purple py-24 relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div className="flex items-center gap-8" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-              <div className="w-28 h-28 rounded-full overflow-hidden bg-white/10 flex items-center justify-center p-3">
-                {/* logo */}
-                <img src="/images/gs-logo.png" alt="Global Shapers Izmir Hub" className="w-full h-auto" />
+            {/* Breadcrumb */}
+            <div className="mb-8">
+              <Link href="/" className="text-white/80 hover:text-white flex items-center gap-2 text-sm">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+                Home
+              </Link>
+            </div>
+
+            {/* Hero Content */}
+            <motion.div 
+              className="flex items-center gap-8" 
+              initial={{ opacity: 0, y: 20 }} 
+              animate={{ opacity: 1, y: 0 }} 
+              transition={{ duration: 0.6 }}
+            >
+              <div className="w-28 h-28 md:w-36 md:h-36 rounded-full bg-white p-3 flex items-center justify-center flex-shrink-0 shadow-2xl ring-4 ring-white/20">
+                <img 
+                  src="/images/gs-logo.png" 
+                  alt="Global Shapers Logo" 
+                  className="w-20 h-20 md:w-24 md:h-24 object-contain" 
+                />
               </div>
 
               <div>
                 <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-2">About Us</h1>
-                <p className="text-lg text-white/90">Building a better future by unlocking the potential of young people</p>
+                <p className="text-lg md:text-xl text-white/95">
+                  Building a better future by unlocking the potential of young people
+                </p>
               </div>
             </motion.div>
           </div>
         </section>
 
-        {/* Our Story */}
+        {/* Our Story Section */}
         <section className="py-20 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-gs-navy mb-6">Our Story</h2>
-            <p className="text-gray-600 leading-relaxed mb-4">The Global Shapers Community was founded by the World Economic Forum in 2011 as a global network bringing together young leaders aged 20-30. With more than 450 hubs in over 150 countries and 15,000+ members worldwide, we work to shape the future.</p>
-            <p className="text-gray-600 leading-relaxed">Global Shapers Izmir Hub was established in 2015 as one of Turkey's most active hubs. Since then, we have reached thousands of people in Izmir and Turkey by developing various projects in education, technology, sustainability, and social entrepreneurship.</p>
-            <p className="text-gray-600 leading-relaxed mt-4">Our mission is to unlock the potential of young leaders to create innovative solutions to local and global challenges, and to build a more sustainable, inclusive and equitable future.</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gs-navy text-center mb-8">Our Story</h2>
+            
+            <div className="space-y-6 text-gray-700 leading-relaxed">
+              <p>
+                The <strong>Global Shapers Community</strong> was founded by the <strong>World Economic Forum</strong> in <strong>2011</strong> as a global network 
+                bringing together young leaders aged <strong>20-30</strong>. With more than <strong>450 hubs</strong> in over <strong>150 countries</strong> and <strong>15,000+ 
+                members</strong> worldwide, we work to shape the future.
+              </p>
+              
+              <p>
+                <strong>Global Shapers Izmir Hub</strong> was established in <strong>2015</strong> as one of Turkey's most active hubs. Since then, we have 
+                reached thousands of people in Izmir and Turkey by developing various projects in education, technology, 
+                sustainability and social entrepreneurship.
+              </p>
+              
+              <p>
+                Our mission is <strong>unlock the potential of young leaders to create innovative solutions to local and global 
+                challenges</strong>, and to build a more sustainable, inclusive and equitable future.
+              </p>
+            </div>
           </div>
         </section>
 
-        {/* Our Values */}
-        <section className="py-16 bg-gray-50">
+        {/* Our Values Section */}
+        <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-center text-gs-navy mb-6">Our Values</h2>
-            <p className="text-center text-gray-600 mb-10">The core principles that guide us</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gs-navy text-center mb-3">Our Values</h2>
+            <p className="text-center text-gray-600 mb-12">The core principles that guide us</p>
+            
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
-                <div className="w-12 h-12 rounded-md bg-gs-blue/10 flex items-center justify-center mb-4"> </div>
-                <h3 className="text-lg font-semibold mb-2">Impact-Driven</h3>
-                <p className="text-gray-600 text-sm">We work to create measurable and lasting change in society.</p>
-              </div>
+              {/* Impact Driven */}
+              <motion.div 
+                className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <div className="w-12 h-12 rounded-md bg-gs-blue/10 flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-gs-blue" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold text-gs-navy mb-2">Impact Driven</h3>
+                <p className="text-gray-600">We work to create measurable and lasting change in society.</p>
+              </motion.div>
 
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
-                <div className="w-12 h-12 rounded-md bg-gs-purple/10 flex items-center justify-center mb-4"> </div>
-                <h3 className="text-lg font-semibold mb-2">Collaboration</h3>
-                <p className="text-gray-600 text-sm">We bring diverse perspectives together to create stronger solutions.</p>
-              </div>
+              {/* Collaboration */}
+              <motion.div 
+                className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="w-12 h-12 rounded-md bg-gs-purple/10 flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-gs-purple" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold text-gs-navy mb-2">Collaboration</h3>
+                <p className="text-gray-600">We bring diverse perspectives together to create stronger solutions.</p>
+              </motion.div>
 
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
-                <div className="w-12 h-12 rounded-md bg-gs-green/10 flex items-center justify-center mb-4"> </div>
-                <h3 className="text-lg font-semibold mb-2">Innovation</h3>
-                <p className="text-gray-600 text-sm">We develop creative solutions by challenging traditional methods.</p>
-              </div>
+              {/* Innovation */}
+              <motion.div 
+                className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <div className="w-12 h-12 rounded-md bg-gs-green/10 flex items-center justify-center mb-4">
+                  <svg className="w-8 h-8 text-gs-green" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19C8.1 2 5 5.1 5 9c0 2.4 1.2 4.5 3 5.7V17c0 .5.4 1 1 1h6c.6 0 1-.5 1-1v-2.3c1.8-1.3 3-3.4 3-5.7 0-3.9-3.1-7-7-7z"/>
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold text-gs-navy mb-2">Innovation</h3>
+                <p className="text-gray-600">We develop creative solutions by challenging traditional methods.</p>
+              </motion.div>
 
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
-                <div className="w-12 h-12 rounded-md bg-gs-orange/10 flex items-center justify-center mb-4"> </div>
-                <h3 className="text-lg font-semibold mb-2">Inclusivity</h3>
-                <p className="text-gray-600 text-sm">We create a society where everyone's voice is heard and included.</p>
-              </div>
+              {/* Inclusivity */}
+              <motion.div 
+                className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                viewport={{ once: true }}
+              >
+                <div className="w-12 h-12 rounded-md bg-gs-orange/10 flex items-center justify-center mb-4">
+                  <svg className="w-8 h-8 text-gs-orange" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 12.75c1.63 0 3.07.39 4.24.9 1.08.48 1.76 1.56 1.76 2.73V18H6v-1.61c0-1.18.68-2.26 1.76-2.73 1.17-.52 2.61-.91 4.24-.91zM4 13c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm1.13 1.1c-.37-.06-.74-.1-1.13-.1-.99 0-1.93.21-2.78.58C.48 14.9 0 15.62 0 16.43V18h4.5v-1.61c0-.83.23-1.61.63-2.29zM20 13c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm4 3.43c0-.81-.48-1.53-1.22-1.85-.85-.37-1.79-.58-2.78-.58-.39 0-.76.04-1.13.1.4.68.63 1.46.63 2.29V18H24v-1.57zM12 6c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3z"/>
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold text-gs-navy mb-2">Inclusivity</h3>
+                <p className="text-gray-600">We create a society where everyone's voice is heard and included.</p>
+              </motion.div>
 
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
-                <div className="w-12 h-12 rounded-md bg-gs-blue/10 flex items-center justify-center mb-4"> </div>
-                <h3 className="text-lg font-semibold mb-2">Sustainability</h3>
-                <p className="text-gray-600 text-sm">We're building a more livable planet for future generations.</p>
-              </div>
+              {/* Sustainability */}
+              <motion.div 
+                className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                viewport={{ once: true }}
+              >
+                <div className="w-12 h-12 rounded-md bg-gs-blue/10 flex items-center justify-center mb-4">
+                  <svg className="w-8 h-8 text-gs-blue" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.07-.22c.38-1.18.95-2.92 2.11-4.56C10.18 14.56 14 14 14 14s-1.12 2.19-2.12 4c-.37.65-.72 1.24-1.04 1.75-.35.57-.67 1.1-.94 1.59l1.84.67c.25-.5.54-1.05.85-1.65.32-.63.69-1.35 1.13-2.15C14.87 16.12 16 14 16 14s-1.03 2.11-2.03 4c-.37.65-.72 1.24-1.04 1.75-.35.57-.67 1.1-.94 1.59l1.84.67c.25-.5.54-1.05.85-1.65.32-.63.69-1.35 1.13-2.15C16.87 16.12 18 14 18 14s3-5 3-7c0-2.76-2.24-5-5-5-1.24 0-2.37.46-3.24 1.21C11.97 3.76 11 5.27 11 7c0 .34.03.68.08 1z"/>
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold text-gs-navy mb-2">Sustainability</h3>
+                <p className="text-gray-600">We're building a more livable planet for future generations.</p>
+              </motion.div>
 
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
-                <div className="w-12 h-12 rounded-md bg-gs-purple/10 flex items-center justify-center mb-4"> </div>
-                <h3 className="text-lg font-semibold mb-2">Excellence</h3>
-                <p className="text-gray-600 text-sm">We strive to uphold the highest standards in every project.</p>
-              </div>
+              {/* Excellence */}
+              <motion.div 
+                className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <div className="w-12 h-12 rounded-md bg-gs-purple/10 flex items-center justify-center mb-4">
+                  <svg className="w-8 h-8 text-gs-purple" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2z"/>
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold text-gs-navy mb-2">Excellence</h3>
+                <p className="text-gray-600">We strive to uphold the highest standards in every project.</p>
+              </motion.div>
             </div>
           </div>
         </section>
 
-        {/* Our Impact */}
-        <section className="py-12 bg-gradient-to-br from-gs-navy to-gs-blue text-white">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-center mb-8">Our Impact</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-              <div>
-                <div className="text-4xl font-extrabold">8+</div>
-                <div className="mt-2 text-sm">Years Active</div>
-              </div>
-              <div>
-                <div className="text-4xl font-extrabold">15+</div>
-                <div className="mt-2 text-sm">Projects</div>
-              </div>
-              <div>
-                <div className="text-4xl font-extrabold">7,000+</div>
-                <div className="mt-2 text-sm">Participants</div>
-              </div>
-              <div>
-                <div className="text-4xl font-extrabold">50+</div>
-                <div className="mt-2 text-sm">Volunteers</div>
-              </div>
+        {/* Our Impact Section */}
+        <section className="py-16 bg-gradient-to-br from-gs-navy to-gs-blue text-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-3">Our Impact</h2>
+            <p className="text-center text-white/90 mb-12">Global Shapers Izmir Hub by the Numbers</p>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 items-center">
+              <motion.div 
+                className="text-center"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.45 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-4xl md:text-5xl font-extrabold">8+</div>
+                <div className="text-white/90 text-sm md:text-base mt-2">Years Active</div>
+              </motion.div>
+              
+              <motion.div 
+                className="text-center"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-5xl md:text-6xl font-bold text-white mb-2">15+</div>
+                <div className="text-white/90 text-sm md:text-base">Projects</div>
+              </motion.div>
+              
+              <motion.div 
+                className="text-center"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-5xl md:text-6xl font-bold text-white mb-2">7,000+</div>
+                <div className="text-white/90 text-sm md:text-base">Participants</div>
+              </motion.div>
+              
+              <motion.div 
+                className="text-center"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-5xl md:text-6xl font-bold text-white mb-2">50+</div>
+                <div className="text-white/90 text-sm md:text-base">Volunteers</div>
+              </motion.div>
             </div>
           </div>
         </section>
 
-        {/* Join Us CTA */}
+        {/* Join Us Section */}
         <section className="py-16 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold text-gs-navy mb-4">Join Us</h2>
-            <p className="text-gray-600 mb-6">If you're between 20-30 years old and want to make an impact, join us!</p>
-            <a href="/contact" className="inline-block px-8 py-3 bg-gradient-to-r from-gs-purple to-gs-blue text-white rounded-lg font-semibold">Get in Touch</a>
-          </div>
-        </section>
-        {/* Our Values */}
-        <section className="py-24 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-              <h2 className="text-3xl font-bold text-gs-navy mb-8 text-center">Our Values</h2>
-              <div className="grid sm:grid-cols-3 gap-8">
-                <div className="bg-white rounded-2xl p-6 shadow-sm">
-                  <div className="w-12 h-12 rounded-md bg-gs-blue/10 flex items-center justify-center mb-4">
-                    {/* icon placeholder */}
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2">Our Mission</h3>
-                  <p className="text-gray-600">Bringing together young leaders aged 20-30 to create innovative solutions to local and global challenges.</p>
-                </div>
-
-                <div className="bg-white rounded-2xl p-6 shadow-sm">
-                  <div className="w-12 h-12 rounded-md bg-gs-purple/10 flex items-center justify-center mb-4">
-                    {/* icon placeholder */}
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2">Our Vision</h3>
-                  <p className="text-gray-600">Building a more sustainable, inclusive and equitable future by unlocking the potential of young people.</p>
-                </div>
-
-                <div className="bg-white rounded-2xl p-6 shadow-sm">
-                  <div className="w-12 h-12 rounded-md bg-gs-green/10 flex items-center justify-center mb-4">
-                    {/* icon placeholder */}
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2">Global Network</h3>
-                  <p className="text-gray-600">Part of the World Economic Forum community with 450+ hubs and 15,000+ leaders in 150+ countries.</p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Our Impact */}
-        <section className="py-24 bg-gradient-to-br from-gs-purple/5 to-gs-blue/5">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}>
-              <h2 className="text-3xl font-bold text-gs-navy mb-8 text-center">Our Impact</h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-                <div>
-                  <div className="text-4xl font-extrabold text-gs-purple">5,000+</div>
-                  <div className="text-gray-600">Students Reached</div>
-                </div>
-                <div>
-                  <div className="text-4xl font-extrabold text-gs-blue">15+</div>
-                  <div className="text-gray-600">Countries</div>
-                </div>
-                <div>
-                  <div className="text-4xl font-extrabold text-gs-green">100+</div>
-                  <div className="text-gray-600">Partner Schools</div>
-                </div>
-                <div>
-                  <div className="text-4xl font-extrabold text-gs-orange">98%</div>
-                  <div className="text-gray-600">Satisfaction Rate</div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Join Us CTA */}
-        <section className="py-24 bg-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}>
-              <h2 className="text-3xl font-bold text-gs-navy mb-4">Join Us</h2>
-              <p className="text-gray-600 mb-8">If you're between 20-30 years old and want to make an impact, join our hub to collaborate on projects and grow as a leader.</p>
-              <a href="/contact" className="inline-block px-8 py-4 bg-gradient-to-r from-gs-purple to-gs-blue text-white rounded-lg font-semibold hover:shadow-lg transition-all">Get in Touch</a>
-            </motion.div>
+            <h2 className="text-3xl md:text-4xl font-bold text-gs-navy mb-4">Join Us</h2>
+            <p className="text-gray-600 text-lg mb-8">
+              If you're between <strong>20-30 years old</strong> and want to make an impact, <strong>join us!</strong>
+            </p>
+            <Link 
+              href="/contact"
+              className="inline-block px-8 md:px-10 py-3 md:py-4 bg-gradient-to-r from-gs-purple to-gs-blue text-white rounded-full font-semibold text-lg hover:opacity-95 transition-all shadow-lg"
+            >
+              Get in Touch
+            </Link>
           </div>
         </section>
       </main>
