@@ -7,7 +7,7 @@ export default function AIPlaygroundComponent() {
   const [activeTab, setActiveTab] = useState<'art' | 'chat' | 'code'>('art')
 
   return (
-    <main className="pt-24 pb-16 min-h-screen gradient-bg">
+    <main className="pt-24 pb-16 min-h-[70vh] gradient-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">

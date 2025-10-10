@@ -19,7 +19,7 @@ export default function Home() {
 
       <main className="bg-gradient-to-b from-purple-50 via-blue-50 to-white">
         {/* Hero Section - Modern Mindcraft Style */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+  <section className="relative min-h-[70vh] flex justify-center overflow-hidden pt-12">
           {/* Animated Background */}
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-gradient-to-br from-purple-100 via-blue-100 to-indigo-100"></div>
@@ -38,7 +38,7 @@ export default function Home() {
               {/* Badge removed per request: Global Shapers İzmir Hub */}
 
               {/* Main Heading */}
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight tracking-tight antialiased subpixel-antialiased">
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight tracking-normal antialiased subpixel-antialiased">
                 <span className="block text-gray-900 mb-4 antialiased">Shaping the</span>
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 antialiased">
                   Future Together

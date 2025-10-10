@@ -11,7 +11,7 @@ export default function GalleryPage() {
         <meta name="description" content="Explore creations from students around the world" />
       </Head>
       
-      <div className="min-h-screen">
+  <div className="min-h-[70vh]">
         <Navbar />
         <GalleryGrid />
         <Footer />

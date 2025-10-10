@@ -11,7 +11,7 @@ export default function PlaygroundPage() {
         <meta name="description" content="Experiment with AI tools and create amazing projects" />
       </Head>
       
-      <div className="min-h-screen">
+  <div className="min-h-[70vh]">
         <Navbar />
         <AIPlaygroundComponent />
         <Footer />

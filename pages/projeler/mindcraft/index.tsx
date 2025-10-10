@@ -13,7 +13,7 @@ export default function Home() {
         <meta name="description" content="Interactive educational platform for AI literacy, ethics, and creativity for ages 9-17" />
       </Head>
       
-      <div className="min-h-screen">
+  <div className="min-h-[70vh]">
         <Navbar />
         <Hero />
         <ModulesPreview />

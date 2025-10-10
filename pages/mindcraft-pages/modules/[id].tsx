@@ -17,7 +17,7 @@ export default function ModuleDetailPage() {
         <Head>
           <title>Module Not Found - Mindcraft</title>
         </Head>
-        <div className="min-h-screen flex items-center justify-center">
+  <div className="min-h-[70vh] flex justify-center">
           <div className="text-center">
             <h1 className="text-4xl font-bold mb-4">Module Not Found</h1>
             <button onClick={() => router.push('/modules')} className="btn-primary">

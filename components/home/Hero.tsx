@@ -4,7 +4,7 @@ import { Sparkles, Brain, Heart, Rocket } from 'lucide-react'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <section className="relative min-h-[70vh] flex justify-center overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 gradient-bg">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)]"></div>
@@ -36,7 +36,7 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
+  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -55,8 +55,8 @@ export default function Hero() {
           </motion.a>
 
           {/* Main Heading */}
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6">
-            <span className="gradient-text">Mindcraft</span>
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-normal antialiased subpixel-antialiased">
+            <span className="gradient-text antialiased">Mindcraft</span>
           </h1>
           
           <p className="text-2xl md:text-3xl font-semibold text-mindcraft-dark mb-4">
