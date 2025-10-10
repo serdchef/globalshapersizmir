@@ -19,13 +19,39 @@ export default function MembersPage() {
     'Ex Impact Officer': 7,
     'Shaper': 8,
   }
+  // Manual priority order for specific named members. Members listed here
+  // will be shown in this exact order regardless of role. Any member not
+  // present in this array falls back to role-based ordering and then
+  // alphabetical by surname.
+  const PRIORITY_ORDER = [
+    'Devrim Savlı',
+    'Serdar Çarlı',
+    'Taşkın Akalın',
+    'Ceylin Ersöz',
+    'Sude Kızıltaş',
+    'Rümeysa Şirin',
+    'Oğuzhan Akbaş',
+    'Erce Bilgen',
+    'Anıl Doğusoy',
+    // add others here as needed to enforce an exact ordering
+  ]
 
   const sortedMembers = members.slice().sort((a, b) => {
+    // 1) If one or both members appear in the explicit priority list, respect that order.
+    const ia = PRIORITY_ORDER.indexOf(a.name)
+    const ib = PRIORITY_ORDER.indexOf(b.name)
+    if (ia !== -1 || ib !== -1) {
+      if (ia === -1) return 1 // b has explicit priority
+      if (ib === -1) return -1 // a has explicit priority
+      return ia - ib
+    }
+
+    // 2) Fall back to role priority defined above.
     const pa = rolePriority[a.role] ?? 99
     const pb = rolePriority[b.role] ?? 99
     if (pa !== pb) return pa - pb
 
-    // If roles are equal, sort by surname (last word of the name), fallback to full name.
+    // 3) Same role: sort by surname (last word of the name), fallback to full name.
     const aSurname = (a.name || '').trim().split(/\s+/).pop() || ''
     const bSurname = (b.name || '').trim().split(/\s+/).pop() || ''
     const cmp = aSurname.localeCompare(bSurname, undefined, { sensitivity: 'base' })
