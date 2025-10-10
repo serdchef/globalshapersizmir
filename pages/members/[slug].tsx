@@ -93,49 +93,7 @@ export default function MemberPage({ member }: MemberPageProps) {
                     {member.shortBio}
                   </p>
 
-                  {/* Social Links (prefer top-level fields, fall back to member.social) */}
-                  <div className="flex gap-4">
-                    {(member.email || member.social.email) && (
-                      <a
-                        href={`mailto:${member.email || member.social.email}`}
-                        className="p-3 bg-white/10 backdrop-blur-sm rounded-lg hover:bg-white/20 transition-colors"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Mail className="w-6 h-6 text-white" />
-                      </a>
-                    )}
-                    {(member.linkedin || member.social.linkedin) && (
-                      <a
-                        href={member.linkedin || member.social.linkedin}
-                        className="p-3 bg-white/10 backdrop-blur-sm rounded-lg hover:bg-white/20 transition-colors"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Linkedin className="w-6 h-6 text-white" />
-                      </a>
-                    )}
-                    {member.social.twitter && (
-                      <a
-                        href={member.social.twitter}
-                        className="p-3 bg-white/10 backdrop-blur-sm rounded-lg hover:bg-white/20 transition-colors"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Twitter className="w-6 h-6 text-white" />
-                      </a>
-                    )}
-                    {member.social.website && (
-                      <a
-                        href={member.social.website}
-                        className="p-3 bg-white/10 backdrop-blur-sm rounded-lg hover:bg-white/20 transition-colors"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <ExternalLink className="w-6 h-6 text-white" />
-                      </a>
-                    )}
-                  </div>
+                  {/* (Duplicate social links removed — icons show above the bio to avoid repetition) */}
                 </div>
               </div>
             </motion.div>
