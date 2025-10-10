@@ -27,6 +27,9 @@ export const members: Member[] = [
     shortBio: "Founder Curator",
     longBio: "Founder Curator of Global Shapers Izmir Hub.",
     photo: "https://via.placeholder.com/400x400/0052CC/FFFFFF?text=DS",
+    image: "/images/members/devrim.jpg",
+    email: "devrim@globalshapersizmir.org",
+    linkedin: "https://www.linkedin.com/in/devrimsavli",
     social: {}
   },
   {
@@ -36,6 +39,9 @@ export const members: Member[] = [
     shortBio: "Curator",
     longBio: "Curator of the Hub.",
     photo: "https://via.placeholder.com/400x400/0052CC/FFFFFF?text=SC",
+    image: "/images/members/serdar.jpg",
+    email: "serdar@globalshapersizmir.org",
+    linkedin: "https://www.linkedin.com/in/serdarcarli",
     social: {}
   },
   {
