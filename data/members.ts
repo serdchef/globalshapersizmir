@@ -127,7 +127,7 @@ export const members: Member[] = [
     shortBio: "Shaper",
     longBio: "Member of the Hub.",
     photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=BE",
-    image: "/images/members/begumece-elcekin.jpg",
+  image: "/images/members/begum-ece-elcekin.jpg",
     email: "Elcekinbegumece@gmail.com",
     linkedin: "https://www.linkedin.com/in/begümeceelçekin?utm_source...",
     social: {}
