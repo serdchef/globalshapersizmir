@@ -3,7 +3,8 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import { ArrowLeft, Users, Mail, Linkedin, Twitter, ExternalLink } from 'lucide-react'
+import Image from 'next/image'
+import { ArrowLeft, Mail, Linkedin, Twitter, ExternalLink } from 'lucide-react'
 import { members } from '@/data/members'
 
 export default function MembersPage() {
@@ -106,9 +107,20 @@ export default function MembersPage() {
                     <div className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-full">
                       {/* Member Photo */}
                       <div className="relative h-80 bg-gradient-to-br from-gs-blue via-gs-purple to-gs-orange overflow-hidden">
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <Users className="w-32 h-32 text-white/30" />
-                        </div>
+                        {member.image || member.photo ? (
+                          <div className="absolute inset-0">
+                            <Image
+                              src={member.image || member.photo}
+                              alt={member.name}
+                              fill
+                              className="object-cover"
+                            />
+                          </div>
+                        ) : (
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            {/* fallback icon */}
+                          </div>
+                        )}
                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
                           <h3 className="text-2xl font-bold text-white group-hover:text-gs-orange transition-colors">
                             {member.name}
