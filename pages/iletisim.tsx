@@ -1,10 +1,11 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import { ArrowLeft, Mail, MapPin, Phone, Send, Sparkles, MessageCircle, Globe } from 'lucide-react'
+import { ArrowLeft, Mail, MapPin, Phone, Send, Sparkles, MessageCircle } from 'lucide-react'
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -70,19 +71,7 @@ export default function ContactPage() {
                 <span className="font-medium">Back to Home</span>
               </Link>
               
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="mb-12"
-              >
-                <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/60 backdrop-blur-xl rounded-full border border-purple-200/50 shadow-lg mb-8">
-                  <MessageCircle className="w-5 h-5 text-purple-600" />
-                  <span className="text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600 uppercase tracking-wide">
-                    Get in Touch
-                  </span>
-                </div>
-              </motion.div>
+              {/* GET IN TOUCH pill removed per visual clean-up request */}
 
               <h1 className="text-6xl md:text-7xl lg:text-8xl font-black mb-8">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600">
@@ -319,8 +308,8 @@ export default function ContactPage() {
                   <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMTAgNjAgTSAwIDEwIEwgNjAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-100"></div>
                   
                   <div className="relative flex flex-col items-center justify-center h-full text-white p-6">
-                    <div className="w-20 h-20 bg-white/20 backdrop-blur-xl rounded-full flex items-center justify-center mb-4 border border-white/30">
-                      <Globe className="w-10 h-10" />
+                    <div className="w-20 h-20 bg-white/20 backdrop-blur-xl rounded-full flex items-center justify-center mb-4 border border-white/30 overflow-hidden">
+                      <Image src="/images/gs-logo.png" alt="Global Shapers Izmir Hub" width={48} height={48} className="object-contain" />
                     </div>
                     <p className="text-2xl font-bold mb-2">Izmir, Türkiye</p>
                     <p className="text-white/80">Shaping the Future Together</p>
@@ -340,16 +329,13 @@ export default function ContactPage() {
           </div>
 
           <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
-              <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/60 backdrop-blur-xl rounded-full border border-purple-200/50 shadow-lg mb-6">
-                <Sparkles className="w-5 h-5 text-purple-600" />
-                <span className="text-sm font-bold text-purple-600 uppercase tracking-wide">FAQ</span>
-              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-center mb-16"
+              >
+              {/* FAQ badge removed for cleaner heading */}
               <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6">
                 Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">Questions</span>
               </h2>
