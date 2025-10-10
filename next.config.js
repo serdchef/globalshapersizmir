@@ -35,6 +35,17 @@ const nextConfig = {
       },
     ]
   },
+  async redirects() {
+    return [
+      { source: '/uyeler', destination: '/members', permanent: true },
+      { source: '/projeler', destination: '/projects', permanent: true },
+      { source: '/iletisim', destination: '/contact', permanent: true },
+      { source: '/hakkimizda', destination: '/about', permanent: true },
+      // Dynamic redirects
+      { source: '/projeler/:slug', destination: '/projects/:slug', permanent: true },
+      { source: '/uyeler/:slug', destination: '/members/:slug', permanent: true },
+    ]
+  },
 }
 
 module.exports = nextConfig
