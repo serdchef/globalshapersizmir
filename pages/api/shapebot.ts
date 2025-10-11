@@ -48,14 +48,15 @@ export default async function handler(
       return res.status(200).json({ response: data.reply, reply: data.reply, meta: data.meta })
     }
 
-    // Otherwise, use Google AI Studio (Generative Language) if API key is provided.
-    const key = process.env.GOOGLE_API_KEY
+    // Otherwise, use Google AI Studio / Gemini (Generative Language) if API key is provided.
+    // Prefer GEMINI_* env vars (set in Vercel), fall back to GOOGLE_* for compatibility.
+    const key = process.env.GEMINI_API_KEY ?? process.env.GOOGLE_API_KEY
     if (!key) {
-      return res.status(500).json({ error: 'No backend configured and GOOGLE_API_KEY is not set' })
+      return res.status(500).json({ error: 'No backend configured and GEMINI_API_KEY/GOOGLE_API_KEY is not set' })
     }
 
-    // Model can be overridden via env var; sensible default is `text-bison-001`.
-    const model = process.env.GOOGLE_MODEL || 'text-bison-001'
+    // Model can be overridden via env var; prefer GEMINI_MODEL then GOOGLE_MODEL.
+    const model = process.env.GEMINI_MODEL || process.env.GOOGLE_MODEL || 'text-bison-001'
     const url = `https://generativelanguage.googleapis.com/v1beta2/models/${model}:generateText?key=${encodeURIComponent(key)}`
 
     const glBody = {
@@ -75,12 +76,13 @@ export default async function handler(
       throw new Error(`Google API error ${gResp.status}: ${txt}`)
     }
 
-    const gData = await gResp.json()
+  const gData = await gResp.json()
 
-    // Response shape varies; prefer candidates[0].output for text-bison style models.
-    const reply = gData?.candidates?.[0]?.output || gData?.candidates?.[0]?.content || gData?.output || JSON.stringify(gData)
+  // Response shape varies; prefer candidates[0].output for text-bison / Gemini models.
+  const reply = gData?.candidates?.[0]?.output || gData?.candidates?.[0]?.content || gData?.output || JSON.stringify(gData)
 
-    return res.status(200).json({ response: reply, reply: reply, meta: { provider: 'google', model } })
+  const provider = process.env.GEMINI_API_KEY ? 'gemini' : 'google'
+  return res.status(200).json({ response: reply, reply: reply, meta: { provider, model } })
 
   } catch (error) {
     // Do NOT log sensitive env values. Log error message only.
