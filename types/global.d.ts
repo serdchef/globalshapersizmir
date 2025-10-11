@@ -21,3 +21,25 @@ declare module '*.svg' {
   const src: string
   export default src
 }
+
+// Minimal declarations for the `ai` SDK packages used in the repo.
+// These keep TypeScript happy in environments where the upstream types
+// are not installed or when using the lightweight `ai` package.
+declare module 'ai' {
+  export function generateText(...args: any[]): any
+  const _default: any
+  export default _default
+}
+
+declare module 'ai/react' {
+  // useChat is a small hook used by the client UI. Use any to avoid
+  // coupling to a specific SDK version in the repository.
+  export function useChat(opts?: any): any
+}
+
+declare module '@ai-sdk/google' {
+  // The SDK exposes a `google` factory for models. Keep type `any`.
+  export function google(modelName?: string): any
+  const _default: any
+  export default _default
+}
