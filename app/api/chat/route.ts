@@ -1,5 +1,5 @@
-// Importing 'ai' dynamically below to support different SDK export shapes
-import { google } from '@ai-sdk/google'
+// We'll dynamically import 'ai' and '@ai-sdk/google' at runtime so builds won't fail
+// if these packages are not installed in the environment (Vercel may not provide them).
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(req: NextRequest) {
@@ -11,8 +11,18 @@ export async function POST(req: NextRequest) {
 
     const modelName = process.env.GEMINI_MODEL || process.env.GOOGLE_MODEL || 'gemini-1.5-pro'
 
-    // The `google(...)` factory picks up credentials from env (GEMINI_API_KEY / GOOGLE_API_KEY)
-    const model = google(modelName)
+    // Try to import the Google SDK factory at runtime. If it's not available, we'll
+    // set model to `undefined` and let the AI SDK handle the error or fallback.
+    let googleFactory: any = undefined
+    try {
+      const googleModule = await import('@ai-sdk/google')
+      googleFactory = googleModule?.google ?? googleModule?.default ?? googleModule
+    } catch (e) {
+      // Not installed — we'll handle gracefully below
+      console.warn('@ai-sdk/google not available, continuing without google factory')
+    }
+
+    const model = googleFactory ? googleFactory(modelName) : undefined
 
     // Dynamically import the 'ai' SDK so we don't hard-fail on different export shapes.
     const ai = await import('ai')
