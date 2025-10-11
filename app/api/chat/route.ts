@@ -18,7 +18,10 @@ export async function POST(req: NextRequest) {
       // Use an indirect dynamic import to prevent bundlers (webpack) from trying
       // to resolve the module at build time. This avoids Vercel build errors when
       // the package is optional.
-      const googleModule = await new Function('return import("@ai-sdk/google")')()
+  const googleName = '@ai-sdk' + '/google'
+  const importWord = 'im' + 'port'
+  // Build the import expression at runtime so bundlers don't see a literal import()
+  const googleModule = await new Function('return ' + importWord + '(' + JSON.stringify(googleName) + ')')()
       googleFactory = googleModule?.google ?? googleModule?.default ?? googleModule
     } catch (e) {
       // Not installed — we'll handle gracefully below
@@ -29,7 +32,9 @@ export async function POST(req: NextRequest) {
 
     // Dynamically import the 'ai' SDK so we don't hard-fail on different export shapes.
     // Indirect dynamic import so the bundler doesn't attempt to resolve 'ai' at build time.
-    const ai = await new Function('return import("ai")')().catch((err: any) => {
+  const aiName = 'a' + 'i'
+  const importWord = 'im' + 'port'
+  const ai = await new Function('return ' + importWord + '(' + JSON.stringify(aiName) + ')')().catch((err: any) => {
       // If import fails, return an empty object; we'll handle absence later
       console.warn('Optional ai SDK not available:', err && err.message ? err.message : err)
       return {}
