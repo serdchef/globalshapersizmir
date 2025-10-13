@@ -286,7 +286,13 @@ export const members: Member[] = [
     shortBio: "Shaper",
     longBio: "Member of the Hub.",
     photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=TD",
-    social: {}
+    image: "/images/members/talip-furkan-dogan.jpg",
+    email: "talipfurkandogan@gmail.com",
+    linkedin: "https://www.linkedin.com/in/tfdogan",
+    social: {
+      email: "talipfurkandogan@gmail.com",
+      linkedin: "https://www.linkedin.com/in/tfdogan"
+    }
   },
   {
     slug: "tutku-yildiz",
