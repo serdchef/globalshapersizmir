@@ -18,7 +18,7 @@ export default function PartnersSection() {
         {/* Impact Stats */}
         <div className="mb-20">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-            <span className="gradient-text">The Global Impact We’re Shaping</span>
+            <span className="gradient-text">The Global Impact We Are Shaping</span>
           </h2>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">

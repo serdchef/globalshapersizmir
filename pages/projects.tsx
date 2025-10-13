@@ -83,10 +83,29 @@ export default function ProjectsPage() {
                         {project.impact && (
                           (() => {
                             const metrics = [] as {value: string; label: string}[]
-                            if (project.impact.reach) metrics.push({ value: project.impact.reach, label: 'Reach' })
+                            // Normalize available metrics
+                            if (project.impact.reach) metrics.push({ value: project.impact.reach.replace(/reach/i, '').trim(), label: 'Students' })
                             if (project.impact.participants) metrics.push({ value: project.impact.participants, label: 'Participants' })
+                            if (project.impact.beneficiaries) metrics.push({ value: project.impact.beneficiaries.replace(/countries/i, '').trim(), label: 'Countries' })
                             if (project.impact.schools) metrics.push({ value: project.impact.schools, label: 'Schools' })
                             if (project.impact.countries) metrics.push({ value: project.impact.countries, label: 'Countries' })
+
+                            // Special-case: for financial-literacy preview, show 5,000+ Students as a single tile per request
+                            if (project.slug === 'financial-literacy') {
+                              const single = [{ value: '5,000+', label: 'Students' }]
+                              return (
+                                <div className="grid grid-cols-1 gap-4 mb-8">
+                                  {single.map((m, i) => (
+                                    <div key={i} className={`rounded-xl p-4 bg-gradient-to-br from-gs-blue/5 to-gs-purple/5`}>
+                                      <div className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gs-blue to-gs-purple">
+                                        {m.value}
+                                      </div>
+                                      <div className="text-sm text-gray-600 mt-1">{m.label}</div>
+                                    </div>
+                                  ))}
+                                </div>
+                              )
+                            }
 
                             const preview = metrics.slice(0, 2)
                             return (
