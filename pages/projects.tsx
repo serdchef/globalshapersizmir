@@ -90,22 +90,7 @@ export default function ProjectsPage() {
                             if (project.impact.schools) metrics.push({ value: project.impact.schools, label: 'Schools' })
                             if (project.impact.countries) metrics.push({ value: project.impact.countries, label: 'Countries' })
 
-                            // Special-case: for financial-literacy preview, show 5,000+ Students as a single tile per request
-                            if (project.slug === 'financial-literacy') {
-                              const single = [{ value: '5,000+', label: 'Students' }]
-                              return (
-                                <div className="grid grid-cols-1 gap-4 mb-8">
-                                  {single.map((m, i) => (
-                                    <div key={i} className={`rounded-xl p-4 bg-gradient-to-br from-gs-blue/5 to-gs-purple/5`}>
-                                      <div className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gs-blue to-gs-purple">
-                                        {m.value}
-                                      </div>
-                                      <div className="text-sm text-gray-600 mt-1">{m.label}</div>
-                                    </div>
-                                  ))}
-                                </div>
-                              )
-                            }
+                            // (no special-case here; any project-specific overrides are handled in the other branch)
 
                             const preview = metrics.slice(0, 2)
                             return (
@@ -121,6 +106,16 @@ export default function ProjectsPage() {
                               </div>
                             )
                           })()
+                        )}
+
+                        {/* (Optional) Impact Preview override for specific projects */}
+                        {project.slug === 'financial-literacy' && (
+                          <div className="grid grid-cols-1 gap-4 mb-6">
+                            <div className="rounded-xl p-4 bg-gradient-to-br from-gs-blue/5 to-gs-purple/5">
+                              <div className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gs-blue to-gs-purple">5,000+</div>
+                              <div className="text-sm text-gray-600 mt-1">Students</div>
+                            </div>
+                          </div>
                         )}
 
                         {/* CTA */}
