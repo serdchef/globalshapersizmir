@@ -27,7 +27,7 @@ export const members: Member[] = [
     shortBio: "Founder Curator",
     longBio: "Founder Curator of Global Shapers Izmir Hub.",
     photo: "https://via.placeholder.com/400x400/0052CC/FFFFFF?text=DS",
-  image: "/images/members/devrim_savli.jpg",
+  image: "/images/members/devrim-savli.jpg",
     email: "devrim.savli@undp.org",
     linkedin: "https://linkedin.com/in/devrimsavli",
     social: {}
@@ -60,7 +60,7 @@ export const members: Member[] = [
     shortBio: "Impact Officer",
     longBio: "Impact Officer focusing on projects and measurement.",
     photo: "https://via.placeholder.com/400x400/0052CC/FFFFFF?text=CE",
-  image: "/images/members/ceylin_ersoz.jpg",
+  image: "/images/members/ceylin-ersoz.jpg",
     email: "ceylinersoz5@gmail.com",
     linkedin: "https://www.linkedin.com/in/ceylin-ers%C3%B6z-269543247?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
     social: {
@@ -154,7 +154,7 @@ export const members: Member[] = [
     shortBio: "Shaper",
     longBio: "Member of the Hub.",
     photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=BT",
-  image: "/images/members/birsu_toprak.jpg",
+  image: "/images/members/birsu-toprak.jpg",
     email: "birsutoprak1@gmail.com",
     linkedin: "https://www.linkedin.com/in/birsu-toprak-8a9382288?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
     social: {
@@ -169,7 +169,7 @@ export const members: Member[] = [
     shortBio: "Shaper",
     longBio: "Member of the Hub.",
     photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=EC",
-  image: "/images/members/efe_caliskan.jpg",
+  image: "/images/members/efe-caliskan.jpg",
     email: "efecaliskan090@gmail.com",
     linkedin: "https://www.linkedin.com/in/efe-%C3%A7al%C4%B1%C5%9Fkan-2756a6306?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     social: {
@@ -247,7 +247,7 @@ export const members: Member[] = [
     shortBio: "Shaper",
     longBio: "Member of the Hub.",
     photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=KE",
-  image: "/images/members/kerem_ergun.jpg",
+  image: "/images/members/kerem-ergun.png",
     email: "krmrgn2002@gmail.com",
     linkedin: "https://www.linkedin.com/in/kerem-erg%C3%BCn-588386211/",
     social: {
@@ -262,7 +262,7 @@ export const members: Member[] = [
     shortBio: "Shaper",
     longBio: "Member of the Hub.",
     photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=MB",
-  image: "/images/members/merve_basut.jpg",
+  image: "/images/members/merve-basut.jpg",
     email: "mervebasut1999@gmail.com",
     linkedin: "https://www.linkedin.com/in/merve-basut-a5263618a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
     social: {
