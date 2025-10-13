@@ -27,9 +27,9 @@ export const members: Member[] = [
     shortBio: "Founder Curator",
     longBio: "Founder Curator of Global Shapers Izmir Hub.",
     photo: "https://via.placeholder.com/400x400/0052CC/FFFFFF?text=DS",
-    image: "/images/members/devrim.jpg",
-    email: "devrim@globalshapersizmir.org",
-    linkedin: "https://www.linkedin.com/in/devrimsavli",
+    image: "/members/devrim_savli.jpg",
+    email: "devrim.savli@undp.org",
+    linkedin: "https://linkedin.com/in/devrimsavli",
     social: {}
   },
   {
@@ -60,7 +60,13 @@ export const members: Member[] = [
     shortBio: "Impact Officer",
     longBio: "Impact Officer focusing on projects and measurement.",
     photo: "https://via.placeholder.com/400x400/0052CC/FFFFFF?text=CE",
-    social: {}
+    image: "/members/ceylin_ersoz.jpg",
+    email: "ceylinersoz5@gmail.com",
+    linkedin: "https://www.linkedin.com/in/ceylin-ers%C3%B6z-269543247?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    social: {
+      email: "ceylinersoz5@gmail.com",
+      linkedin: "https://www.linkedin.com/in/ceylin-ers%C3%B6z-269543247?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+    }
   },
 
   // 2. Yönetim Geçmişi (Ex) Pozisyonları
@@ -148,7 +154,13 @@ export const members: Member[] = [
     shortBio: "Shaper",
     longBio: "Member of the Hub.",
     photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=BT",
-    social: {}
+    image: "/members/birsu_toprak.jpg",
+    email: "birsutoprak1@gmail.com",
+    linkedin: "https://www.linkedin.com/in/birsu-toprak-8a9382288?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    social: {
+      email: "birsutoprak1@gmail.com",
+      linkedin: "https://www.linkedin.com/in/birsu-toprak-8a9382288?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+    }
   },
   {
     slug: "efe-caliskan",
@@ -157,7 +169,13 @@ export const members: Member[] = [
     shortBio: "Shaper",
     longBio: "Member of the Hub.",
     photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=EC",
-    social: {}
+    image: "/members/efe_caliskan.jpg",
+    email: "efecaliskan090@gmail.com",
+    linkedin: "https://www.linkedin.com/in/efe-%C3%A7al%C4%B1%C5%9Fkan-2756a6306?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    social: {
+      email: "efecaliskan090@gmail.com",
+      linkedin: "https://www.linkedin.com/in/efe-%C3%A7al%C4%B1%C5%9Fkan-2756a6306?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    }
   },
   {
     slug: "elbruz-gumus",
@@ -229,7 +247,13 @@ export const members: Member[] = [
     shortBio: "Shaper",
     longBio: "Member of the Hub.",
     photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=KE",
-    social: {}
+    image: "/members/kerem_ergun.jpg",
+    email: "krmrgn2002@gmail.com",
+    linkedin: "https://www.linkedin.com/in/kerem-erg%C3%BCn-588386211/",
+    social: {
+      email: "krmrgn2002@gmail.com",
+      linkedin: "https://www.linkedin.com/in/kerem-erg%C3%BCn-588386211/"
+    }
   },
   {
     slug: "merve-basut",
@@ -238,7 +262,13 @@ export const members: Member[] = [
     shortBio: "Shaper",
     longBio: "Member of the Hub.",
     photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=MB",
-    social: {}
+    image: "/members/merve_basut.jpg",
+    email: "mervebasut1999@gmail.com",
+    linkedin: "https://www.linkedin.com/in/merve-basut-a5263618a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    social: {
+      email: "mervebasut1999@gmail.com",
+      linkedin: "https://www.linkedin.com/in/merve-basut-a5263618a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+    }
   },
   {
     slug: "ozgun-muhim",
