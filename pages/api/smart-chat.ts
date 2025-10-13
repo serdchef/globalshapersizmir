@@ -29,21 +29,26 @@ async function callGemini(message: string): Promise<string> {
     throw new Error('Gemini API key not configured')
   }
 
-  // UYGULAMA GÜNCELLEMESİ: Hata veren v1beta2 yerine güncel v1 API ve generateContent kullanılıyor.
-  const model = process.env.GEMINI_MODEL || 'gemini-2.5-flash' // Güncel, hızlı model
+  // Use v1 generateContent with a robust model and enable Google Search grounding
+  const model = process.env.GEMINI_MODEL || 'gemini-2.5-flash'
   const url = `https://generativelanguage.googleapis.com/v1/models/${model}:generateContent?key=${GEMINI_API_KEY}`
 
+  // v1 generateContent body with Google Search grounding enabled via tools
   const body = {
-    // v1 generateContent için uygun format
     contents: [{
-      parts: [{
-        text: message
-      }]
+      role: 'user',
+      parts: [{ text: message }]
     }],
     generationConfig: {
       temperature: 0.2,
       maxOutputTokens: 512,
-    }
+    },
+    // Enable grounding so Gemini can use Google Search for up-to-date info
+    tools: [
+      {
+        googleSearch: {}
+      }
+    ]
   }
 
   const resp = await fetch(url, {
