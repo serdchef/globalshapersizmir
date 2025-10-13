@@ -37,7 +37,7 @@ export const members: Member[] = [
     name: "Serdar Çarlı",
     role: "Curator",
     shortBio: "Curator",
-    longBio: "Curator of the Hub.",
+    longBio: "As the Curator of the Global Shapers Izmir Hub (WEF), he leads the community's commitment to social impact, focusing on sustainable education projects like AI ethics (Mindcraft) and financial literacy, in collaboration with partners such as the UNDP. Leveraging his background as an AI Engineer and Researcher, he is passionate about driving scientific discovery and social good by building responsible and explainable AI systems. He is dedicated to unlocking the potential of young leaders to create innovative solutions that foster a more sustainable and inclusive future in Izmir and beyond.",
     photo: "https://via.placeholder.com/400x400/0052CC/FFFFFF?text=SC",
     image: "/images/members/serdar-carli.jpg",
     email: "a.serdarcarl@gmail.com",
