@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Image from 'next/image'
-import { MapPin, Mail, Phone } from 'lucide-react'
+import { MapPin, Mail, Phone, Send, Globe, ArrowLeft, HelpCircle } from 'lucide-react'
 
 export default function ContactPage() {
   return (
@@ -16,60 +16,175 @@ export default function ContactPage() {
 
       <Navbar />
 
-      <main className="pt-20">
-        <section className="bg-gradient-to-br from-gs-purple to-gs-blue py-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">Contact</h1>
-              <p className="text-xl text-gray-200 max-w-3xl">Reach out to collaborate, volunteer, or learn more about our work.</p>
+      <main className="min-h-screen bg-gradient-to-br from-purple-100 to-blue-50">
+        <div className="pt-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Back to Home Link */}
+          <Link href="/" className="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors">
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back to Home
+          </Link>
+
+          {/* Header Section */}
+          <div className="text-center mt-8 mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="space-y-6"
+            >
+              <span className="inline-block px-4 py-1.5 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-full text-sm font-medium">
+                GET IN TOUCH
+              </span>
+              <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+                Contact Us
+              </h1>
+              <p className="text-xl text-gray-600">
+                Let's <span className="text-blue-600">create impact</span> together
+              </p>
+              <p className="text-gray-500 max-w-2xl mx-auto">
+                Reach out for collaborations, memberships, or just to say hello
+              </p>
             </motion.div>
           </div>
-        </section>
 
-        <section className="py-24 bg-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 gap-12">
+          {/* Main Content */}
+          <div className="grid lg:grid-cols-2 gap-12 mb-24">
+            {/* Contact Form */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-white rounded-2xl shadow-xl p-8"
+            >
+              <h2 className="text-2xl font-bold mb-2">
+                Send Us a <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Message</span>
+              </h2>
+              <p className="text-gray-600 mb-8">
+                Fill out the form below and we'll get back to you as soon as possible
+              </p>
+              <form className="space-y-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Your Name*</label>
+                  <input
+                    type="text"
+                    required
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Email Address*</label>
+                  <input
+                    type="email"
+                    required
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Subject*</label>
+                  <input
+                    type="text"
+                    required
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Your Message*</label>
+                  <textarea
+                    required
+                    rows={6}
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="w-full py-3 px-6 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all flex items-center justify-center"
+                >
+                  <Send className="w-5 h-5 mr-2" />
+                  Send Message
+                </button>
+              </form>
+            </motion.div>
+
+            {/* Contact Info */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="space-y-8"
+            >
               <div>
-                <h2 className="text-2xl font-bold text-gs-navy mb-4">Contact</h2>
-                <p className="text-gray-600 mb-6">Send us a message and we'll get back to you shortly.</p>
-                <form className="space-y-4">
-                  <input className="w-full p-4 border rounded-lg" placeholder="Your name" />
-                  <input className="w-full p-4 border rounded-lg" placeholder="Email" />
-                  <textarea className="w-full p-4 border rounded-lg" rows={6} placeholder="Message" />
-                  <button className="px-6 py-3 bg-gs-blue text-white rounded-lg">Send</button>
-                </form>
+                <h2 className="text-2xl font-bold mb-2">
+                  Get in <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Touch</span>
+                </h2>
+                <p className="text-gray-600">
+                  We're here to help and answer any question you might have.
+                </p>
               </div>
-              <div>
-                <div className="bg-gray-50 rounded-2xl p-6">
-                  <div className="flex items-center gap-4">
-                    <div className="w-28 h-28 rounded-full overflow-hidden bg-white/10 flex items-center justify-center">
-                      <Image src="/images/gs-logo.png" alt="Logo" width={96} height={96} />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-lg">Global Shapers Izmir Hub</h3>
-                      <p className="text-gray-600">Izmir, Türkiye</p>
-                    </div>
-                  </div>
 
-                  <div className="mt-6 space-y-3">
-                    <div className="flex items-center gap-3">
-                      <Mail className="w-5 h-5 text-gs-blue" />
-                      <a href="mailto:info@globalshapersizmir.org" className="text-gs-navy">info@globalshapersizmir.org</a>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Phone className="w-5 h-5 text-gs-blue" />
-                      <span className="text-gray-600">+90 123 456 7890</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <MapPin className="w-5 h-5 text-gs-blue" />
-                      <span className="text-gray-600">Izmir, Türkiye</span>
-                    </div>
-                  </div>
+              <div className="grid gap-6">
+                <div className="bg-blue-50 p-6 rounded-xl">
+                  <Mail className="w-8 h-8 text-blue-600 mb-4" />
+                  <h3 className="font-semibold mb-1">Email</h3>
+                  <a href="mailto:izmir@globalshapers.org" className="text-gray-600 hover:text-blue-600">
+                    izmir@globalshapers.org
+                  </a>
+                </div>
+
+                <div className="bg-pink-50 p-6 rounded-xl">
+                  <MapPin className="w-8 h-8 text-pink-600 mb-4" />
+                  <h3 className="font-semibold mb-1">Location</h3>
+                  <p className="text-gray-600">Izmir, Turkey</p>
+                </div>
+
+                <div className="bg-green-50 p-6 rounded-xl">
+                  <Phone className="w-8 h-8 text-green-600 mb-4" />
+                  <h3 className="font-semibold mb-1">Phone</h3>
+                  <p className="text-gray-600">+90 (232) 123 45 67</p>
                 </div>
               </div>
-            </div>
+
+              <div className="bg-gradient-to-r from-purple-600 to-blue-600 p-8 rounded-xl text-white">
+                <Globe className="w-12 h-12 mb-4" />
+                <h3 className="text-2xl font-bold mb-2">İzmir, Turkey</h3>
+                <p>Shaping the Future Together</p>
+              </div>
+            </motion.div>
           </div>
-        </section>
+
+          {/* FAQ Section */}
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="py-16 text-center"
+          >
+            <span className="inline-block px-4 py-1.5 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-full text-sm font-medium mb-6">
+              FAQ
+            </span>
+            <h2 className="text-4xl font-bold mb-4">
+              Frequently Asked <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Questions</span>
+            </h2>
+            <p className="text-gray-600 mb-12 max-w-2xl mx-auto">
+              Quick answers to common questions about our community and projects
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="bg-white p-6 rounded-xl shadow-lg">
+                  <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <HelpCircle className="w-6 h-6 text-purple-600" />
+                  </div>
+                  <h3 className="font-bold mb-2">Common Question {i}</h3>
+                  <p className="text-gray-600">Quick and helpful answer to the question that provides value to visitors.</p>
+                </div>
+              ))}
+            </div>
+
+            <button className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all">
+              Start a Conversation
+            </button>
+          </motion.section>
+        </div>
       </main>
 
       <Footer />
