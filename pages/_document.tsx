@@ -13,7 +13,8 @@ export default function Document() {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;700&family=Inter:wght@400;600&display=swap&subset=latin-ext"
         />
-  {/* Use the GS Izmir logo PNG as the favicon (PNG works across browsers) */}
+  {/* Use a root /favicon.ico (preferred by crawlers) and PNG fallback */}
+  <link rel="icon" href="/favicon.ico" />
   <link rel="shortcut icon" href="/images/gs-logo.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/images/gs-logo.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/images/gs-logo.png" />
