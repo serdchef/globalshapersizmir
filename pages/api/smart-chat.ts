@@ -60,8 +60,17 @@ async function callGemini(message: string): Promise<string> {
   }
 
   const data = await resp.json()
-  // v1 generateContent formatından yanıtı alma
-  return data.candidates?.[0]?.content?.parts?.[0]?.text || data?.candidates?.[0]?.content || data?.output || JSON.stringify(data)
+  // v1 generateContent formatından yanıtı esnekçe al
+  const candidateText = data?.candidates?.[0]?.content?.parts?.[0]?.text
+  const candidateContent = data?.candidates?.[0]?.content
+  const output = data?.output
+
+  const reply = candidateText || (typeof candidateContent === 'string' ? candidateContent : undefined) || (typeof output === 'string' ? output : undefined)
+
+  if (reply) return String(reply)
+
+  // Eğer yukarıdaki alanlar yoksa, API'nin döndürdüğü meta içeriği yerine okunabilir fallback ver
+  return 'No AI response was generated (Gemini).'
 }
 
 // OpenRouter API call
@@ -99,7 +108,9 @@ async function callOpenRouter(message: string): Promise<string> {
   }
 
   const data = await response.json()
-  return data.choices?.[0]?.message?.content || 'No response generated'
+  const content = data?.choices?.[0]?.message?.content
+  if (typeof content === 'string') return content
+  return 'No AI response was generated (OpenRouter).'
 }
 
 export default async function handler(
