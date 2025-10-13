@@ -15,6 +15,7 @@ export default function Document() {
         />
   {/* Use a root /favicon.ico (preferred by crawlers) and PNG fallback */}
   <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png" />
   <link rel="shortcut icon" href="/images/gs-logo.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/images/gs-logo.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/images/gs-logo.png" />
