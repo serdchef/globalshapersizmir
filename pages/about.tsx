@@ -35,11 +35,22 @@ export default function AboutPage() {
               animate={{ opacity: 1, y: 0 }} 
               transition={{ duration: 0.6 }}
             >
+<<<<<<< HEAD
               <div className="w-[140px] h-[140px] flex-shrink-0">
                 <img 
                   src="/gs-logo-hakkimizda.png" 
                   alt="Global Shapers Izmir Logo"
                   className="w-full h-full object-contain" 
+=======
+              {/* Make outer container exactly 144x144 and remove inner padding so logo fully fills the circle */}
+              <div style={{ width: 180, height: 180, transform: 'translateX(12px)' }} className="rounded-full overflow-hidden flex items-center justify-center flex-shrink-0">
+                <img
+                  src="/images/gs-logo.png"
+                  alt="Global Shapers Logo"
+                  width={180}
+                  height={180}
+                  style={{ width: 180, height: 180, objectFit: 'cover', display: 'block', maxWidth: 'none' }}
+>>>>>>> upstream/master
                 />
               </div>
 

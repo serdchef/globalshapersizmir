@@ -31,10 +31,15 @@ export default function AboutPage() {
               </Link>
 
               <div className="flex items-center gap-8">
+<<<<<<< HEAD
+=======
+                {/* Logo: outer circle 144x144, inner filled circle exactly 95.99x95.99 */}
+>>>>>>> upstream/master
                 <motion.div
                   initial={{ scale: 0.8, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
+<<<<<<< HEAD
                   className="w-[120px] h-[120px] md:w-[150px] md:h-[150px] flex-shrink-0"
                 >
                   <img
@@ -42,6 +47,20 @@ export default function AboutPage() {
                     alt="Global Shapers Izmir Hub Logo"
                     className="w-full h-full object-contain"
                   />
+=======
+                  className="flex-shrink-0"
+                >
+                  {/* Make outer container exactly 144x144 and remove inner padding so logo fully fills the circle */}
+                  <div style={{ width: 180, height: 180, transform: 'translateX(12px)' }} className="rounded-full overflow-hidden flex items-center justify-center">
+                    <img
+                      src="/images/gs-logo-hakkimizda.png"
+                      alt="Global Shapers Izmir Hub Logo"
+                      width={180}
+                      height={180}
+                      style={{ width: 180, height: 180, objectFit: 'cover', display: 'block', maxWidth: 'none' }}
+                    />
+                  </div>
+>>>>>>> upstream/master
                 </motion.div>
 
                 <div>
