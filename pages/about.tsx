@@ -154,12 +154,14 @@ export default function AboutPage() {
             <p className="text-gray-600 text-lg mb-8">
               If you're between <strong>18-30 years old</strong> and want to make an impact, <strong>join us!</strong>
             </p>
-            <Link 
-              href="/contact"
+            <a 
+              href="https://wefglobal.eu.qualtrics.com/jfe/form/SV_6F4bAg3fL2x1eXb?fbclid=PAb21jcANbj6lleHRuA2FlbQIxMQABp29VZnEm_dKVI-bxciOje6xnpan-rzB4tdDGQz0f7RmQK_0qvidAX_UoMjcA_aem_kCQampAlMhl-mvdfAOO20A"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block px-8 md:px-10 py-3 md:py-4 bg-gradient-to-r from-gs-purple to-gs-blue text-white rounded-full font-semibold text-lg hover:opacity-95 transition-all shadow-lg"
             >
               Get in Touch
-            </Link>
+            </a>
           </div>
         </section>
       </main>
