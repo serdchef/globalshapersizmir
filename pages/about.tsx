@@ -55,15 +55,15 @@ export default function AboutPage() {
 
         {/* Our Story Section (background image) */}
         <section
-          className="py-20"
+          className="py-20 relative bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url(${encodeURI('/images/WhatsApp Görsel 2025-10-11 saat 22.00.21_0266a1e6.jpg')})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
+            backgroundImage: `url(${encodeURI('/images/ourstory.jpg')})`,
           }}
         >
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* dark overlay for better contrast */}
+          <div className="absolute inset-0 bg-black/55" aria-hidden="true" />
+
+          <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* semi-transparent overlay box for readable text */}
             <div className="bg-white/80 backdrop-blur-md rounded-lg p-10">
               <h2 className="text-3xl md:text-4xl font-bold text-gs-navy text-center mb-8">Our Story</h2>
