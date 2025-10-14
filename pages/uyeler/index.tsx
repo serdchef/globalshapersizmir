@@ -112,9 +112,9 @@ export default function MembersPage() {
               <p className="text-xl text-gray-600 mb-8">
                 Learn how to become a member or volunteer with Global Shapers Izmir Hub.
               </p>
-            <Link href="/contact" className="inline-block px-6 py-3 bg-gradient-to-r from-gs-purple to-gs-blue text-white rounded-lg font-semibold hover:shadow-lg transition-all">
+            <a href="https://weforum.eu.qualtrics.com/jfe/form/SV_6F4bAg3fL2x1eXb" target="_blank" rel="noopener noreferrer" className="inline-block px-6 py-3 bg-gradient-to-r from-gs-purple to-gs-blue text-white rounded-lg font-semibold hover:shadow-lg transition-all">
               Contact
-            </Link>
+            </a>
           </div>
         </section>
       </main>
