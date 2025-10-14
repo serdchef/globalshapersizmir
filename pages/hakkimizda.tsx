@@ -39,13 +39,13 @@ export default function AboutPage() {
                   className="flex-shrink-0"
                 >
                   {/* Make outer container exactly 144x144 and remove inner padding so logo fully fills the circle */}
-                  <div style={{ width: 144, height: 144 }} className="rounded-full overflow-hidden flex items-center justify-center border-4 border-white/80">
+                  <div style={{ width: 144, height: 144 }} className="rounded-full overflow-hidden flex items-center justify-center">
                     <img
                       src="/images/gs-logo-hakkimizda.png"
                       alt="Global Shapers Izmir Hub Logo"
                       width={144}
                       height={144}
-                      style={{ width: 144, height: 144, objectFit: 'cover', display: 'block' }}
+                      style={{ width: 144, height: 144, objectFit: 'cover', display: 'block', maxWidth: 'none' }}
                     />
                   </div>
                 </motion.div>
