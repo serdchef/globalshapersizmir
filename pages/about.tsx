@@ -57,7 +57,7 @@ export default function AboutPage() {
         <section
           className="py-20 relative bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url(${encodeURI('/images/ourstory.jpg')})`,
+            backgroundImage: `url(${encodeURI('/images/our-story-bg.jpg')})`,
           }}
         >
           {/* dark overlay for better contrast */}
