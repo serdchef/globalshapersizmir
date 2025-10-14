@@ -13,13 +13,13 @@ export default function Document() {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;700&family=Inter:wght@400;600&display=swap&subset=latin-ext"
         />
-  {/* Use a root /favicon.ico (preferred by crawlers) and PNG fallback */}
-  <link rel="icon" href="/gs-logo-hakkimizda.ico" />
-  <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png" />
-  <link rel="shortcut icon" href="/gs-logo-hakkimizda.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/gs-logo.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/gs-logo.png" />
-  <link rel="apple-touch-icon" href="/images/gs-logo.png" />
+  {/* Favicon */}
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/favicon.ico" />
       </Head>
       <body>
         <Main />
