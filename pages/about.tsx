@@ -35,6 +35,14 @@ export default function AboutPage() {
               animate={{ opacity: 1, y: 0 }} 
               transition={{ duration: 0.6 }}
             >
+              <div className="w-32 h-32 md:w-40 md:h-40 flex-shrink-0">
+                <img 
+                  src="/images/gs-logo.png" 
+                  alt="Global Shapers Izmir Logo"
+                  className="w-full h-full object-contain" 
+                />
+              </div>
+
               <div>
                 <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-2">About Us test</h1>
                 <p className="text-lg md:text-xl text-white/95">

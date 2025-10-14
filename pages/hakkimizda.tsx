@@ -30,13 +30,28 @@ export default function AboutPage() {
                 Home
               </Link>
               
-              <div>
-                <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-                  About Us
-                </h1>
-                <p className="text-xl text-gray-200 max-w-3xl">
-                  Building a better future by unlocking the potential of young people
-                </p>
+              <div className="flex items-center gap-8">
+                <motion.div
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="w-40 h-40 md:w-48 md:h-48 flex-shrink-0"
+                >
+                  <img
+                    src="/images/gs-logo.png"
+                    alt="Global Shapers Izmir Hub Logo"
+                    className="w-full h-full object-contain"
+                  />
+                </motion.div>
+                
+                <div>
+                  <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+                    About Us
+                  </h1>
+                  <p className="text-xl text-gray-200 max-w-3xl">
+                    Building a better future by unlocking the potential of young people
+                  </p>
+                </div>
               </div>
             </motion.div>
           </div>
