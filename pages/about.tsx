@@ -36,7 +36,7 @@ export default function AboutPage() {
               transition={{ duration: 0.6 }}
             >
               {/* Make outer container exactly 144x144 and remove inner padding so logo fully fills the circle */}
-              <div style={{ width: 144, height: 144 }} className="rounded-full overflow-hidden flex items-center justify-center flex-shrink-0 shadow-2xl">
+              <div style={{ width: 144, height: 144 }} className="rounded-full overflow-hidden flex items-center justify-center flex-shrink-0 border-4 border-white/80">
                 <img
                   src="/images/gs-logo.png"
                   alt="Global Shapers Logo"
