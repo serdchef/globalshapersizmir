@@ -54,20 +54,12 @@ export default function AboutPage() {
         </section>
 
         {/* Our Story Section (background image) */}
-        <section
-          className="py-20"
-          style={{
-            backgroundImage: `url(${encodeURI('/images/our-story-bg.jpg')})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'right center',
-            backgroundRepeat: 'no-repeat',
-          }}
-        >
+        <section className="py-20" style={{ minHeight: '60vh' }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col lg:flex-row items-start lg:items-center">
+            <div className="flex flex-col lg:flex-row items-start lg:items-stretch gap-8">
               {/* Left: text box (takes half width on large screens) */}
-              <div className="w-full lg:w-1/2">
-                <div className="bg-white/80 backdrop-blur-md rounded-lg p-8 lg:p-10">
+              <div className="w-full lg:w-1/2 flex items-center">
+                <div className="bg-white/80 backdrop-blur-md rounded-lg p-8 lg:p-10 w-full">
                   <h2 className="text-3xl md:text-4xl font-bold text-gs-navy mb-6">Our Story</h2>
 
                   <div className="space-y-6 text-gray-700 leading-relaxed">
@@ -93,8 +85,10 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              {/* Right: visual space (image visible behind) */}
-              <div className="hidden lg:block lg:w-1/2" aria-hidden="true" />
+              {/* Right: image column (visible on lg+) */}
+              <div className="w-full lg:w-1/2 flex items-center justify-center">
+                <img src="/images/our-story-bg1.jpg" alt="Our Story" className="w-full h-[48vh] lg:h-[60vh] object-cover rounded-lg shadow-lg" />
+              </div>
             </div>
           </div>
         </section>
