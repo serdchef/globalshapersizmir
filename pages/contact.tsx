@@ -159,39 +159,7 @@ export default function ContactPage() {
             </motion.div>
           </div>
 
-          {/* FAQ Section */}
-          <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="py-16 text-center"
-          >
-            <span className="inline-block px-4 py-1.5 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-full text-sm font-medium mb-6">
-              FAQ
-            </span>
-            <h2 className="text-4xl font-bold mb-4">
-              Frequently Asked <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Questions</span>
-            </h2>
-            <p className="text-gray-600 mb-12 max-w-2xl mx-auto">
-              Quick answers to common questions about our community and projects
-            </p>
-
-            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="bg-white p-6 rounded-xl shadow-lg">
-                  <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <HelpCircle className="w-6 h-6 text-purple-600" />
-                  </div>
-                  <h3 className="font-bold mb-2">Common Question {i}</h3>
-                  <p className="text-gray-600">Quick and helpful answer to the question that provides value to visitors.</p>
-                </div>
-              ))}
-            </div>
-
-            <button className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all">
-              Start a Conversation
-            </button>
-          </motion.section>
+          {/* FAQ Section removed as requested */}
         </div>
       </main>
 
