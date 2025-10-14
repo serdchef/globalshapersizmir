@@ -200,49 +200,23 @@ export default function AboutPage() {
             <p className="text-center text-white/90 mb-12">Global Shapers Izmir Hub by the Numbers</p>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 items-center">
-              <motion.div 
-                className="text-center"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.45 }}
-                viewport={{ once: true }}
-              >
-                <div className="text-4xl md:text-5xl font-extrabold">4</div>
-                <div className="text-white/90 text-sm md:text-base mt-2">Years Active</div>
-              </motion.div>
-              
-              <motion.div 
-                className="text-center"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                viewport={{ once: true }}
-              >
-                <div className="text-5xl md:text-6xl font-bold text-white mb-2">4</div>
-                <div className="text-white/90 text-sm md:text-base">Projects</div>
-              </motion.div>
-              
-              <motion.div 
-                className="text-center"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
-                <div className="text-5xl md:text-6xl font-bold text-white mb-2">500+</div>
-                <div className="text-white/90 text-sm md:text-base">Participants</div>
-              </motion.div>
-              
-              <motion.div 
-                className="text-center"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                viewport={{ once: true }}
-              >
-                <div className="text-5xl md:text-6xl font-bold text-white mb-2">50+</div>
-                <div className="text-white/90 text-sm md:text-base">Volunteers</div>
-              </motion.div>
+              {/** Use shared impact stats so numbers stay consistent across the site */}
+              {
+                // eslint-disable-next-line @typescript-eslint/no-var-requires
+                require('@/utils/impactStats').default.map((stat: any, idx: number) => (
+                  <motion.div
+                    key={idx}
+                    className="text-center"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.45, delay: idx * 0.08 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="text-4xl md:text-5xl font-extrabold">{stat.value}</div>
+                    <div className="text-white/90 text-sm md:text-base mt-2">{stat.label}</div>
+                  </motion.div>
+                ))
+              }
             </div>
           </div>
         </section>
