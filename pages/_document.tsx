@@ -13,11 +13,12 @@ export default function Document() {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;700&family=Inter:wght@400;600&display=swap&subset=latin-ext"
         />
-  {/* Favicon */}
-  <link rel="icon" href="/favicon.ico" />
+  {/* Favicon - Multiple sizes for better browser support */}
+  <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
   <link rel="shortcut icon" href="/favicon.ico" />
-  <link rel="icon" type="image/x-icon" sizes="180x180" href="/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
       </Head>
       <body>
         <Main />
