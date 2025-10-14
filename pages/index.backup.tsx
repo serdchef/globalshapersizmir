@@ -52,7 +52,7 @@ export default function Home() {
 								transition={{ duration: 0.8, delay: 0.4 }}
 								className="text-2xl md:text-3xl text-gray-700 mb-12 max-w-4xl mx-auto leading-relaxed font-light"
 							>
-								A community of <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">young leaders</span> aged 20-30 creating lasting social impact through innovative projects
+								A community of <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">young leaders</span> aged 18-30 creating lasting social impact through innovative projects
 							</motion.p>
 
 							{/* CTA Buttons */}
@@ -89,7 +89,7 @@ export default function Home() {
 								</div>
 								<div className="text-center">
 									<div className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 mb-2">
-										4
+										15+
 									</div>
 									<div className="text-sm font-semibold text-gray-600 uppercase tracking-wide">Projects</div>
 								</div>
@@ -161,7 +161,7 @@ export default function Home() {
 										Our Mission
 									</h3>
 									<p className="text-gray-600 leading-relaxed text-lg">
-										Bringing together <span className="font-semibold text-gray-900">young leaders aged 20-30</span> to create innovative solutions to local and global challenges.
+										Bringing together <span className="font-semibold text-gray-900">young leaders aged 18-30</span> to create innovative solutions to local and global challenges.
 									</p>
 								</div>
 							</motion.div>

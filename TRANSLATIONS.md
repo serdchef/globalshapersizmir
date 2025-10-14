@@ -20,7 +20,7 @@
 ## Descriptions
 "World Economic Forum'un genç liderler topluluğu. İzmir'de sosyal etki odaklı projeler geliştiriyoruz." = "A community of young leaders from the World Economic Forum. We develop social impact projects in İzmir."
 
-"20-30 yaş arası genç liderleri bir araya getirerek yerel ve küresel sorunlara yenilikçi çözümler üretmek." = "Bringing together young leaders aged 20-30 to create innovative solutions to local and global challenges."
+"18-30 yaş arası genç liderleri bir araya getirerek yerel ve küresel sorunlara yenilikçi çözümler üretmek." = "Bringing together young leaders aged 18-30 to create innovative solutions to local and global challenges."
 
 "Gençlerin potansiyelini ortaya çıkararak daha sürdürülebilir, kapsayıcı ve eşitlikçi bir gelecek inşa etmek." = "Building a more sustainable, inclusive and equitable future by unlocking the potential of young people."
 

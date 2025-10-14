@@ -35,7 +35,7 @@ export default function AboutPage() {
         <section className="py-20 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-gs-navy mb-6">Our Story</h2>
-            <p className="text-gray-600 leading-relaxed mb-4">The Global Shapers Community was founded by the World Economic Forum in 2011 as a global network bringing together young leaders aged 20-30. With more than 450 hubs in over 150 countries and 15,000+ members worldwide, we work to shape the future.</p>
+            <p className="text-gray-600 leading-relaxed mb-4">The Global Shapers Community was founded by the World Economic Forum in 2011 as a global network bringing together young leaders aged 18-30. With more than 450 hubs in over 150 countries and 15,000+ members worldwide, we work to shape the future.</p>
             <p className="text-gray-600 leading-relaxed">Global Shapers Izmir Hub was established in 2015 as one of Turkey's most active hubs. Since then, we have reached thousands of people in Izmir and Turkey by developing various projects in education, technology, sustainability, and social entrepreneurship.</p>
             <p className="text-gray-600 leading-relaxed mt-4">Our mission is to unlock the potential of young leaders to create innovative solutions to local and global challenges, and to build a more sustainable, inclusive and equitable future.</p>
           </div>
@@ -130,7 +130,7 @@ export default function AboutPage() {
                     {/* icon placeholder */}
                   </div>
                   <h3 className="text-xl font-semibold mb-2">Our Mission</h3>
-                  <p className="text-gray-600">Bringing together young leaders aged 20-30 to create innovative solutions to local and global challenges.</p>
+                  <p className="text-gray-600">Bringing together young leaders aged 18-30 to create innovative solutions to local and global challenges.</p>
                 </div>
 
                 <div className="bg-white rounded-2xl p-6 shadow-sm">

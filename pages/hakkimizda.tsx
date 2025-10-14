@@ -75,7 +75,7 @@ export default function AboutPage() {
               <div className="prose prose-lg max-w-none space-y-6 text-gray-600">
                 <p>
                   The Global Shapers Community was founded by the <strong>World Economic Forum</strong> in 2011 
-                  as a global network bringing together young leaders aged 20-30. With more than 450 hubs in over 
+                  as a global network bringing together young leaders aged 18-30. With more than 450 hubs in over 
                   150 countries and 15,000+ members worldwide, we work to shape the future.
                 </p>
                 <p>
@@ -223,7 +223,7 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 className="text-center"
               >
-                <div className="text-5xl md:text-6xl font-bold text-white mb-2">4+</div>
+                <div className="text-5xl md:text-6xl font-bold text-white mb-2">8+</div>
                 <div className="text-gray-200">Years Active</div>
               </motion.div>
 
@@ -234,7 +234,7 @@ export default function AboutPage() {
                 transition={{ delay: 0.1 }}
                 className="text-center"
               >
-                <div className="text-5xl md:text-6xl font-bold text-white mb-2">4</div>
+                <div className="text-5xl md:text-6xl font-bold text-white mb-2">15+</div>
                 <div className="text-gray-200">Projects</div>
               </motion.div>
 
@@ -245,7 +245,7 @@ export default function AboutPage() {
                 transition={{ delay: 0.2 }}
                 className="text-center"
               >
-                <div className="text-5xl md:text-6xl font-bold text-white mb-2">500+</div>
+                <div className="text-5xl md:text-6xl font-bold text-white mb-2">7,000+</div>
                 <div className="text-gray-200">Participants</div>
               </motion.div>
 
@@ -270,7 +270,7 @@ export default function AboutPage() {
               Join Us
             </h2>
             <p className="text-xl text-gray-600 mb-8">
-              If you're between 20-30 years old and want to make an impact, join us!
+              If you're between 18-30 years old and want to make an impact, join us!
             </p>
             <Link href="/contact" className="inline-block px-6 py-3 bg-gradient-to-r from-gs-purple to-gs-blue text-white rounded-lg font-semibold hover:shadow-lg transition-all">
               Contact
