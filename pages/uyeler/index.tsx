@@ -113,7 +113,7 @@ export default function MembersPage() {
                 Learn how to become a member or volunteer with Global Shapers Izmir Hub.
               </p>
             <a href="https://wefglobal.eu.qualtrics.com/jfe/form/SV_6F4bAg3fL2x1eXb" target="_blank" rel="noopener noreferrer" className="inline-block px-6 py-3 bg-gradient-to-r from-gs-purple to-gs-blue text-white rounded-lg font-semibold hover:shadow-lg transition-all">
-              Contact
+              Join us
             </a>
           </div>
         </section>
