@@ -106,7 +106,7 @@ export const members: Member[] = [
       linkedin: "https://www.linkedin.com/in/oguzhanakbas/"
     }
     ,
-    image: "/images/members/oguzhan-akbas.svg"
+    image: "/images/members/oguzhan-akbas.jpg"
   },
   {
     slug: "erce-bilgen",
@@ -208,7 +208,7 @@ export const members: Member[] = [
       linkedin: "https://www.linkedin.com/in/gamze-inanli?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
     }
     ,
-    image: "/images/members/gamze-inanli.svg"
+    image: "/images/members/gamze-inanli.jpg"
   },
   {
     slug: "gizem-donmez",
