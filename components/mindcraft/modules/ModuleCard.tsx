@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Module } from '@/utils/modulesData'
+import { Module } from '@/utils/mindcraft/modulesData'
 import { ArrowRight, Clock, Users } from 'lucide-react'
 
 interface ModuleCardProps {

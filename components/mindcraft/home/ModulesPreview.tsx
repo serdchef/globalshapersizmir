@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { modulesData } from '@/utils/modulesData'
+import { modulesData } from '@/utils/mindcraft/modulesData'
 import { ArrowRight } from 'lucide-react'
 
 export default function ModulesPreview() {
