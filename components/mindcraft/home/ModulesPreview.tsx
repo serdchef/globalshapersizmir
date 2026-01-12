@@ -27,7 +27,7 @@ export default function ModulesPreview() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Link href={`/modules/${module.id}`}>
+              <Link href={`/projects/mindcraft/${module.id}`}>
                 <div className="group relative bg-white rounded-2xl p-8 shadow-lg card-hover border border-gray-100 overflow-hidden">
                   {/* Color Accent */}
                   <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${module.gradient}`}></div>
@@ -60,7 +60,7 @@ export default function ModulesPreview() {
 
         {/* View All Button */}
         <div className="text-center">
-          <Link href="/modules">
+          <Link href="/projects/mindcraft">
             <motion.button
               className="btn-primary text-lg px-10 py-4"
               whileHover={{ scale: 1.05 }}
