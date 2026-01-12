@@ -98,70 +98,70 @@ export default function ScientificResearchPage() {
       }
     },
     {
-      title: "Araştırma Tasarımı ve Metodoloji",
-      description: "Araştırma amacınıza en uygun tasarım ve metodoloji seçimini öğrenin.",
+      title: "Research Design and Methodology",
+      description: "Learn to select the most appropriate design and methodology for your research purpose.",
       icon: Target,
       color: "from-blue-500 to-cyan-600",
       content: {
         theory: {
-          title: "Teorik Bilgi",
+          title: "Theoretical Knowledge",
           points: [
-            "Deneysel tasarım prensipleri ve kontrol grupları",
-            "Gözlemsel çalışmalar ve anket araştırmaları",
-            "Karma yöntem araştırma yaklaşımları",
-            "Vaka çalışması metodolojisi",
-            "Metodoloji seçim kriterleri"
+            "Experimental design principles and control groups",
+            "Observational studies and survey research",
+            "Mixed method research approaches",
+            "Case study methodology",
+            "Methodology selection criteria"
           ]
         },
         practice: {
-          title: "Uygulamalı Çalışma",
+          title: "Applied Study",
           points: [
-            "Araştırma tasarımı simülatörü",
-            "Metodoloji seçim karar ağacı",
-            "Deneysel tasarım atölyesi",
-            "Geçerlilik ve güvenilirlik analizi",
-            "Pilot çalışma planlaması"
+            "Research design simulator",
+            "Methodology selection decision tree",
+            "Experimental design workshop",
+            "Validity and reliability analysis",
+            "Pilot study planning"
           ]
         },
         tools: [
-          "Araştırma tasarımı şablonları",
-          "Metodoloji karşılaştırma tablosu",
-          "Geçerlilik kontrol listesi",
-          "Pilot çalışma planlama aracı"
+          "Research design templates",
+          "Methodology comparison table",
+          "Validity checklist",
+          "Pilot study planning tool"
         ]
       }
     },
     {
-      title: "Veri Toplama ve Analiz",
-      description: "Etkili veri toplama teknikleri ve istatistiksel analiz yöntemlerini keşfedin.",
+      title: "Data Collection and Analysis",
+      description: "Discover effective data collection techniques and statistical analysis methods.",
       icon: Database,
       color: "from-green-500 to-blue-600",
       content: {
         theory: {
-          title: "Teorik Bilgi",
+          title: "Theoretical Knowledge",
           points: [
-            "Birincil vs ikincil veri kaynakları",
-            "Örnekleme yöntemleri ve örnek büyüklüğü hesaplama",
-            "Anket, mülakat ve gözlem teknikleri",
-            "Betimsel ve çıkarımsal istatistik",
-            "Yaygın istatistiksel testler ve kullanım alanları"
+            "Primary vs secondary data sources",
+            "Sampling methods and sample size calculation",
+            "Survey, interview and observation techniques",
+            "Descriptive and inferential statistics",
+            "Common statistical tests and their applications"
           ]
         },
         practice: {
-          title: "Uygulamalı Çalışma",
+          title: "Applied Study",
           points: [
-            "SPSS/R ile temel istatistik analizi",
-            "Anket tasarlama atölyesi",
-            "Mülakat tekniklerini uygulama",
-            "Örnek büyüklüğü hesaplama egzersizi",
-            "Veri görselleştirme teknikleri"
+            "Basic statistical analysis with SPSS/R",
+            "Survey design workshop",
+            "Applying interview techniques",
+            "Sample size calculation exercise",
+            "Data visualization techniques"
           ]
         },
         tools: [
-          "İstatistik analiz rehberleri",
-          "Anket tasarlama şablonları",
-          "Mülakat soru banksı",
-          "Veri analizi checklist'i"
+          "Statistical analysis guides",
+          "Survey design templates",
+          "Interview question bank",
+          "Data analysis checklist"
         ]
       }
     },
