@@ -27,76 +27,76 @@ export default function AIArtCreationPage() {
 
   const learningContent = [
     {
-      title: "AI Sanat Araçları",
-      subtitle: "Dijital Yaratıcılığın Araçları",
-      description: "Midjourney, DALL-E ve Stable Diffusion gibi AI araçlarını keşfetme",
+      title: "AI Art Tools",
+      subtitle: "Tools of Digital Creativity",
+      description: "Exploring AI tools like Midjourney, DALL-E and Stable Diffusion",
       keyPoints: ["Midjourney & Discord", "DALL-E & OpenAI", "Stable Diffusion"],
-      interactive: "Araç Karşılaştırma Atölyesi",
+      interactive: "Tool Comparison Workshop",
       icon: Sparkles,
-      content: "AI sanat araçları, hayal gücünüzü sınırsız tuvale dönüştürür. Midjourney ile epik kompozisyonlar, DALL-E ile detaylı karakterler, Stable Diffusion ile deneysel sanatlar yaratabilirsiniz. Her araç farklı güçlerde - hangisi sizin sanatsal vizyonunuza uygun?"
+      content: "AI art tools transform your imagination into an unlimited canvas. Create epic compositions with Midjourney, detailed characters with DALL-E, experimental art with Stable Diffusion. Each tool has different strengths - which one fits your artistic vision?"
     },
     {
-      title: "Prompt Sanatı",
-      subtitle: "Kelimelerle Resim Yapma",
-      description: "Etkili promptlar yazarak AI'dan istediğiniz sanat eserini çıkarma",
-      keyPoints: ["Ana Konu Belirleme", "Stil Tanımlama", "Detay Kontrolü"],
-      interactive: "Prompt Laboratuvarı",
+      title: "Prompt Artistry",
+      subtitle: "Painting with Words",
+      description: "Creating the art you want from AI by writing effective prompts",
+      keyPoints: ["Subject Definition", "Style Description", "Detail Control"],
+      interactive: "Prompt Laboratory",
       icon: Palette,
-      content: "Prompt yazımı sanattır! 'Güzel manzara' yerine 'Gün batımında mor lavanta tarlaları, Van Gogh tarzında fırça darbeleri, sıcak altın ışığı' demek büyük fark yaratır. Her kelime, AI'ın fırçasını yönlendirir."
+      content: "Prompt writing is an art form! Saying 'purple lavender fields at sunset, Van Gogh-style brush strokes, warm golden light' instead of 'beautiful landscape' makes a huge difference. Every word guides AI's brush."
     },
     {
-      title: "Stil Keşfi",
-      subtitle: "Sanat Tarihi ile Buluşma",
-      description: "Çeşitli sanat stillerini AI ile yeniden yorumlama ve yaratma",
-      keyPoints: ["Klasik Stiller", "Modern Sanat", "Hibrit Yaklaşımlar"],
-      interactive: "Stil Mikseri",
+      title: "Style Discovery",
+      subtitle: "Meeting Art History",
+      description: "Reinterpreting and creating various art styles with AI",
+      keyPoints: ["Classical Styles", "Modern Art", "Hybrid Approaches"],
+      interactive: "Style Mixer",
       icon: Eye,
-      content: "Barok'un ihtişamını anime karakterlerinizle birleştirin! Empresyonist fırça darbelerini cyberpunk temalarla harmanlayın. AI size Van Gogh'un fırçasını, Picasso'nun perspektifini, Banksy'nin isyanını sunuyor. Hangi stilleri keşfedeceksiniz?"
+      content: "Combine the grandeur of Baroque with your anime characters! Blend Impressionist brush strokes with cyberpunk themes. AI offers you Van Gogh's brush, Picasso's perspective, Banksy's rebellion. Which styles will you explore?"
     },
     {
-      title: "AI Sanat Etiği",
-      subtitle: "Yaratıcılık ve Sorumluluk",
-      description: "Telif hakları, orijinallik ve AI sanatının etik boyutları",
-      keyPoints: ["Telif Hakları", "Sanatçı Kredisi", "Orijinallik Tanımı"],
-      interactive: "Etik Senaryo Analizi",
+      title: "AI Art Ethics",
+      subtitle: "Creativity and Responsibility",
+      description: "Copyright, originality and ethical dimensions of AI art",
+      keyPoints: ["Copyright Issues", "Artist Attribution", "Originality Definition"],
+      interactive: "Ethical Scenario Analysis",
       icon: Heart,
-      content: "AI sanat yaratırken sorumlu olmalıyız. Başka sanatçıların çalışmalarını taklit etmek mi yoksa ilham almak mı? AI'ın ürettiği eser kimin eseri? Bu sorular sadece yasal değil, aynı zamanda sanatsal bütünlüğümüzü de etkiliyor."
+      content: "We must be responsible when creating AI art. Is it imitation or inspiration from other artists' works? Whose work is what AI produces? These questions affect not only legal but also our artistic integrity."
     },
     {
-      title: "Dijital Portfolyo",
-      subtitle: "Eserlerinizi Dünyaya Sunma",
-      description: "AI sanat eserlerinizi organize etme ve paylaşma stratejileri",
-      keyPoints: ["Portfolyo Düzenleme", "Sosyal Medya Stratejisi", "Sanat Topluluğu"],
-      interactive: "Portfolyo Oluşturucu",
+      title: "Digital Portfolio",
+      subtitle: "Presenting Your Work to the World",
+      description: "Strategies for organizing and sharing your AI art creations",
+      keyPoints: ["Portfolio Organization", "Social Media Strategy", "Art Community"],
+      interactive: "Portfolio Builder",
       icon: Users,
-      content: "Sanatınızı dünyayla paylaşma zamanı! Instagram'da hashtag stratejileri, DeviantArt'ta topluluk etkileşimi, kendi web sitenizde profesyonel sunum. AI sanatçıları olarak büyüyen bir topluluğun parçası olun ve kendi benzersiz sesinizi bulun."
+      content: "Time to share your art with the world! Hashtag strategies on Instagram, community engagement on DeviantArt, professional presentation on your own website. Join the growing community of AI artists and find your unique voice."
     }
   ]
 
   const artChallenges = [
     {
-      title: "Stil Karışım Meydan Okuması",
-      scenario: "İki farklı sanat stilini birleştirerek yeni bir eser yaratmak istiyorsunuz. En etkili yaklaşım hangisi?",
+      title: "Style Mixing Challenge",
+      scenario: "You want to create a new artwork by combining two different art styles. Which is the most effective approach?",
       options: [
-        "Sadece bir stile odaklanmak",
-        "'Van Gogh tarzında Monet'nin su zambakları' gibi net stil kombinasyonu belirtmek",
-        "Hiç stil belirtmemek, AI'ın karar vermesini beklemek",
-        "Çok fazla stil karıştırarak karmaşık promptlar yazmak"
+        "Focus on just one style",
+        "Specify clear style combinations like 'Monet's water lilies in Van Gogh style'",
+        "Don't specify any style, let AI decide",
+        "Write complex prompts mixing too many styles"
       ],
       correct: 1,
-      explanation: "Net stil kombinasyonları AI'a net yönlendirme verir. 'Van Gogh'un fırça darbelerini Monet'nin renk paletinde' gibi spesifik talimatlar en etkili sonuçları üretir."
+      explanation: "Clear style combinations give AI precise guidance. Specific instructions like 'Van Gogh's brush strokes in Monet's color palette' produce the most effective results."
     },
     {
-      title: "Karakter Tasarımı Dilemması",
-      scenario: "Orijinal bir karakter tasarlamak istiyorsunuz. Hangi prompt yaklaşımı daha yaratıcı sonuçlar verir?",
+      title: "Character Design Dilemma",
+      scenario: "You want to design an original character. Which prompt approach gives more creative results?",
       options: [
-        "Sadece 'güzel karakter' yazmak",
-        "Var olan popüler karakterleri kopyalamak",
-        "'Steampunk mühendis kedi, goggles, bronz dişliler, detaylı portre' gibi özgün detaylar",
-        "Çok uzun ve karmaşık açıklamalar yapmak"
+        "Just write 'beautiful character'",
+        "Copy existing popular characters",
+        "Original details like 'steampunk engineer cat, goggles, bronze gears, detailed portrait'",
+        "Make very long and complex descriptions"
       ],
       correct: 2,
-      explanation: "Özgün detaylar ve yaratıcı kombinasyonlar en orijinal karakterleri yaratır. Spesifik ama makul detaylar AI'ın yaratıcılığını doğru yöne kanalize eder."
+      explanation: "Original details and creative combinations create the most unique characters. Specific but reasonable details channel AI's creativity in the right direction."
     }
   ]
 

@@ -31,69 +31,69 @@ export default function ScientificResearchPage() {
 
   const learningContent = [
     {
-      title: "Bilimsel Araştırma Temelleri",
-      description: "Bilimsel yöntemin temellerini öğrenin ve araştırma sürecinin her adımını keşfedin.",
+      title: "Scientific Research Fundamentals",
+      description: "Learn the foundations of scientific method and explore every step of the research process.",
       icon: Microscope,
       color: "from-indigo-500 to-blue-600",
       content: {
         theory: {
-          title: "Teorik Bilgi",
+          title: "Theoretical Knowledge",
           points: [
-            "Bilimsel araştırma nedir ve neden önemlidir?",
-            "Bilimsel yöntemin 7 temel adımı",
-            "Temel vs uygulamalı araştırma türleri",
-            "Nitel vs nicel araştırma yaklaşımları",
-            "Araştırma etiği ve dürüstlük ilkeleri"
+            "What is scientific research and why is it important?",
+            "7 fundamental steps of scientific method",
+            "Basic vs applied research types",
+            "Qualitative vs quantitative research approaches",
+            "Research ethics and integrity principles"
           ]
         },
         practice: {
-          title: "Uygulamalı Çalışma",
+          title: "Applied Study",
           points: [
-            "Günlük yaşamdan bilimsel sorular türetme",
-            "Hipotez kurma ve test etme egzersizi",
-            "Araştırma türü seçimi simülasyonu",
-            "Etik dilemmalar üzerinde çalışma"
+            "Deriving scientific questions from daily life",
+            "Hypothesis formation and testing exercise",
+            "Research type selection simulation",
+            "Working on ethical dilemmas"
           ]
         },
         tools: [
-          "Araştırma süreci akış şeması",
-          "Hipotez kurma şablonu",
-          "Etik kontrol listesi",
-          "Araştırma türü seçim rehberi"
+          "Research process flowchart",
+          "Hypothesis formation template",
+          "Ethics checklist",
+          "Research type selection guide"
         ]
       }
     },
     {
-      title: "Literatür Taraması ve Araştırma Soruları",
-      description: "Sistematik literatür tarama yapın ve güçlü araştırma soruları geliştirin.",
+      title: "Literature Review and Research Questions",
+      description: "Conduct systematic literature reviews and develop strong research questions.",
       icon: BookOpen,
       color: "from-purple-500 to-indigo-600",
       content: {
         theory: {
-          title: "Teorik Bilgi",
+          title: "Theoretical Knowledge",
           points: [
-            "Sistematik literatür tarama stratejileri",
-            "Akademik veritabanları ve arama teknikleri",
-            "Araştırma boşluklarını belirleme yöntemleri",
-            "PICO/SPIDER formatında soru formülasyonu",
-            "Kaynak değerlendirme ve kalite kriterleri"
+            "Systematic literature review strategies",
+            "Academic databases and search techniques",
+            "Methods for identifying research gaps",
+            "Question formulation in PICO/SPIDER format",
+            "Source evaluation and quality criteria"
           ]
         },
         practice: {
-          title: "Uygulamalı Çalışma",
+          title: "Applied Study",
           points: [
-            "Google Scholar ve TR Dizin kullanım workshop'u",
-            "Anahtar kelime optimizasyonu egzersizi",
-            "Araştırma sorusu geliştirme atölyesi",
-            "Kaynak güvenilirlik analizi",
-            "Sistematik tarama planı oluşturma"
+            "Google Scholar and TR Index usage workshop",
+            "Keyword optimization exercise",
+            "Research question development workshop",
+            "Source reliability analysis",
+            "Creating systematic review plan"
           ]
         },
         tools: [
-          "Arama stratejisi şablonu",
-          "Kaynak değerlendirme matrisi",
-          "Literatür tarama kontrol listesi",
-          "Referans yönetim sistemleri rehberi"
+          "Search strategy template",
+          "Source evaluation matrix",
+          "Literature review checklist",
+          "Reference management systems guide"
         ]
       }
     },
@@ -166,36 +166,36 @@ export default function ScientificResearchPage() {
       }
     },
     {
-      title: "Araştırma Yazımı ve İletişimi",
-      description: "Araştırma sonuçlarınızı etkili şekilde yazın ve paylaşın.",
+      title: "Research Writing and Communication",
+      description: "Write and share your research results effectively.",
       icon: PieChart,
       color: "from-purple-500 to-pink-600",
       content: {
         theory: {
-          title: "Teorik Bilgi",
+          title: "Theoretical Knowledge",
           points: [
-            "Bilimsel makale yapısı (IMRaD formatı)",
-            "Etkili özet ve giriş yazma teknikleri",
-            "Sonuçları objektif şekilde sunma",
-            "Görsel öğelerin etkili kullanımı",
-            "Hakemlik süreci ve yayın etiği"
+            "Scientific paper structure (IMRaD format)",
+            "Effective abstract and introduction writing techniques",
+            "Presenting results objectively",
+            "Effective use of visual elements",
+            "Peer review process and publication ethics"
           ]
         },
         practice: {
-          title: "Uygulamalı Çalışma",
+          title: "Applied Study",
           points: [
-            "Makale yazım atölyesi",
-            "Özet yazma egzersizi",
-            "Grafik ve tablo oluşturma",
-            "Sunum hazırlama teknikleri",
-            "Akran değerlendirmesi simülasyonu"
+            "Paper writing workshop",
+            "Abstract writing exercise",
+            "Graph and table creation",
+            "Presentation preparation techniques",
+            "Peer review simulation"
           ]
         },
         tools: [
-          "Makale yazım şablonları",
-          "Özet yazım rehberi",
-          "Görsel tasarım araçları",
-          "Sunum şablonları"
+          "Paper writing templates",
+          "Abstract writing guide",
+          "Visual design tools",
+          "Presentation templates"
         ]
       }
     }
@@ -203,28 +203,28 @@ export default function ScientificResearchPage() {
 
   const researchActivities = [
     {
-      title: "Araştırma Laboratuvarı",
-      description: "Sanal laboratuvarda araştırma simülasyonları yapın",
+      title: "Research Laboratory",
+      description: "Conduct research simulations in virtual laboratory",
       icon: Microscope,
-      difficulty: "Orta"
+      difficulty: "Intermediate"
     },
     {
-      title: "Literatür Dedektifi",
-      description: "Kaynak güvenilirliğini test eden interaktif oyun",
+      title: "Literature Detective",
+      description: "Interactive game testing source reliability",
       icon: Search,
-      difficulty: "Kolay"
+      difficulty: "Beginner"
     },
     {
-      title: "İstatistik Ustası",
-      description: "Gerçek verilerle analiz pratiği yapın",
+      title: "Statistics Master",
+      description: "Practice analysis with real data",
       icon: PieChart,
-      difficulty: "Zor"
+      difficulty: "Advanced"
     },
     {
-      title: "Etik Karar Vericisi",
-      description: "Araştırma etiği senaryolarını çözün",
+      title: "Ethics Decision Maker",
+      description: "Solve research ethics scenarios",
       icon: Shield,
-      difficulty: "Orta"
+      difficulty: "Intermediate"
     }
   ];
 
@@ -232,7 +232,7 @@ export default function ScientificResearchPage() {
     <>
       <Head>
         <title>Scientific Research Methods - Mindcraft</title>
-        <meta name="description" content="Bilimsel araştırma metodolojilerini öğrenin ve araştırma becerilerinizi geliştirin." />
+        <meta name="description" content="Learn scientific research methodologies and develop your research skills." />
       </Head>
       
       <Navbar />
@@ -268,10 +268,10 @@ export default function ScientificResearchPage() {
                   <span className="text-indigo-600 font-medium">{module.duration}</span>
                 </div>
                 <div className="bg-white px-4 py-2 rounded-full border border-indigo-200">
-                  <span className="text-indigo-600 font-medium">{module.ageRange} yaş</span>
+                  <span className="text-indigo-600 font-medium">{module.ageRange} years</span>
                 </div>
                 <div className="bg-white px-4 py-2 rounded-full border border-indigo-200">
-                  <span className="text-indigo-600 font-medium">5 Ana Bölüm</span>
+                  <span className="text-indigo-600 font-medium">5 Main Sections</span>
                 </div>
               </div>
             </motion.div>
@@ -283,10 +283,10 @@ export default function ScientificResearchPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4 gradient-text bg-gradient-to-r from-indigo-600 to-blue-600">
-                Öğrenme Modülleri
+                Learning Modules
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Bilimsel araştırma sürecinin her aşamasını kapsamlı şekilde öğrenin
+                Learn every aspect of the scientific research process comprehensively
               </p>
             </div>
 
@@ -359,7 +359,7 @@ export default function ScientificResearchPage() {
                         <div className="flex items-center gap-3 mb-4">
                           <Code className="w-6 h-6 text-purple-600" />
                           <h4 className="text-lg font-semibold text-gray-900">
-                            Araçlar & Kaynaklar
+                            Tools & Resources
                           </h4>
                         </div>
                         <ul className="space-y-2">
@@ -390,10 +390,10 @@ export default function ScientificResearchPage() {
               viewport={{ once: true }}
             >
               <h2 className="text-3xl md:text-4xl font-bold mb-4 gradient-text bg-gradient-to-r from-indigo-600 to-blue-600">
-                Araştırma Laboratuvarı
+                Research Laboratory
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                İnteraktif aktivitelerle araştırma becerilerinizi pratikte uygulayın
+                Apply your research skills in practice with interactive activities
               </p>
             </motion.div>
 
@@ -440,7 +440,7 @@ export default function ScientificResearchPage() {
               </div>
               
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Mindcraft Araştırma Challenge'ı
+                Mindcraft Research Challenge
               </h2>
               
               <p className="text-xl mb-8 opacity-95 leading-relaxed">
@@ -452,7 +452,7 @@ export default function ScientificResearchPage() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Challenge'a Katıl
+                Join the Challenge
               </motion.button>
             </motion.div>
           </div>
@@ -470,24 +470,24 @@ export default function ScientificResearchPage() {
             >
               <div className="text-center mb-8">
                 <h2 className="text-3xl font-bold mb-4 gradient-text bg-gradient-to-r from-indigo-600 to-blue-600">
-                  Araştırma Yolculuğunuz
+                  Your Research Journey
                 </h2>
                 <p className="text-lg text-gray-600">
-                  Bu modülde öğrendiklerinizi yansıtın ve gelecek planlarınızı paylaşın
+                  Reflect on what you learned in this module and share your future plans
                 </p>
               </div>
 
               <div className="space-y-6">
                 <div>
                   <label className="block text-lg font-medium text-gray-700 mb-3">
-                    Hangi araştırma konusuyla ilgili merak ediyorsunuz? Bu modülde öğrendiklerinizi nasıl kullanacaksınız?
+                    What research topic are you curious about? How will you use what you learned in this module?
                   </label>
                   <textarea
                     value={reflectionText}
                     onChange={(e) => setReflectionText(e.target.value)}
                     className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none"
                     rows={6}
-                    placeholder="Düşüncelerinizi paylaşın..."
+                    placeholder="Share your thoughts..."
                   />
                 </div>
                 
@@ -496,7 +496,7 @@ export default function ScientificResearchPage() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  Yansımamı Paylaş
+                  Share My Reflection
                 </motion.button>
               </div>
             </motion.div>
@@ -517,12 +517,12 @@ export default function ScientificResearchPage() {
                     <ArrowRight className="w-6 h-6 text-white transform rotate-180" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900">Önceki Modül</h3>
+                    <h3 className="font-semibold text-gray-900">Previous Module</h3>
                     <p className="text-gray-600 text-sm">AI Art Creation</p>
                   </div>
                 </div>
                 <p className="text-sm text-gray-600">
-                  AI ile sanat üretimi konularını tekrar gözden geçirin
+                  Revisit AI-powered art creation topics
                 </p>
               </motion.div>
 
@@ -536,12 +536,12 @@ export default function ScientificResearchPage() {
                     <ArrowRight className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900">Sonraki Modül</h3>
+                    <h3 className="font-semibold text-gray-900">Next Module</h3>
                     <p className="text-gray-600 text-sm">Creative Innovation</p>
                   </div>
                 </div>
                 <p className="text-sm text-gray-600">
-                  Yaratıcı inovasyon ve global etki konularını keşfedin
+                  Explore creative innovation and global impact topics
                 </p>
               </motion.div>
             </div>
