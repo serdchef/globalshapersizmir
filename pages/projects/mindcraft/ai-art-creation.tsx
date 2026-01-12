@@ -21,7 +21,7 @@ export default function AIArtCreationPage() {
   const [currentSection, setCurrentSection] = useState(0)
   const [reflectionText, setReflectionText] = useState('')
 
-  const module = modulesData.find(m => m.id === 'ai-art')
+  const module = modulesData.find(m => m.id === 'ai-art-creation')
   
   if (!module) return null
 
