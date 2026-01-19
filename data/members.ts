@@ -132,6 +132,33 @@ export const members: Member[] = [
 
   // 3. Shaperlar (Alfabetik olarak)
   {
+    slug: "bilal-al-khateeb",
+    name: "Bilal Al-Khateeb",
+    role: "Shaper",
+    shortBio: "Shaper",
+    longBio: "Member of the Hub.",
+    photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=BA",
+    social: {}
+  },
+  {
+    slug: "ayse-ada-altinbilek",
+    name: "Ayşe Ada Altınbilek",
+    role: "Shaper",
+    shortBio: "Shaper",
+    longBio: "Member of the Hub.",
+    photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=AA",
+    social: {}
+  },
+  {
+    slug: "sena-ates",
+    name: "Sena Ateş",
+    role: "Shaper",
+    shortBio: "Shaper",
+    longBio: "Member of the Hub.",
+    photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=SA",
+    social: {}
+  },
+  {
     slug: "begum-ece-elcekin",
     name: "Begüm Ece Elçekin",
     role: "Shaper",
@@ -141,15 +168,6 @@ export const members: Member[] = [
   image: "/images/members/begum-ece-elcekin.jpg",
     email: "Elcekinbegumece@gmail.com",
     linkedin: "https://www.linkedin.com/in/begümeceelçekin?utm_source...",
-    social: {}
-  },
-  {
-    slug: "beril-guvenc",
-    name: "Beril Güvenç",
-    role: "Shaper",
-    shortBio: "Shaper",
-    longBio: "Member of the Hub.",
-    photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=BG",
     social: {}
   },
   {
@@ -183,32 +201,13 @@ export const members: Member[] = [
     }
   },
   {
-    slug: "elbruz-gumus",
-    name: "Elbruz Gümüş",
+    slug: "yadigar-deniz-doksan",
+    name: "Yadigar Deniz Doksan",
     role: "Shaper",
     shortBio: "Shaper",
     longBio: "Member of the Hub.",
-    photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=EG",
-    image: "/images/members/elbruz-gumus.jpg",
-    email: "elbruzgumus38@gmail.com",
-    linkedin: "https://www.linkedin.com/in/elbruzgumus",
+    photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=YD",
     social: {}
-  },
-  {
-    slug: "gamze-inanli",
-    name: "Gamze İnanlı",
-    role: "Shaper",
-    shortBio: "Shaper",
-    longBio: "Long-standing member of the Global Shapers Izmir Hub who contributes to projects focused on sustainability and financial literacy. With a background in food engineering and a strong interest in marketing, she develops creative ideas that connect people and inspire sustainable futures.",
-    photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=GI",
-    email: "gamzeeinanlii@gmail.com",
-    linkedin: "https://www.linkedin.com/in/gamze-inanli?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-    social: {
-      email: "gamzeeinanlii@gmail.com",
-      linkedin: "https://www.linkedin.com/in/gamze-inanli?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
-    }
-    ,
-    image: "/images/members/gamze-inanli.jpg"
   },
   {
     slug: "gizem-donmez",
@@ -241,18 +240,6 @@ export const members: Member[] = [
     social: {}
   },
   {
-    slug: "kayra-leventoglu",
-    name: "Kayra Leventoğlu",
-    role: "Shaper",
-    shortBio: "Shaper",
-    longBio: "Member of the Hub.",
-    photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=KL",
-    image: "/images/members/kayra-leventoglu.jpg",
-    email: "kayraleventoglu@gmail.com",
-    linkedin: "https://www.linkedin.com/in/kayraleventoglu",
-    social: {}
-  },
-  {
     slug: "kerem-ergun",
     name: "Kerem Ergün",
     role: "Shaper",
@@ -266,30 +253,6 @@ export const members: Member[] = [
       email: "krmrgn2002@gmail.com",
       linkedin: "https://www.linkedin.com/in/kerem-erg%C3%BCn-588386211/"
     }
-  },
-  {
-    slug: "merve-basut",
-    name: "Merve Basut",
-    role: "Shaper",
-    shortBio: "Shaper",
-    longBio: "Member of the Hub.",
-    photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=MB",
-  image: "/images/members/merve-basut.jpg",
-    email: "mervebasut1999@gmail.com",
-    linkedin: "https://www.linkedin.com/in/merve-basut-a5263618a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-    social: {
-      email: "mervebasut1999@gmail.com",
-      linkedin: "https://www.linkedin.com/in/merve-basut-a5263618a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
-    }
-  },
-  {
-    slug: "ozgun-muhim",
-    name: "Özgün Mühim",
-    role: "Shaper",
-    shortBio: "Shaper",
-    longBio: "Member of the Hub.",
-    photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=OM",
-    social: {}
   },
   {
     slug: "talip-furkan-dogan",
@@ -316,15 +279,6 @@ export const members: Member[] = [
     image: "/images/members/tutku-yildiz.jpg",
     email: "tutku.yildiz8@gmail.com",
     linkedin: "https://www.linkedin.com/in/tutkuyildiz",
-    social: {}
-  },
-  {
-    slug: "zehra-kaya",
-    name: "Zehra Kaya",
-    role: "Shaper",
-    shortBio: "Shaper",
-    longBio: "Member of the Hub.",
-    photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=ZK",
     social: {}
   }
 ]
