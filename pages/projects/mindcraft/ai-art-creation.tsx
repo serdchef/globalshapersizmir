@@ -25,78 +25,247 @@ export default function AIArtCreationPage() {
   
   if (!module) return null
 
+  const learningObjectives = [
+    "Understand what AI art is and how it works",
+    "Learn about popular AI art tools and their features",
+    "Write effective prompts for creating AI artwork",
+    "Create original artworks using AI tools responsibly",
+    "Understand ethical considerations in AI art creation",
+    "Build a personal digital art portfolio"
+  ]
+
+  const popularAIArtTools = [
+    {
+      name: "DALL-E",
+      description: "OpenAI's image generator that creates detailed, realistic images from text descriptions",
+      strengths: "High-quality photorealistic images, good at understanding complex scenes",
+      limitations: "Limited free usage, requires account",
+      examplePrompt: "A friendly dragon reading a book in a cozy library, warm lighting, children's book illustration style",
+      icon: Sparkles,
+      color: "from-blue-500 to-cyan-500",
+      bestFor: "Realistic images, detailed scenes"
+    },
+    {
+      name: "Midjourney",
+      description: "Popular AI art platform known for creating stunning artistic and creative images",
+      strengths: "Amazing artistic quality, great for creative and fantasy art",
+      limitations: "Requires Discord account, subscription needed for full features",
+      examplePrompt: "Magical forest with glowing mushrooms, fairy tale style, soft pastel colors, dreamy atmosphere",
+      icon: Palette,
+      color: "from-purple-500 to-pink-500",
+      bestFor: "Artistic images, fantasy art, creative concepts"
+    },
+    {
+      name: "Stable Diffusion",
+      description: "Open-source AI art generator that you can run on your own computer",
+      strengths: "Free to use, lots of customization options, active community",
+      limitations: "Can be complex to set up, requires good computer",
+      examplePrompt: "Cute robot helper in a school classroom, cartoon style, bright colors, educational setting",
+      icon: Eye,
+      color: "from-green-500 to-emerald-500",
+      bestFor: "Experimental art, customization, learning AI"
+    },
+    {
+      name: "Leonardo AI",
+      description: "User-friendly AI art platform with focus on game and character design",
+      strengths: "Great for characters, game art, user-friendly interface",
+      limitations: "Limited free credits per day",
+      examplePrompt: "Young superhero character with a cape, comic book style, dynamic pose, bright costume",
+      icon: Users,
+      color: "from-orange-500 to-red-500",
+      bestFor: "Character design, game art, comics"
+    },
+    {
+      name: "Craiyon",
+      description: "Free and simple AI art generator perfect for beginners",
+      strengths: "Completely free, no account needed, easy to use",
+      limitations: "Lower image quality, slower generation",
+      examplePrompt: "Happy cat wearing a wizard hat, simple cartoon style, colorful background",
+      icon: Heart,
+      color: "from-yellow-500 to-orange-500",
+      bestFor: "Beginners, quick experiments, fun projects"
+    }
+  ]
+
+  const promptWritingTips = [
+    {
+      title: "Be Specific and Descriptive",
+      description: "Instead of 'dog,' try 'golden retriever puppy playing in a sunny garden'",
+      example: "❌: 'Nice landscape'\n✅: 'Mountain lake at sunset with purple sky and reflected trees'"
+    },
+    {
+      title: "Include Art Style",
+      description: "Mention the artistic style you want: cartoon, realistic, watercolor, pixel art",
+      example: "❌: 'Person drawing'\n✅: 'Young artist drawing, anime style, soft colors, cozy art studio'"
+    },
+    {
+      title: "Set the Mood",
+      description: "Add emotions and atmosphere: cheerful, mysterious, peaceful, exciting",
+      example: "❌: 'Forest scene'\n✅: 'Magical forest, mysterious atmosphere, glowing fireflies, twilight'"
+    },
+    {
+      title: "Specify Colors and Lighting",
+      description: "Describe colors and lighting to get the look you want",
+      example: "❌: 'Space scene'\n✅: 'Starry space with bright nebula, purple and blue colors, dramatic lighting'"
+    }
+  ]
+
+  const ethicalConsiderations = [
+    {
+      title: "Respect Original Artists",
+      description: "Don't copy specific artists' styles without giving credit. Instead, learn from general art movements.",
+      guideline: "Say 'impressionist style' instead of 'in the style of [specific artist name]'"
+    },
+    {
+      title: "Avoid Harmful Content",
+      description: "Never create images that could hurt, scare, or offend others.",
+      guideline: "Focus on positive, creative, and educational content"
+    },
+    {
+      title: "Be Honest About AI Creation",
+      description: "Always tell people when your artwork was made with AI help.",
+      guideline: "Add 'Created with AI' to your image descriptions or captions"
+    },
+    {
+      title: "Respect Cultural Sensitivity",
+      description: "Be careful when creating images of different cultures or traditions.",
+      guideline: "Research and approach cultural elements with respect and understanding"
+    }
+  ]
+
   const learningContent = [
     {
-      title: "AI Art Tools",
-      subtitle: "Tools of Digital Creativity",
-      description: "Exploring AI tools like Midjourney, DALL-E and Stable Diffusion",
-      keyPoints: ["Midjourney & Discord", "DALL-E & OpenAI", "Stable Diffusion"],
-      interactive: "Tool Comparison Workshop",
+      title: "What Is AI Art?",
+      subtitle: "Lesson 1: Understanding AI Creativity",
+      description: "Learn how artificial intelligence creates amazing artworks and what makes them special",
+      keyPoints: ["How AI Creates Images", "Types of AI Art", "AI vs Human Creativity"],
+      interactive: "AI Art Explorer",
       icon: Sparkles,
-      content: "AI art tools transform your imagination into an unlimited canvas. Create epic compositions with Midjourney, detailed characters with DALL-E, experimental art with Stable Diffusion. Each tool has different strengths - which one fits your artistic vision?"
+      content: "AI art is like having a super-smart art assistant that can paint anything you describe! When you tell an AI 'draw a purple dragon,' it uses millions of example images it learned from to create something new. It's not copying existing art – it's learning patterns and styles to make original creations based on your ideas. Think of it as a collaboration between your imagination and the AI's artistic knowledge.",
+      scenarios: [
+        "Creating illustrations for school projects and presentations",
+        "Designing characters for stories or games you're making",
+        "Making posters and artwork for events or clubs",
+        "Experimenting with different art styles and techniques"
+      ],
+      reflectionQuestions: [
+        "What's the difference between AI creating art and AI copying art?",
+        "How can AI help you express ideas you couldn't draw by hand?"
+      ]
     },
     {
-      title: "Prompt Artistry",
-      subtitle: "Painting with Words",
-      description: "Creating the art you want from AI by writing effective prompts",
-      keyPoints: ["Subject Definition", "Style Description", "Detail Control"],
-      interactive: "Prompt Laboratory",
+      title: "Writing Visual Prompts",
+      subtitle: "Lesson 2: Communicating with AI Artists",
+      description: "Master the art of describing what you want AI to create",
+      keyPoints: ["Descriptive Language", "Style References", "Mood and Atmosphere"],
+      interactive: "Prompt Writing Lab",
       icon: Palette,
-      content: "Prompt writing is an art form! Saying 'purple lavender fields at sunset, Van Gogh-style brush strokes, warm golden light' instead of 'beautiful landscape' makes a huge difference. Every word guides AI's brush."
+      content: "Writing prompts for AI art is like being a creative director! The more specific and descriptive you are, the better your results will be. Instead of saying 'make a cat,' try 'a fluffy orange tabby cat sleeping on a windowsill with sunlight streaming through, watercolor painting style.' Include details about colors, lighting, style, and mood to guide the AI toward your vision.",
+      scenarios: [
+        "Basic prompt: 'Dog' vs Detailed: 'Golden retriever puppy playing in autumn leaves, happy expression, cartoon style'",
+        "Vague: 'Fantasy scene' vs Specific: 'Magical castle on floating island, sunset sky, dragons flying, digital art style'",
+        "Simple: 'Portrait' vs Rich: 'Friendly young scientist in lab coat, microscope background, bright lighting, educational illustration'"
+      ],
+      reflectionQuestions: [
+        "How does adding style descriptions change your AI artwork?",
+        "What happens when you include emotions or moods in your prompts?"
+      ]
     },
     {
-      title: "Style Discovery",
-      subtitle: "Meeting Art History",
-      description: "Reinterpreting and creating various art styles with AI",
-      keyPoints: ["Classical Styles", "Modern Art", "Hybrid Approaches"],
-      interactive: "Style Mixer",
+      title: "Exploring Art Styles",
+      subtitle: "Lesson 3: From Realistic to Fantastical",
+      description: "Discover different artistic styles and how to achieve them with AI",
+      keyPoints: ["Art Movement Styles", "Digital Art Techniques", "Cultural Art Forms"],
+      interactive: "Style Transformation Studio",
       icon: Eye,
-      content: "Combine the grandeur of Baroque with your anime characters! Blend Impressionist brush strokes with cyberpunk themes. AI offers you Van Gogh's brush, Picasso's perspective, Banksy's rebellion. Which styles will you explore?"
+      content: "AI can recreate almost any art style you can imagine! Want your drawing to look like a cartoon? A realistic painting? Pixel art from a video game? Just add the style to your prompt. You can explore art from different cultures, time periods, and artistic movements. It's like having access to every art technique in history!",
+      scenarios: [
+        "Cartoon style: 'Friendly robot, Disney animation style, colorful and expressive'",
+        "Realistic: 'Mountain landscape, photorealistic, detailed textures, golden hour lighting'",
+        "Artistic: 'City street, impressionist painting style, soft brushstrokes, evening atmosphere'",
+        "Digital: 'Space battle, pixel art style, retro video game aesthetic, bright colors'"
+      ],
+      reflectionQuestions: [
+        "Which art styles do you find most interesting and why?",
+        "How do different styles change the feeling or message of your artwork?"
+      ]
     },
     {
-      title: "AI Art Ethics",
-      subtitle: "Creativity and Responsibility",
-      description: "Copyright, originality and ethical dimensions of AI art",
-      keyPoints: ["Copyright Issues", "Artist Attribution", "Originality Definition"],
-      interactive: "Ethical Scenario Analysis",
+      title: "Ethical AI Art Creation",
+      subtitle: "Lesson 4: Creating Responsibly",
+      description: "Learn how to use AI art tools in ways that respect artists and communities",
+      keyPoints: ["Artist Attribution", "Cultural Sensitivity", "Honest Disclosure"],
+      interactive: "Ethics Decision Maker",
       icon: Heart,
-      content: "We must be responsible when creating AI art. Is it imitation or inspiration from other artists' works? Whose work is what AI produces? These questions affect not only legal but also our artistic integrity."
+      content: "Being a responsible AI artist means thinking about how your creations affect others. Always be honest that you used AI to make your art. Respect original artists by learning from general styles rather than copying specific people's work. Be thoughtful about cultural elements and avoid creating anything that could hurt or stereotype others. Good AI artists use technology to create positive, beautiful things!",
+      scenarios: [
+        "Good practice: 'Created with AI assistance' in your art captions",
+        "Respectful: 'Inspired by impressionist painting techniques' rather than copying a specific artist",
+        "Thoughtful: Research cultural symbols before including them in your art",
+        "Positive: Focus on creating uplifting, educational, or beautiful content"
+      ],
+      reflectionQuestions: [
+        "Why is it important to tell people when you used AI to create art?",
+        "How can you be respectful when creating art inspired by other cultures?"
+      ]
     },
     {
-      title: "Digital Portfolio",
-      subtitle: "Presenting Your Work to the World",
-      description: "Strategies for organizing and sharing your AI art creations",
-      keyPoints: ["Portfolio Organization", "Social Media Strategy", "Art Community"],
+      title: "Building Your AI Art Portfolio",
+      subtitle: "Lesson 5: Sharing Your Creativity",
+      description: "Organize and present your AI artwork to show your creative journey",
+      keyPoints: ["Portfolio Organization", "Artwork Documentation", "Creative Growth"],
       interactive: "Portfolio Builder",
       icon: Users,
-      content: "Time to share your art with the world! Hashtag strategies on Instagram, community engagement on DeviantArt, professional presentation on your own website. Join the growing community of AI artists and find your unique voice."
+      content: "Your AI art portfolio is like a visual diary of your creativity! Collect your favorite creations, organize them by theme or style, and document what prompts you used. This helps you remember what worked well and shows others your creative growth. Include the prompts you used – it's like showing your 'recipe' for each artwork and can inspire others!",
+      scenarios: [
+        "Theme collections: Fantasy creatures, space scenes, cartoon characters",
+        "Style experiments: Same subject in different artistic styles",
+        "Project documentation: Art created for specific school assignments or personal projects",
+        "Prompt evolution: How you improved a basic prompt through several iterations"
+      ],
+      reflectionQuestions: [
+        "What themes or subjects do you enjoy creating most?",
+        "How has your prompt writing improved since you started?"
+      ]
     }
   ]
 
   const artChallenges = [
     {
-      title: "Style Mixing Challenge",
-      scenario: "You want to create a new artwork by combining two different art styles. Which is the most effective approach?",
+      title: "Character Creation Challenge",
+      scenario: "Your teacher assigned you to create an original character for a story. Which prompt approach will help you create the most unique and interesting character?",
       options: [
-        "Focus on just one style",
-        "Specify clear style combinations like 'Monet's water lilies in Van Gogh style'",
-        "Don't specify any style, let AI decide",
-        "Write complex prompts mixing too many styles"
-      ],
-      correct: 1,
-      explanation: "Clear style combinations give AI precise guidance. Specific instructions like 'Van Gogh's brush strokes in Monet's color palette' produce the most effective results."
-    },
-    {
-      title: "Character Design Dilemma",
-      scenario: "You want to design an original character. Which prompt approach gives more creative results?",
-      options: [
-        "Just write 'beautiful character'",
-        "Copy existing popular characters",
-        "Original details like 'steampunk engineer cat, goggles, bronze gears, detailed portrait'",
-        "Make very long and complex descriptions"
+        "'Draw a character'",
+        "'Cool superhero'",
+        "'Young inventor with steampunk goggles, carrying a toolbag, friendly smile, workshop background, cartoon illustration style'",
+        "'Copy a popular character from a movie'"
       ],
       correct: 2,
-      explanation: "Original details and creative combinations create the most unique characters. Specific but reasonable details channel AI's creativity in the right direction."
+      explanation: "The detailed prompt creates an original character with specific traits, setting, and style. This gives you a unique creation that's perfect for your story!"
+    },
+    {
+      title: "School Project Illustration",
+      scenario: "You need to create an illustration about renewable energy for your science presentation. What's the best approach?",
+      options: [
+        "'Energy picture'",
+        "'Solar panels and wind turbines in a green landscape, bright sunny day, educational poster style, clean and optimistic'",
+        "'Copy an image from Google'",
+        "'Abstract energy concept'"
+      ],
+      correct: 1,
+      explanation: "This prompt clearly describes renewable energy sources in an educational, positive way that's perfect for a school presentation."
+    },
+    {
+      title: "Art Style Exploration",
+      scenario: "You want to experiment with different art styles using the same subject. Which approach helps you learn the most?",
+      options: [
+        "Use the same vague prompt each time",
+        "Create the same subject (like 'friendly robot') in different styles: cartoon, realistic, pixel art, watercolor",
+        "Only stick to one style",
+        "Copy existing artworks"
+      ],
+      correct: 1,
+      explanation: "Experimenting with the same subject in different styles helps you understand how style affects the mood and message of your artwork."
     }
   ]
 
@@ -148,9 +317,22 @@ export default function AIArtCreationPage() {
                 </p>
               </div>
 
-              <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+              <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8">
                 {module.description}
               </p>
+
+              {/* Learning Objectives */}
+              <div className="bg-slate-800/50 backdrop-blur-lg rounded-2xl p-8 border border-purple-500/30 mb-8">
+                <h3 className="text-2xl font-bold text-purple-300 mb-4 text-center">What You'll Create and Learn</h3>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {learningObjectives.map((objective, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-300 text-sm">{objective}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </motion.div>
 
             {/* Quick Stats */}
@@ -162,7 +344,7 @@ export default function AIArtCreationPage() {
             >
               <div className="bg-slate-800/50 backdrop-blur-lg rounded-xl p-6 border border-pink-500/30">
                 <div className="text-3xl font-bold text-pink-400">5</div>
-                <div className="text-gray-300">Creative Modules</div>
+                <div className="text-gray-300">Art Lessons</div>
               </div>
               <div className="bg-slate-800/50 backdrop-blur-lg rounded-xl p-6 border border-purple-500/30">
                 <div className="text-3xl font-bold text-purple-400">Unlimited</div>
@@ -209,6 +391,19 @@ export default function AIArtCreationPage() {
                         {section.content}
                       </p>
 
+                      {/* Real-world scenarios */}
+                      <div className="bg-slate-700/30 rounded-xl p-4 mb-6">
+                        <h4 className="text-white font-semibold mb-3">Examples in Action:</h4>
+                        <ul className="space-y-2">
+                          {section.scenarios?.map((scenario, i) => (
+                            <li key={i} className="flex items-start gap-2">
+                              <div className="w-1.5 h-1.5 bg-pink-400 rounded-full mt-2 flex-shrink-0"></div>
+                              <span className="text-gray-300 text-sm">{scenario}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
                         {section.keyPoints.map((point, i) => (
                           <div key={i} className="flex items-center gap-2 text-sm">
@@ -216,6 +411,16 @@ export default function AIArtCreationPage() {
                             <span className="text-gray-300">{point}</span>
                           </div>
                         ))}
+                      </div>
+
+                      {/* Reflection Questions */}
+                      <div className="bg-purple-900/20 rounded-xl p-4 mb-6">
+                        <h4 className="text-purple-300 font-semibold mb-3">Think About This:</h4>
+                        <div className="space-y-2">
+                          {section.reflectionQuestions?.map((question, i) => (
+                            <p key={i} className="text-gray-300 text-sm italic">• {question}</p>
+                          ))}
+                        </div>
                       </div>
 
                       <button className="inline-flex items-center gap-2 bg-gradient-to-r from-pink-600 to-purple-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-pink-700 hover:to-purple-700 transition-all">
@@ -240,17 +445,144 @@ export default function AIArtCreationPage() {
           </div>
         </section>
 
+        {/* AI Art Tools Overview */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-white mb-4">
+                <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
+                  Popular AI Art Tools
+                </span>
+              </h2>
+              <p className="text-xl text-gray-300">
+                Discover different AI art platforms and learn how to use them
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {popularAIArtTools.map((tool, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="bg-slate-800/50 backdrop-blur-lg rounded-xl p-6 border border-pink-500/30"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className={`w-10 h-10 bg-gradient-to-br ${tool.color} rounded-lg flex items-center justify-center`}>
+                      <tool.icon className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-white">{tool.name}</h3>
+                      <p className="text-pink-300 text-xs">{tool.bestFor}</p>
+                    </div>
+                  </div>
+                  
+                  <p className="text-gray-300 text-sm mb-3">{tool.description}</p>
+                  
+                  <div className="space-y-2 mb-4">
+                    <div className="text-xs">
+                      <span className="text-green-300 font-medium">Strengths:</span>
+                      <span className="text-gray-400 ml-1">{tool.strengths}</span>
+                    </div>
+                    <div className="text-xs">
+                      <span className="text-yellow-300 font-medium">Limitations:</span>
+                      <span className="text-gray-400 ml-1">{tool.limitations}</span>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-slate-700/50 rounded-lg p-3">
+                    <h4 className="text-pink-300 font-semibold text-xs mb-1">Example Prompt:</h4>
+                    <p className="text-gray-300 text-xs italic">"{tool.examplePrompt}"</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Prompt Writing Tips */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/30">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-white mb-4">
+                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  How to Write Great Art Prompts
+                </span>
+              </h2>
+              <p className="text-xl text-gray-300">
+                Learn the secrets of describing your artistic vision to AI
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              {promptWritingTips.map((tip, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="bg-slate-800/50 backdrop-blur-lg rounded-xl p-6 border border-purple-500/30"
+                >
+                  <h3 className="text-xl font-bold text-white mb-3">{tip.title}</h3>
+                  <p className="text-gray-300 mb-4">{tip.description}</p>
+                  <div className="bg-slate-700/50 rounded-lg p-3">
+                    <pre className="text-sm text-gray-300 whitespace-pre-wrap">{tip.example}</pre>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Ethical Considerations */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-white mb-4">
+                <span className="bg-gradient-to-r from-pink-400 to-red-400 bg-clip-text text-transparent">
+                  Creating AI Art Responsibly
+                </span>
+              </h2>
+              <p className="text-xl text-gray-300">
+                Learn how to use AI art tools in ways that respect artists and communities
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              {ethicalConsiderations.map((consideration, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="bg-slate-800/50 backdrop-blur-lg rounded-xl p-6 border border-red-500/30"
+                >
+                  <h3 className="text-lg font-bold text-white mb-3">{consideration.title}</h3>
+                  <p className="text-gray-300 text-sm mb-3">{consideration.description}</p>
+                  <div className="bg-red-900/20 rounded-lg p-3">
+                    <p className="text-red-200 text-sm font-medium">{consideration.guideline}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* AI Art Studio */}
         <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/30">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-white mb-4">
                 <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
-                  AI Art Studio
+                  Practice Your AI Art Skills
                 </span>
               </h2>
               <p className="text-xl text-gray-300">
-                Test your creative skills with real-world art challenges
+                Test what you've learned with these creative challenges
               </p>
             </div>
 
@@ -299,19 +631,19 @@ export default function AIArtCreationPage() {
               className="bg-gradient-to-br from-slate-800/50 to-pink-800/30 backdrop-blur-lg rounded-2xl p-8 border border-pink-500/30"
             >
               <h2 className="text-3xl font-bold text-white mb-6 text-center">
-                My AI Art Journey
+                My AI Art Learning Journey
               </h2>
               <p className="text-gray-300 text-lg mb-8 text-center">
-                How has AI art creation changed your perspective on creativity and artistic expression?
+                Reflect on what you've discovered about AI art creation and creativity
               </p>
 
               <div className="space-y-6">
                 <div>
                   <label className="block text-white font-semibold mb-2">
-                    Before: How I used to think about art creation
+                    Before this lesson: What I thought about creating art
                   </label>
                   <textarea
-                    placeholder="Art was something only traditionally trained artists could do..."
+                    placeholder="I used to think you needed to be naturally talented to create good art..."
                     className="w-full p-4 bg-slate-700/50 border border-slate-600 rounded-xl text-white placeholder-gray-400 focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition-all"
                     rows={3}
                   />
@@ -319,19 +651,41 @@ export default function AIArtCreationPage() {
 
                 <div>
                   <label className="block text-white font-semibold mb-2">
-                    After: My new understanding of AI-powered creativity
+                    After this lesson: How AI has changed my view of creativity
                   </label>
                   <textarea
                     value={reflectionText}
                     onChange={(e) => setReflectionText(e.target.value)}
-                    placeholder="Now I realize that AI art is about collaboration between human imagination and..."
+                    placeholder="Now I understand that AI art is a collaboration between my imagination and..."
                     className="w-full p-4 bg-slate-700/50 border border-slate-600 rounded-xl text-white placeholder-gray-400 focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition-all"
                     rows={3}
                   />
                 </div>
 
+                <div>
+                  <label className="block text-white font-semibold mb-2">
+                    My favorite AI art tool and why
+                  </label>
+                  <textarea
+                    placeholder="I want to try [tool name] because it's good for [type of art] and..."
+                    className="w-full p-4 bg-slate-700/50 border border-slate-600 rounded-xl text-white placeholder-gray-400 focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition-all"
+                    rows={2}
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-white font-semibold mb-2">
+                    One art project I want to create with AI
+                  </label>
+                  <textarea
+                    placeholder="I would like to create a series of illustrations about..."
+                    className="w-full p-4 bg-slate-700/50 border border-slate-600 rounded-xl text-white placeholder-gray-400 focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition-all"
+                    rows={2}
+                  />
+                </div>
+
                 <button className="w-full bg-gradient-to-r from-pink-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-pink-700 hover:to-purple-700 transition-all">
-                  Save My Creative Journey
+                  Save My AI Art Portfolio Plan
                 </button>
               </div>
             </motion.div>
