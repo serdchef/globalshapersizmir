@@ -29,7 +29,24 @@ import {
   BookOpen,
   Cpu,
   AlertCircle,
-  Search
+  Search,
+  Leaf,
+  Palette,
+  Smartphone,
+  Volume2,
+  Map,
+  Instagram,
+  Music,
+  Droplets,
+  Factory,
+  TreePine,
+  Recycle,
+  Sparkles,
+  PenTool,
+  Copy,
+  Smile,
+  Clock,
+  Video
 } from 'lucide-react'
 
 // Interactive Components
@@ -414,6 +431,171 @@ Date: ${new Date().toLocaleDateString('en-US')}
                     <p className="text-gray-300 text-sm">Applying learned patterns to new situations</p>
                   </div>
                 </div>
+                
+                {/* Did You Know Card */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  viewport={{ once: true }}
+                  className="mt-8 bg-gradient-to-r from-yellow-900/30 to-orange-900/30 border border-yellow-500/50 rounded-xl p-6"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <Lightbulb className="w-8 h-8 text-yellow-400" />
+                    <h4 className="text-yellow-300 font-bold text-xl">Biliyor muydun?</h4>
+                  </div>
+                  <p className="text-yellow-100 text-lg font-medium italic">
+                    "Yapay zeka, hata yaparak öğrenen bir bebeğe benzer. Milyonlarca örnek görerek, 
+                    desenler keşfeder ve kararlar almayı öğrenir. Tıpkı bir bebek yürümeyi öğrenirken 
+                    düşüp kalktığı gibi!"
+                  </p>
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* 2. Everyday AI & Tools - Interactive Examples */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/20">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-white mb-4">
+                <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
+                  2. AI in Your Daily Life
+                </span>
+              </h2>
+              <p className="text-xl text-gray-300">Discover how AI already shapes your everyday decisions</p>
+            </div>
+
+            {/* Interactive AI Examples Grid */}
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="bg-gradient-to-br from-green-900/30 to-emerald-900/30 backdrop-blur-lg rounded-2xl p-6 border border-green-500/30 group hover:scale-105 transition-all cursor-pointer"
+              >
+                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-all">
+                  <Music className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">Spotify Music AI</h3>
+                <p className="text-gray-300 mb-4">
+                  Analyzes your listening habits, mood patterns, and time preferences to suggest perfect music for your life.
+                </p>
+                <div className="bg-green-950/30 rounded-lg p-3">
+                  <p className="text-green-200 text-sm font-medium">🎵 "Discover Weekly" uses 30+ factors to predict your taste</p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}
+                className="bg-gradient-to-br from-blue-900/30 to-cyan-900/30 backdrop-blur-lg rounded-2xl p-6 border border-blue-500/30 group hover:scale-105 transition-all cursor-pointer"
+              >
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-all">
+                  <Map className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">Google Maps Traffic</h3>
+                <p className="text-gray-300 mb-4">
+                  Processes millions of phone locations and real-time conditions to route you through the fastest path.
+                </p>
+                <div className="bg-blue-950/30 rounded-lg p-3">
+                  <p className="text-blue-200 text-sm font-medium">🗺️ Saves 20+ minutes daily by predicting traffic jams</p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="bg-gradient-to-br from-purple-900/30 to-pink-900/30 backdrop-blur-lg rounded-2xl p-6 border border-purple-500/30 group hover:scale-105 transition-all cursor-pointer"
+              >
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-all">
+                  <Instagram className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">Instagram Reels</h3>
+                <p className="text-gray-300 mb-4">
+                  Studies your watch time, likes, and interactions to create an addictive personalized feed.
+                </p>
+                <div className="bg-purple-950/30 rounded-lg p-3">
+                  <p className="text-purple-200 text-sm font-medium">📱 Average user spends 30+ minutes daily in algorithm's grip</p>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Popular AI Tools by Category */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="bg-slate-800/50 backdrop-blur-lg rounded-2xl p-8 border border-slate-600"
+            >
+              <h3 className="text-2xl font-bold text-white mb-6 text-center flex items-center justify-center gap-3">
+                <Zap className="w-8 h-8 text-yellow-400" />
+                Popular AI Tools by Category
+              </h3>
+              
+              <div className="grid md:grid-cols-4 gap-6">
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3 mb-4">
+                    <FileText className="w-6 h-6 text-blue-400" />
+                    <h4 className="text-lg font-bold text-white">Text & Learning</h4>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="bg-slate-700/50 rounded-lg p-3 hover:bg-slate-700 transition-all cursor-pointer">
+                      <h5 className="text-white font-semibold mb-1">ChatGPT</h5>
+                      <p className="text-gray-300 text-sm">Learning assistance & writing</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3 mb-4">
+                    <Palette className="w-6 h-6 text-purple-400" />
+                    <h4 className="text-lg font-bold text-white">Visual & Video</h4>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="bg-slate-700/50 rounded-lg p-3 hover:bg-slate-700 transition-all cursor-pointer">
+                      <h5 className="text-white font-semibold mb-1">Midjourney</h5>
+                      <p className="text-gray-300 text-sm">AI art creation</p>
+                    </div>
+                    <div className="bg-slate-700/50 rounded-lg p-3 hover:bg-slate-700 transition-all cursor-pointer">
+                      <h5 className="text-white font-semibold mb-1">Sora</h5>
+                      <p className="text-gray-300 text-sm">Video generation</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3 mb-4">
+                    <Volume2 className="w-6 h-6 text-green-400" />
+                    <h4 className="text-lg font-bold text-white">Audio</h4>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="bg-slate-700/50 rounded-lg p-3 hover:bg-slate-700 transition-all cursor-pointer">
+                      <h5 className="text-white font-semibold mb-1">ElevenLabs</h5>
+                      <p className="text-gray-300 text-sm">Voice synthesis</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3 mb-4">
+                    <BookOpen className="w-6 h-6 text-cyan-400" />
+                    <h4 className="text-lg font-bold text-white">Education</h4>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="bg-slate-700/50 rounded-lg p-3 hover:bg-slate-700 transition-all cursor-pointer">
+                      <h5 className="text-white font-semibold mb-1">NotebookLM</h5>
+                      <p className="text-gray-300 text-sm">Research assistant</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -450,6 +632,29 @@ Date: ${new Date().toLocaleDateString('en-US')}
             </motion.div>
 
             <div className="bg-slate-800/50 backdrop-blur-lg rounded-2xl p-8 border border-purple-500/30">
+              {/* Critical Data Bias Warning */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="mb-8 bg-gradient-to-r from-red-900/30 to-orange-900/30 border border-red-500/50 rounded-xl p-6"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <AlertTriangle className="w-8 h-8 text-red-400" />
+                  <h4 className="text-red-300 font-bold text-xl">⚠️ Critical Reality Check</h4>
+                </div>
+                <p className="text-red-100 text-lg leading-relaxed mb-4">
+                  <strong>AI success depends on data quality.</strong> Biased data leads to unfair and discriminatory results. 
+                  The simulation below shows how real-world hiring algorithms can perpetuate social biases.
+                </p>
+                <div className="bg-red-950/30 rounded-lg p-4">
+                  <p className="text-red-200 font-medium">
+                    💡 <strong>Navigator Tip:</strong> Always ask "What data was this AI trained on?" and "Who decided what's important?"
+                  </p>
+                </div>
+              </motion.div>
+
               <div className="grid lg:grid-cols-2 gap-8">
                 {/* Controls */}
                 <div className="space-y-6">
@@ -645,6 +850,72 @@ Date: ${new Date().toLocaleDateString('en-US')}
           </div>
         </section>
 
+        {/* Environmental Impact - High Resource Consumption */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-800/20">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-green-900/30 to-teal-900/30 backdrop-blur-lg rounded-2xl p-8 border border-green-500/30"
+            >
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-500 rounded-2xl flex items-center justify-center flex-shrink-0">
+                  <TreePine className="w-8 h-8 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-3xl font-bold text-white mb-3">
+                    🌍 Environmental Impact
+                  </h3>
+                  <p className="text-green-200 text-lg">The hidden cost of AI: massive energy and water consumption</p>
+                </div>
+              </div>
+              
+              <div className="space-y-6">
+                <div className="bg-green-950/30 border border-green-500/50 rounded-xl p-6">
+                  <h4 className="text-green-300 font-bold text-xl mb-3 flex items-center gap-2">
+                    <Factory className="w-6 h-6" />
+                    The Real Environmental Cost
+                  </h4>
+                  <p className="text-green-100 text-lg leading-relaxed mb-4">
+                    Training a single large AI model can consume as much energy as <strong>300 homes use in a year</strong>. 
+                    Data centers also require massive amounts of water for cooling - sometimes millions of gallons daily.
+                  </p>
+                </div>
+
+                <div className="grid md:grid-cols-3 gap-4">
+                  <div className="bg-slate-800/50 rounded-xl p-4 text-center">
+                    <Zap className="w-8 h-8 text-yellow-400 mx-auto mb-3" />
+                    <h5 className="text-white font-semibold mb-2">Energy Consumption</h5>
+                    <p className="text-gray-300 text-sm">AI uses 100x more electricity than traditional computing</p>
+                  </div>
+                  <div className="bg-slate-800/50 rounded-xl p-4 text-center">
+                    <Droplets className="w-8 h-8 text-blue-400 mx-auto mb-3" />
+                    <h5 className="text-white font-semibold mb-2">Water Usage</h5>
+                    <p className="text-gray-300 text-sm">Data centers consume billions of gallons annually</p>
+                  </div>
+                  <div className="bg-slate-800/50 rounded-xl p-4 text-center">
+                    <Recycle className="w-8 h-8 text-green-400 mx-auto mb-3" />
+                    <h5 className="text-white font-semibold mb-2">Navigator Action</h5>
+                    <p className="text-gray-300 text-sm">Use AI thoughtfully, not wastefully</p>
+                  </div>
+                </div>
+
+                <div className="bg-yellow-900/20 border border-yellow-500/50 rounded-lg p-4">
+                  <h5 className="text-yellow-300 font-semibold mb-2 flex items-center gap-2">
+                    <Lightbulb className="w-5 h-5" />
+                    Navigator Principle:
+                  </h5>
+                  <p className="text-yellow-100 font-medium">
+                    "Every AI query has an environmental cost. Be intentional, not impulsive."
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
         {/* Component 2: Social Proof Choice Mirroring */}
         <section className="py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
@@ -748,6 +1019,93 @@ Date: ${new Date().toLocaleDateString('en-US')}
           </div>
         </section>
 
+        {/* Impact on Creativity - Reflection Block */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-pink-900/30 to-purple-900/30 backdrop-blur-lg rounded-2xl p-8 border border-pink-500/30"
+            >
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-purple-500 rounded-2xl flex items-center justify-center flex-shrink-0">
+                  <PenTool className="w-8 h-8 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-3xl font-bold text-white mb-3">
+                    🎨 Creativity in the AI Age
+                  </h3>
+                  <p className="text-pink-200 text-lg">The double-edged sword of AI-enhanced creativity</p>
+                </div>
+              </div>
+              
+              <div className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="bg-pink-950/30 border border-pink-500/50 rounded-xl p-6">
+                    <div className="flex items-center gap-3 mb-4">
+                      <Sparkles className="w-6 h-6 text-pink-400" />
+                      <h4 className="text-pink-300 font-bold text-xl">Acceleration Benefits</h4>
+                    </div>
+                    <ul className="space-y-2 text-pink-100">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-4 h-4 text-pink-400 mt-1 flex-shrink-0" />
+                        <span>Rapid idea generation and iteration</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-4 h-4 text-pink-400 mt-1 flex-shrink-0" />
+                        <span>Breaking through creative blocks</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="w-4 h-4 text-pink-400 mt-1 flex-shrink-0" />
+                        <span>Democratizing creative tools</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-red-950/30 border border-red-500/50 rounded-xl p-6">
+                    <div className="flex items-center gap-3 mb-4">
+                      <Copy className="w-6 h-6 text-red-400" />
+                      <h4 className="text-red-300 font-bold text-xl">Risk of Uniformity</h4>
+                    </div>
+                    <ul className="space-y-2 text-red-100">
+                      <li className="flex items-start gap-2">
+                        <AlertTriangle className="w-4 h-4 text-red-400 mt-1 flex-shrink-0" />
+                        <span>"Originality loss" - everyone using same AI tools</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <AlertTriangle className="w-4 h-4 text-red-400 mt-1 flex-shrink-0" />
+                        <span>Homogenization of creative expression</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <AlertTriangle className="w-4 h-4 text-red-400 mt-1 flex-shrink-0" />
+                        <span>Dependency on algorithmic suggestions</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="bg-purple-950/30 border border-purple-500/50 rounded-xl p-6">
+                  <h4 className="text-purple-300 font-bold text-xl mb-3 flex items-center gap-2">
+                    <Brain className="w-6 h-6" />
+                    Reflection Question
+                  </h4>
+                  <p className="text-purple-100 text-lg leading-relaxed mb-4">
+                    <em>"How will you maintain your unique creative voice while leveraging AI as a tool? 
+                    What makes your human perspective irreplaceable?"</em>
+                  </p>
+                  
+                  <div className="bg-indigo-900/20 border border-indigo-500/50 rounded-lg p-4">
+                    <h5 className="text-indigo-300 font-semibold mb-2">Navigator Strategy:</h5>
+                    <p className="text-indigo-100">Use AI as a <strong>collaborator, not a replacement</strong>. Let it enhance your ideas, but keep your human intuition as the navigator.</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
         {/* Knowledge Block 4: Digital Reality and Trust */}
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-800/20">
           <div className="max-w-4xl mx-auto">
@@ -808,6 +1166,111 @@ Date: ${new Date().toLocaleDateString('en-US')}
                 </div>
               </div>
             </motion.div>
+          </div>
+        </section>
+
+        {/* Dependency & Deepfakes Warning Section */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Algorithmic Dependency */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+                className="bg-gradient-to-br from-orange-900/30 to-red-900/30 backdrop-blur-lg rounded-2xl p-8 border border-orange-500/30"
+              >
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center flex-shrink-0">
+                    <Smartphone className="w-8 h-8 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-white mb-3">
+                      ⚠️ Algorithmic Dependency
+                    </h3>
+                    <p className="text-orange-200 text-lg">The reward system trap</p>
+                  </div>
+                </div>
+                
+                <div className="space-y-4">
+                  <p className="text-orange-100 text-lg leading-relaxed">
+                    <strong>AI algorithms trigger dopamine cravings.</strong> Every like, notification, and recommendation 
+                    is designed to keep you engaged. This creates psychological dependency.
+                  </p>
+                  
+                  <div className="bg-orange-950/30 rounded-xl p-4">
+                    <div className="flex items-center gap-3 mb-3">
+                      <Clock className="w-6 h-6 text-orange-400" />
+                      <h4 className="text-orange-300 font-semibold">Warning Signs:</h4>
+                    </div>
+                    <ul className="space-y-2 text-orange-200 text-sm">
+                      <li>• Checking phone immediately after waking</li>
+                      <li>• Feeling anxiety without notifications</li>
+                      <li>• Making decisions based on AI recommendations without thinking</li>
+                      <li>• Spending more time than planned on algorithmic feeds</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-yellow-900/20 border border-yellow-500/50 rounded-lg p-4">
+                    <h5 className="text-yellow-300 font-semibold mb-2">Navigator Defense:</h5>
+                    <p className="text-yellow-100">Set intentional "Algorithm Detox" periods. Make conscious choices, not reactive ones.</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Deepfakes Enhanced */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+                className="bg-gradient-to-br from-red-900/30 to-pink-900/30 backdrop-blur-lg rounded-2xl p-8 border border-red-500/30"
+              >
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-pink-500 rounded-2xl flex items-center justify-center flex-shrink-0">
+                    <Video className="w-8 h-8 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-white mb-3">
+                      🎭 Deepfake Reality Crisis
+                    </h3>
+                    <p className="text-red-200 text-lg">When "seeing" is no longer "believing"</p>
+                  </div>
+                </div>
+                
+                <div className="space-y-4">
+                  <p className="text-red-100 text-lg leading-relaxed">
+                    <strong>Deepfake technology can now create hyper-realistic fake videos, voices, and images.</strong> 
+                    This threatens the foundation of social trust and evidence-based truth.
+                  </p>
+                  
+                  <div className="bg-red-950/30 rounded-xl p-4">
+                    <div className="flex items-center gap-3 mb-3">
+                      <AlertTriangle className="w-6 h-6 text-red-400" />
+                      <h4 className="text-red-300 font-semibold">Real Dangers:</h4>
+                    </div>
+                    <ul className="space-y-2 text-red-200 text-sm">
+                      <li>• Political manipulation and election interference</li>
+                      <li>• Celebrity impersonation and fraud</li>
+                      <li>• Evidence tampering in legal cases</li>
+                      <li>• Personal revenge and cyberbullying</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-cyan-900/20 border border-cyan-500/50 rounded-lg p-4">
+                    <h5 className="text-cyan-300 font-semibold mb-2 flex items-center gap-2">
+                      <Shield className="w-5 h-5" />
+                      Navigator Defense Protocol:
+                    </h5>
+                    <p className="text-cyan-100 text-sm">
+                      <strong>"Trust but verify"</strong> - Always cross-reference from multiple trusted sources. 
+                      Look for human verification and ask: "Who benefits from me believing this?"
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </section>
 
