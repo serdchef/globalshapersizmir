@@ -273,16 +273,16 @@ Date: ${new Date().toLocaleDateString('en-US')}
                 <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
                   AI & Ethics
                   <span className="block text-3xl md:text-4xl bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mt-4">
-                    Cognitive Sovereignty School
+                    Can Machines Think?
                   </span>
                 </h1>
 
                 <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8">
-                  Learn to become a navigator in the Intelligence Age. Explore the ethical dimensions of AI, detect biases, 
-                  and build your cognitive shield.
+                  From Alan Turing's visionary question to today's cognitive sovereignty challenge. 
+                  Build your ethical framework through hands-on exploration and critical thinking.
                 </p>
 
-                {/* Klaus Schwab Quote */}
+                {/* Alan Turing Opening Question */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -291,10 +291,10 @@ Date: ${new Date().toLocaleDateString('en-US')}
                 >
                   <Quote className="w-12 h-12 text-indigo-400 mx-auto mb-4" />
                   <blockquote className="text-lg md:text-xl text-white italic text-center leading-relaxed">
-                    "We must not enter the Intelligence Age like sleepwalkers. The greatest risk is not that machines will think like humans, 
-                    but that humans will surrender their minds to machines."
+                    "Can machines think? This is the question that sparked the artificial intelligence revolution. 
+                    Today, we're not just asking if they can think, but how they should think ethically."
                   </blockquote>
-                  <cite className="block text-indigo-300 text-center mt-4 font-semibold">— Klaus Schwab</cite>
+                  <cite className="block text-indigo-300 text-center mt-4 font-semibold">— Alan Turing's Legacy in the Ethics Age</cite>
                 </motion.div>
 
                 {/* Module Objective */}
@@ -313,6 +313,147 @@ Date: ${new Date().toLocaleDateString('en-US')}
                     interactive experiences. After each activity, you will strengthen the 5 pillars of <strong>Cognitive Sovereignty</strong>.
                   </p>
                 </motion.div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* 2. Daily Life and Tools - Information Gallery */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/20">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-white mb-4">
+                <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
+                  2. AI in Your Daily Life
+                </span>
+              </h2>
+              <p className="text-xl text-gray-300">Discover how AI already shapes your everyday decisions</p>
+            </div>
+
+            {/* Application Examples */}
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="bg-gradient-to-br from-green-900/30 to-emerald-900/30 backdrop-blur-lg rounded-2xl p-6 border border-green-500/30"
+              >
+                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-4">
+                  <Heart className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">Spotify Music AI</h3>
+                <p className="text-gray-300 mb-4">
+                  Analyzes your listening habits, mood patterns, and even time of day to suggest the perfect soundtrack for your life.
+                </p>
+                <div className="bg-green-950/30 rounded-lg p-3">
+                  <p className="text-green-200 text-sm font-medium">🎵 "Discover Weekly" uses 30+ factors to predict what you'll love</p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}
+                className="bg-gradient-to-br from-blue-900/30 to-cyan-900/30 backdrop-blur-lg rounded-2xl p-6 border border-blue-500/30"
+              >
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-4">
+                  <Search className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">Google Maps Traffic</h3>
+                <p className="text-gray-300 mb-4">
+                  Processes millions of phone locations, historical data, and real-time conditions to route you through the fastest path.
+                </p>
+                <div className="bg-blue-950/30 rounded-lg p-3">
+                  <p className="text-blue-200 text-sm font-medium">🗺️ Saves 20+ minutes daily by predicting traffic jams before they happen</p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="bg-gradient-to-br from-purple-900/30 to-pink-900/30 backdrop-blur-lg rounded-2xl p-6 border border-purple-500/30"
+              >
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-4">
+                  <Play className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">Instagram Reels</h3>
+                <p className="text-gray-300 mb-4">
+                  Studies how long you watch, what you like, share, and skip to create an addictive personalized feed.
+                </p>
+                <div className="bg-purple-950/30 rounded-lg p-3">
+                  <p className="text-purple-200 text-sm font-medium">📱 Average user spends 30+ minutes daily in the algorithm's grip</p>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Popular AI Tools */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="bg-slate-800/50 backdrop-blur-lg rounded-2xl p-8 border border-slate-600"
+            >
+              <h3 className="text-2xl font-bold text-white mb-6 text-center flex items-center justify-center gap-3">
+                <Zap className="w-8 h-8 text-yellow-400" />
+                Popular AI Tools by Category
+              </h3>
+              
+              <div className="grid md:grid-cols-3 gap-8">
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3 mb-4">
+                    <FileText className="w-6 h-6 text-blue-400" />
+                    <h4 className="text-xl font-bold text-white">Text & Learning</h4>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="bg-slate-700/50 rounded-lg p-4">
+                      <h5 className="text-white font-semibold mb-1">ChatGPT</h5>
+                      <p className="text-gray-300 text-sm">Learning enrichment and homework assistance</p>
+                    </div>
+                    <div className="bg-slate-700/50 rounded-lg p-4">
+                      <h5 className="text-white font-semibold mb-1">Claude</h5>
+                      <p className="text-gray-300 text-sm">Document summarization and analysis</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3 mb-4">
+                    <Eye className="w-6 h-6 text-purple-400" />
+                    <h4 className="text-xl font-bold text-white">Visual & Video</h4>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="bg-slate-700/50 rounded-lg p-4">
+                      <h5 className="text-white font-semibold mb-1">Sora & Runway ML</h5>
+                      <p className="text-gray-300 text-sm">AI video generation from text prompts</p>
+                    </div>
+                    <div className="bg-slate-700/50 rounded-lg p-4">
+                      <h5 className="text-white font-semibold mb-1">Midjourney</h5>
+                      <p className="text-gray-300 text-sm">Professional AI art and design creation</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3 mb-4">
+                    <Cpu className="w-6 h-6 text-green-400" />
+                    <h4 className="text-xl font-bold text-white">Coding & Education</h4>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="bg-slate-700/50 rounded-lg p-4">
+                      <h5 className="text-white font-semibold mb-1">GitHub Copilot</h5>
+                      <p className="text-gray-300 text-sm">AI pair programmer and code assistant</p>
+                    </div>
+                    <div className="bg-slate-700/50 rounded-lg p-4">
+                      <h5 className="text-white font-semibold mb-1">NotebookLM</h5>
+                      <p className="text-gray-300 text-sm">Research assistant and note organization</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -348,9 +489,18 @@ Date: ${new Date().toLocaleDateString('en-US')}
           </div>
         </section>
 
-        {/* Knowledge Block 1: How Does AI Work? */}
+        {/* 1. Module Introduction and Foundations */}
         <section className="py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-white mb-4">
+                <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                  1. Foundations: Understanding AI
+                </span>
+              </h2>
+            </div>
+            
+            {/* How AI Learns - Knowledge Card */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -360,54 +510,82 @@ Date: ${new Date().toLocaleDateString('en-US')}
             >
               <div className="flex items-start gap-4 mb-6">
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center flex-shrink-0">
-                  <Cpu className="w-8 h-8 text-white" />
+                  <Brain className="w-8 h-8 text-white" />
                 </div>
                 <div>
                   <h3 className="text-3xl font-bold text-white mb-3 flex items-center gap-2">
-                    <Info className="w-6 h-6 text-blue-400" />
-                    Knowledge Block 1: How Does AI Work?
+                    <BookOpen className="w-6 h-6 text-blue-400" />
+                    How AI Learns: The Baby Analogy
                   </h3>
-                  <p className="text-blue-200 text-lg">Understand the fundamental mechanisms of the Intelligence Age</p>
+                  <p className="text-blue-200 text-lg">Understanding machine learning through human parallels</p>
                 </div>
               </div>
               
               <div className="space-y-6 text-gray-300">
                 <p className="text-lg leading-relaxed">
-                  <strong className="text-white">AI is like a baby learning from its mistakes.</strong> It processes millions of data points 
-                  trying to achieve specific goals. Behind algorithms are real decisions made by real people.
+                  <strong className="text-white">AI is like a baby learning from mistakes.</strong> Just as a baby learns to walk by falling and getting back up, 
+                  AI systems learn by processing millions of examples and adjusting their responses based on feedback.
                 </p>
                 
-                <div className="bg-yellow-900/20 border border-yellow-500/50 rounded-xl p-6">
+                <div className="bg-cyan-950/30 border border-cyan-500/50 rounded-xl p-6">
                   <div className="flex items-center gap-3 mb-3">
-                    <AlertTriangle className="w-6 h-6 text-yellow-400" />
-                    <h4 className="text-yellow-300 font-semibold">Inequality in the Intelligence Age</h4>
+                    <Cpu className="w-6 h-6 text-cyan-400" />
+                    <h4 className="text-cyan-300 font-semibold text-xl">The Recipe Algorithm</h4>
                   </div>
-                  <p className="text-yellow-100">
-                    Lack of <strong>digital literacy</strong> is the new source of inequality in the Intelligence Age. 
-                    This module will turn you into a <strong>"Navigator"</strong> who understands technology.
+                  <p className="text-cyan-100 text-lg">
+                    Think of an algorithm as a <strong>recipe for thinking</strong>. Just like a cake recipe has step-by-step instructions, 
+                    AI algorithms follow logical steps to reach decisions. The key difference? AI can modify its own recipe based on results.
                   </p>
+                </div>
+                
+                <div className="grid md:grid-cols-3 gap-4 mt-6">
+                  <div className="bg-slate-800/50 rounded-xl p-4 text-center">
+                    <Brain className="w-8 h-8 text-blue-400 mx-auto mb-3" />
+                    <h5 className="text-white font-semibold mb-2">Data Input</h5>
+                    <p className="text-gray-300 text-sm">Like experiences feeding a growing mind</p>
+                  </div>
+                  <div className="bg-slate-800/50 rounded-xl p-4 text-center">
+                    <Zap className="w-8 h-8 text-yellow-400 mx-auto mb-3" />
+                    <h5 className="text-white font-semibold mb-2">Pattern Recognition</h5>
+                    <p className="text-gray-300 text-sm">Finding connections and rules in data</p>
+                  </div>
+                  <div className="bg-slate-800/50 rounded-xl p-4 text-center">
+                    <Target className="w-8 h-8 text-green-400 mx-auto mb-3" />
+                    <h5 className="text-white font-semibold mb-2">Decision Making</h5>
+                    <p className="text-gray-300 text-sm">Applying learned patterns to new situations</p>
+                  </div>
                 </div>
               </div>
             </motion.div>
           </div>
         </section>
 
-        {/* Component 1: Interactive Hiring Algorithm */}
+        {/* 3. Interactive Experience - Laboratory Area */}
         <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/30">
           <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-white mb-4">
+                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  3. Interactive Laboratory: Bias Detection
+                </span>
+              </h2>
+              <p className="text-xl text-gray-300">
+                Experience algorithmic decision-making firsthand
+              </p>
+            </div>
+
+            {/* Hiring Algorithm Simulation */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-center mb-12"
+              className="mb-8"
             >
-              <h2 className="text-4xl font-bold text-white mb-4">
-                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  Design a Hiring Algorithm
-                </span>
-              </h2>
-              <p className="text-xl text-gray-300">
+              <h3 className="text-2xl font-bold text-white mb-6 text-center">
+                🏢 Design a Hiring Algorithm
+              </h3>
+              <p className="text-gray-300 text-center mb-8">
                 Discover who the algorithm sees as the 'ideal candidate' by changing the weights.
               </p>
             </motion.div>
@@ -859,7 +1037,7 @@ Date: ${new Date().toLocaleDateString('en-US')}
           </div>
         </section>
 
-        {/* Component 4: Ethics Journey Tracker */}
+        {/* 5. Conclusion and Manifesto - Cognitive Shield Building */}
         <section className="py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -871,18 +1049,18 @@ Date: ${new Date().toLocaleDateString('en-US')}
             >
               <h2 className="text-4xl font-bold text-white mb-4">
                 <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-                  Build Your Cognitive Shield
+                  5. Build Your Cognitive Shield
                 </span>
               </h2>
               <p className="text-xl text-gray-300">
-                Create your ethical manifesto and strengthen your Navigator identity
+                Transform insights into action - Create your ethical framework for the AI age
               </p>
             </motion.div>
 
             <div className="space-y-8">
               <div className="bg-slate-800/50 backdrop-blur-lg rounded-2xl p-8 border border-indigo-500/30">
                 <h3 className="text-xl font-bold text-white mb-4">
-                  What ethical rule is most needed in tomorrow's AI world?
+                  What ethical principles will guide you in tomorrow's AI world?
                 </h3>
                 <textarea
                   value={ethicsJourney.notes}
@@ -896,16 +1074,16 @@ Date: ${new Date().toLocaleDateString('en-US')}
                   disabled={!ethicsJourney.notes.trim()}
                   className="mt-4 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-600 disabled:cursor-not-allowed text-white rounded-xl transition-all flex items-center gap-2"
                 >
-                  <Target className="w-5 h-5" />
-                  Add to My Manifesto
+                  <Shield className="w-5 h-5" />
+                  Add to My Cognitive Shield
                 </button>
               </div>
 
               {ethicsJourney.manifesto.length > 0 && (
                 <div className="bg-slate-800/50 backdrop-blur-lg rounded-2xl p-8 border border-purple-500/30">
                   <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                    <FileText className="w-6 h-6" />
-                    My Ethical Manifesto
+                    <Shield className="w-6 h-6" />
+                    My Cognitive Shield
                   </h3>
                   
                   <div className="space-y-4 mb-6">
@@ -932,7 +1110,7 @@ Date: ${new Date().toLocaleDateString('en-US')}
                     className="w-full p-4 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white rounded-xl transition-all flex items-center justify-center gap-3 text-lg font-semibold"
                   >
                     <Download className="w-6 h-6" />
-                    Download My Ethical Manifesto (PDF)
+                    Download My Cognitive Shield (PDF)
                   </motion.button>
                 </div>
               )}
@@ -940,7 +1118,7 @@ Date: ${new Date().toLocaleDateString('en-US')}
           </div>
         </section>
 
-        {/* Next Steps Section */}
+        {/* Final Message & Klaus Schwab Quote */}
         <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/30">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
@@ -949,11 +1127,32 @@ Date: ${new Date().toLocaleDateString('en-US')}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl font-bold text-white mb-8">
-                <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                  Continue Your Cognitive Sovereignty Journey
-                </span>
-              </h2>
+              {/* Klaus Schwab Final Quote */}
+              <div className="bg-gradient-to-r from-indigo-900/50 to-purple-900/50 backdrop-blur-lg rounded-2xl p-8 border border-indigo-500/30 mb-8">
+                <Quote className="w-12 h-12 text-indigo-400 mx-auto mb-4" />
+                <blockquote className="text-lg md:text-xl text-white italic text-center leading-relaxed mb-4">
+                  "We must not surrender the human mind to machines. The future belongs to those who can think 
+                  critically about the intelligence around them."
+                </blockquote>
+                <cite className="block text-indigo-300 text-center font-semibold">— Klaus Schwab's Vision for Cognitive Sovereignty</cite>
+              </div>
+
+              {/* Final Call to Action */}
+              <div className="bg-gradient-to-br from-purple-900/30 to-pink-900/30 backdrop-blur-lg rounded-2xl p-8 border border-purple-500/30 mb-8">
+                <h2 className="text-3xl font-bold text-white mb-4">
+                  🛡️ Don't Get Lost in the AI World
+                </h2>
+                <p className="text-xl text-gray-300 mb-6 leading-relaxed">
+                  <strong className="text-white">Be the one who controls it.</strong><br/>
+                  You now have the tools to navigate the Intelligence Age with wisdom, 
+                  ethics, and cognitive sovereignty.
+                </p>
+                <div className="flex items-center justify-center gap-4 text-purple-300">
+                  <Brain className="w-8 h-8" />
+                  <span className="text-lg font-semibold">Navigator Status: ACTIVATED</span>
+                  <ShieldCheck className="w-8 h-8" />
+                </div>
+              </div>
               
               <motion.a
                 href="/mindcraft"
@@ -962,7 +1161,7 @@ Date: ${new Date().toLocaleDateString('en-US')}
                 className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all"
               >
                 <Zap className="w-6 h-6" />
-                Explore Other Modules
+                Continue Your Navigator Journey
                 <ArrowRight className="w-5 h-5" />
               </motion.a>
             </motion.div>
