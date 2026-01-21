@@ -764,8 +764,124 @@ Date: ${new Date().toLocaleDateString('en-US')}
           </div>
         </section>
 
-        {/* Knowledge Block 2: Algorithmic Bias and Manipulation */}
+        {/* Knowledge Block 1: What is Artificial Intelligence? */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-indigo-900/30 to-blue-900/30 backdrop-blur-lg rounded-2xl p-8 border border-indigo-500/30"
+            >
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-12 h-12 rounded-lg bg-indigo-500/20 flex items-center justify-center">
+                  <Brain className="w-6 h-6 text-indigo-400" />
+                </div>
+                <div>
+                  <h2 className="text-3xl font-bold text-white mb-2">
+                    What is Artificial Intelligence?
+                  </h2>
+                  <p className="text-indigo-300 text-lg">
+                    Understanding the foundation of modern AI systems
+                  </p>
+                </div>
+              </div>
+              
+              <div className="space-y-6 text-gray-300">
+                <p className="text-lg leading-relaxed">
+                  Artificial Intelligence (AI) refers to computer systems that can perform tasks typically requiring human intelligence. 
+                  Modern AI works through <strong className="text-white">machine learning</strong> - algorithms that learn patterns from vast amounts of data.
+                </p>
+                
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="bg-indigo-950/30 border border-indigo-500/50 rounded-xl p-6">
+                    <h3 className="text-xl font-semibold text-white mb-3">🧠 Machine Learning</h3>
+                    <p className="text-gray-300">Systems that improve automatically through experience, finding patterns in data without explicit programming.</p>
+                  </div>
+                  <div className="bg-indigo-950/30 border border-indigo-500/50 rounded-xl p-6">
+                    <h3 className="text-xl font-semibold text-white mb-3">🤖 Deep Learning</h3>
+                    <p className="text-gray-300">Neural networks with multiple layers that can process complex data like images, text, and speech.</p>
+                  </div>
+                </div>
+                
+                <div className="bg-indigo-950/30 border border-indigo-500/50 rounded-xl p-6">
+                  <h3 className="text-xl font-semibold text-white mb-3">⚡ Key Insight</h3>
+                  <p className="text-gray-300">
+                    AI systems don't "think" like humans - they recognize patterns and make predictions based on training data. 
+                    This fundamental difference is crucial for understanding AI's capabilities and limitations.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Knowledge Block 2: Environmental Impact - Water Consumption */}
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-800/20">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-teal-900/30 to-cyan-900/30 backdrop-blur-lg rounded-2xl p-8 border border-teal-500/30"
+            >
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-12 h-12 rounded-lg bg-teal-500/20 flex items-center justify-center">
+                  <Droplets className="w-6 h-6 text-teal-400" />
+                </div>
+                <div>
+                  <h2 className="text-3xl font-bold text-white mb-2">
+                    The Hidden Water Cost of AI
+                  </h2>
+                  <p className="text-teal-300 text-lg">
+                    Environmental impact of training and running AI models
+                  </p>
+                </div>
+              </div>
+              
+              <div className="bg-teal-950/30 border border-teal-500/50 rounded-xl p-6 mb-6">
+                <h3 className="text-xl font-semibold text-white mb-3">💧 Shocking Statistics</h3>
+                <div className="grid md:grid-cols-3 gap-4 text-center">
+                  <div className="bg-teal-900/30 rounded-lg p-4">
+                    <div className="text-2xl font-bold text-teal-400">700,000L</div>
+                    <div className="text-sm text-gray-300">Water used to train GPT-3</div>
+                  </div>
+                  <div className="bg-teal-900/30 rounded-lg p-4">
+                    <div className="text-2xl font-bold text-teal-400">500mL</div>
+                    <div className="text-sm text-gray-300">Per 20-50 ChatGPT queries</div>
+                  </div>
+                  <div className="bg-teal-900/30 rounded-lg p-4">
+                    <div className="text-2xl font-bold text-teal-400">1.7B L</div>
+                    <div className="text-sm text-gray-300">Google's AI water use (2021)</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-6 text-gray-300">
+                <p className="text-lg leading-relaxed">
+                  AI data centers require massive amounts of water for cooling. Training large language models like GPT-4 
+                  consumes water equivalent to producing hundreds of cars. Every AI query has an environmental footprint.
+                </p>
+                
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="bg-teal-950/30 border border-teal-500/50 rounded-xl p-6">
+                    <h3 className="text-xl font-semibold text-white mb-3">🏭 Data Center Cooling</h3>
+                    <p className="text-gray-300">Servers generate heat that requires water-based cooling systems, especially for intensive AI computations.</p>
+                  </div>
+                  <div className="bg-teal-950/30 border border-teal-500/50 rounded-xl p-6">
+                    <h3 className="text-xl font-semibold text-white mb-3">🌍 Global Impact</h3>
+                    <p className="text-gray-300">As AI adoption grows, water consumption for tech infrastructure is becoming a significant environmental concern.</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Knowledge Block 3: Algorithmic Bias and Manipulation */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -816,8 +932,192 @@ Date: ${new Date().toLocaleDateString('en-US')}
           </div>
         </section>
 
-        {/* Knowledge Block 3: Moral Choices and Responsibility */}
+        {/* Knowledge Block 4: Digital Addiction and Dependency Risk */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-800/20">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-orange-900/30 to-red-900/30 backdrop-blur-lg rounded-2xl p-8 border border-orange-500/30"
+            >
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-12 h-12 rounded-lg bg-orange-500/20 flex items-center justify-center">
+                  <AlertTriangle className="w-6 h-6 text-orange-400" />
+                </div>
+                <div>
+                  <h2 className="text-3xl font-bold text-white mb-2">
+                    Digital Dependency: The AI Addiction Risk
+                  </h2>
+                  <p className="text-orange-300 text-lg">
+                    Understanding psychological dependence on AI systems
+                  </p>
+                </div>
+              </div>
+              
+              <div className="bg-orange-950/30 border border-orange-500/50 rounded-xl p-6 mb-6">
+                <h3 className="text-xl font-semibold text-white mb-3">⚠️ Warning Signs</h3>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2 text-orange-300">
+                      <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
+                      <span>Constant AI assistance seeking</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-orange-300">
+                      <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
+                      <span>Anxiety without AI access</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-orange-300">
+                      <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
+                      <span>Declining independent thinking</span>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2 text-orange-300">
+                      <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
+                      <span>Reduced problem-solving skills</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-orange-300">
+                      <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
+                      <span>Social interaction replacement</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-orange-300">
+                      <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
+                      <span>Loss of cognitive autonomy</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-6 text-gray-300">
+                <p className="text-lg leading-relaxed">
+                  AI systems are designed to be helpful and engaging, but this can create psychological dependency. 
+                  When we rely too heavily on AI for thinking, decision-making, and creativity, we risk 
+                  <strong className="text-white"> cognitive atrophy</strong> - the weakening of our mental abilities.
+                </p>
+                
+                <div className="grid md:grid-cols-3 gap-4">
+                  <div className="bg-orange-950/30 border border-orange-500/50 rounded-xl p-6">
+                    <h3 className="text-lg font-semibold text-white mb-2">🧠 Cognitive Load</h3>
+                    <p className="text-sm text-gray-300">AI reduces mental effort, potentially weakening our thinking muscles over time.</p>
+                  </div>
+                  <div className="bg-orange-950/30 border border-orange-500/50 rounded-xl p-6">
+                    <h3 className="text-lg font-semibold text-white mb-2">🎯 Instant Gratification</h3>
+                    <p className="text-sm text-gray-300">AI provides immediate answers, reducing tolerance for uncertainty and deep thinking.</p>
+                  </div>
+                  <div className="bg-orange-950/30 border border-orange-500/50 rounded-xl p-6">
+                    <h3 className="text-lg font-semibold text-white mb-2">🔄 Feedback Loops</h3>
+                    <p className="text-sm text-gray-300">The more we use AI, the more we feel we need it - creating dependency cycles.</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Knowledge Block 5: Impact on Human Creativity */}
         <section className="py-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-pink-900/30 to-purple-900/30 backdrop-blur-lg rounded-2xl p-8 border border-pink-500/30"
+            >
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-12 h-12 rounded-lg bg-pink-500/20 flex items-center justify-center">
+                  <Lightbulb className="w-6 h-6 text-pink-400" />
+                </div>
+                <div>
+                  <h2 className="text-3xl font-bold text-white mb-2">
+                    AI's Impact on Human Creativity
+                  </h2>
+                  <p className="text-pink-300 text-lg">
+                    The double-edged sword of artificial creative assistance
+                  </p>
+                </div>
+              </div>
+              
+              <div className="space-y-6 text-gray-300">
+                <p className="text-lg leading-relaxed">
+                  AI is transforming creativity, offering both unprecedented opportunities and concerning challenges. 
+                  While it democratizes creative tools, it also raises questions about 
+                  <strong className="text-white"> authenticity, originality, and human creative development</strong>.
+                </p>
+                
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="bg-green-950/30 border border-green-500/50 rounded-xl p-6">
+                    <h3 className="text-xl font-semibold text-green-400 mb-4">✅ Positive Impacts</h3>
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 bg-green-400 rounded-full mt-2"></div>
+                        <div>
+                          <strong className="text-white">Creative Democratization:</strong>
+                          <p className="text-sm text-gray-300 mt-1">AI tools make creative expression accessible to non-artists</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 bg-green-400 rounded-full mt-2"></div>
+                        <div>
+                          <strong className="text-white">Inspiration Catalyst:</strong>
+                          <p className="text-sm text-gray-300 mt-1">AI can spark new ideas and creative directions</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 bg-green-400 rounded-full mt-2"></div>
+                        <div>
+                          <strong className="text-white">Efficiency Boost:</strong>
+                          <p className="text-sm text-gray-300 mt-1">Automating routine tasks frees time for pure creativity</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-red-950/30 border border-red-500/50 rounded-xl p-6">
+                    <h3 className="text-xl font-semibold text-red-400 mb-4">⚠️ Concerning Risks</h3>
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 bg-red-400 rounded-full mt-2"></div>
+                        <div>
+                          <strong className="text-white">Creative Muscle Atrophy:</strong>
+                          <p className="text-sm text-gray-300 mt-1">Over-reliance may weaken natural creative abilities</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 bg-red-400 rounded-full mt-2"></div>
+                        <div>
+                          <strong className="text-white">Homogenization:</strong>
+                          <p className="text-sm text-gray-300 mt-1">AI training data may lead to similar, predictable outputs</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 bg-red-400 rounded-full mt-2"></div>
+                        <div>
+                          <strong className="text-white">Authenticity Questions:</strong>
+                          <p className="text-sm text-gray-300 mt-1">Blurred lines between human and machine creativity</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-purple-950/30 border border-purple-500/50 rounded-xl p-6">
+                  <h3 className="text-xl font-semibold text-white mb-3">🎨 The Creative Balance</h3>
+                  <p className="text-gray-300">
+                    The key is using AI as a <strong className="text-white">creative partner, not a replacement</strong>. 
+                    Maintain your creative independence by developing your own voice, practicing without AI assistance, 
+                    and viewing AI as one tool among many in your creative toolkit.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Knowledge Block 6: Moral Choices and Responsibility */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-800/20">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -1033,8 +1333,8 @@ Date: ${new Date().toLocaleDateString('en-US')}
           </div>
         </section>
 
-        {/* Knowledge Block 4: Digital Reality and Trust */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-800/20">
+        {/* Knowledge Block 7: Digital Reality and Trust */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
