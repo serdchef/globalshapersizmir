@@ -119,11 +119,11 @@ export default function AIEthicsPage() {
   }, [ethicsJourney])
 
   const biasRadarQuestions = [
-    { label: "Mühendis", personas: ["Person A (Genç kadın)", "Person B (Yaşlı erkek)"] },
-    { label: "Bakıcı", personas: ["Person A (Genç erkek)", "Person B (Orta yaşlı kadın)"] },
-    { label: "Lider", personas: ["Person A (Genç kadın)", "Person B (Orta yaşlı erkek)"] },
-    { label: "Öğretmen", personas: ["Person A (Genç erkek)", "Person B (Yaşlı kadın)"] },
-    { label: "Doktor", personas: ["Person A (Orta yaşlı kadın)", "Person B (Genç erkek)"] }
+    { label: "Engineer", personas: ["Person A (Young woman)", "Person B (Elderly man)"] },
+    { label: "Caregiver", personas: ["Person A (Young man)", "Person B (Middle-aged woman)"] },
+    { label: "Leader", personas: ["Person A (Young woman)", "Person B (Middle-aged man)"] },
+    { label: "Teacher", personas: ["Person A (Young man)", "Person B (Elderly woman)"] },
+    { label: "Doctor", personas: ["Person A (Middle-aged woman)", "Person B (Young man)"] }
   ]
 
   const handleBiasRadarChoice = (choice: string) => {
@@ -158,8 +158,8 @@ export default function AIEthicsPage() {
 
   const calculateBiasRadar = () => {
     // Simple bias calculation based on choices
-    const genderBias = biasRadar.userChoices.filter(choice => choice.includes('erkek')).length
-    const ageBias = biasRadar.userChoices.filter(choice => choice.includes('Genç')).length
+    const genderBias = biasRadar.userChoices.filter(choice => choice.includes('man')).length
+    const ageBias = biasRadar.userChoices.filter(choice => choice.includes('Young')).length
     
     return {
       genderBias: (genderBias / biasRadarQuestions.length) * 100,
@@ -170,23 +170,23 @@ export default function AIEthicsPage() {
 
   const generatePDFManifesto = () => {
     const manifestoContent = `
-# Etik Manifestom - ${new Date().toLocaleDateString('tr-TR')}
+# My Ethics Manifesto - ${new Date().toLocaleDateString('en-US')}
 
-## Geleceğin AI dünyasında ihtiyaç duyduğum etik kurallar:
+## Ethical rules I need in tomorrow's AI world:
 ${ethicsJourney.notes}
 
-## Kişisel AI Kullanım Prensipllerim:
+## My Personal AI Usage Principles:
 ${ethicsJourney.manifesto.map((principle, i) => `${i + 1}. ${principle}`).join('\n')}
 
-## Bu manifestoyu oluşturan: Mindcraft AI & Ethics Laboratory
-Tarih: ${new Date().toLocaleDateString('tr-TR')}
+## Created by: Mindcraft AI & Ethics Laboratory
+Date: ${new Date().toLocaleDateString('en-US')}
     `
     
     const blob = new Blob([manifestoContent], { type: 'text/plain;charset=utf-8' })
     const url = URL.createObjectURL(blob)
     const link = document.createElement('a')
     link.href = url
-    link.download = 'etik-manifestom.txt'
+    link.download = 'my-ethics-manifesto.txt'
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
@@ -215,26 +215,26 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
   const interactiveLabs = [
     {
       id: 'hiring-algorithm',
-      title: 'İşe Alım Algoritmanı Tasarla',
-      description: 'Ağırlıkları değiştirerek algoritmanın kimi \'ideal aday\' olarak gördüğünü keşfet.',
+      title: 'Design a Hiring Algorithm',
+      description: 'Discover who the algorithm sees as the \'ideal candidate\' by changing the weights.',
       component: 'HiringAlgorithm'
     },
     {
       id: 'moral-choice',
-      title: 'Ahlaki Seçim Aynası',
-      description: 'Kararlarını analiz et ve toplumsal tercihlerle karşılaştır.',
+      title: 'Moral Choice Mirror',
+      description: 'Analyze your decisions and compare them with societal preferences.',
       component: 'MoralChoice'
     },
     {
       id: 'bias-radar',
-      title: 'Önyargı Radar Oyunu',
-      description: 'Bilinçaltı önyargılarını keşfet ve AI\'ın nasıl öğrendiğini anla.',
+      title: 'Bias Radar Game',
+      description: 'Discover your subconscious biases and understand how AI learns.',
       component: 'BiasRadar'
     },
     {
       id: 'ethics-journey',
-      title: 'Etik Yolculuk Takipçisi',
-      description: 'Kişisel etik manifestonu oluştur ve PDF olarak indir.',
+      title: 'Ethics Journey Tracker',
+      description: 'Create your personal ethical manifesto and download as PDF.',
       component: 'EthicsJourney'
     }
   ]
@@ -273,13 +273,13 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
                 <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
                   AI & Ethics
                   <span className="block text-3xl md:text-4xl bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mt-4">
-                    Bilişsel Egemenlik Okulu
+                    Cognitive Sovereignty School
                   </span>
                 </h1>
 
                 <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8">
-                  Zeka Çağında navigatör olmayı öğren. AI'ın etik boyutlarını keşfet, önyargıları tespit et, 
-                  ve kendi bilişsel kalkanını oluştur.
+                  Learn to become a navigator in the Intelligence Age. Explore the ethical dimensions of AI, detect biases, 
+                  and build your cognitive shield.
                 </p>
 
                 {/* Klaus Schwab Quote */}
@@ -291,8 +291,8 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
                 >
                   <Quote className="w-12 h-12 text-indigo-400 mx-auto mb-4" />
                   <blockquote className="text-lg md:text-xl text-white italic text-center leading-relaxed">
-                    "Zeka Çağına uyurgezer gibi girmemeliyiz. En büyük risk, makinenin insan gibi düşünmesi değil, 
-                    insanın zihnini makineye teslim etmesidir."
+                    "We must not enter the Intelligence Age like sleepwalkers. The greatest risk is not that machines will think like humans, 
+                    but that humans will surrender their minds to machines."
                   </blockquote>
                   <cite className="block text-indigo-300 text-center mt-4 font-semibold">— Klaus Schwab</cite>
                 </motion.div>
@@ -306,12 +306,11 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
                 >
                   <div className="flex items-center justify-center gap-3 mb-4">
                     <BookOpen className="w-8 h-8 text-cyan-400" />
-                    <h3 className="text-2xl font-bold text-white">Modül Hedefleri</h3>
+                    <h3 className="text-2xl font-bold text-white">Module Objectives</h3>
                   </div>
                   <p className="text-gray-300 text-lg leading-relaxed">
-                    Bu modül AI tarihi, çalışma prensipleri, algoritmik önyargı ve veri güvenliği konularını 
-                    interaktif deneyimlerle öğretir. Her aktivite sonrası <strong>Bilişsel Egemenlik</strong>'in 
-                    5 direğini pekiştireceksiniz.
+                    This module teaches AI history, working principles, algorithmic bias, and data security through 
+                    interactive experiences. After each activity, you will strengthen the 5 pillars of <strong>Cognitive Sovereignty</strong>.
                   </p>
                 </motion.div>
               </div>
@@ -325,7 +324,7 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-white mb-4">
                 <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                  Öğrenme Hedefleri
+                  Learning Objectives
                 </span>
               </h2>
             </div>
@@ -349,7 +348,7 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
           </div>
         </section>
 
-        {/* Knowledge Block 1: AI Nasıl Çalışır? */}
+        {/* Knowledge Block 1: How Does AI Work? */}
         <section className="py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -366,26 +365,26 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
                 <div>
                   <h3 className="text-3xl font-bold text-white mb-3 flex items-center gap-2">
                     <Info className="w-6 h-6 text-blue-400" />
-                    Bilgi Bloğu 1: AI Nasıl Çalışır?
+                    Knowledge Block 1: How Does AI Work?
                   </h3>
-                  <p className="text-blue-200 text-lg">Zeka Çağının temel mekanizmalarını anla</p>
+                  <p className="text-blue-200 text-lg">Understand the fundamental mechanisms of the Intelligence Age</p>
                 </div>
               </div>
               
               <div className="space-y-6 text-gray-300">
                 <p className="text-lg leading-relaxed">
-                  <strong className="text-white">AI, hatalarından öğrenen bir bebek gibidir.</strong> Milyonlarca veri noktasını işleyerek 
-                  belirli hedeflere ulaşmaya çalışır. Algoritmaların arkasında gerçek insanların aldığı kararlar vardır.
+                  <strong className="text-white">AI is like a baby learning from its mistakes.</strong> It processes millions of data points 
+                  trying to achieve specific goals. Behind algorithms are real decisions made by real people.
                 </p>
                 
                 <div className="bg-yellow-900/20 border border-yellow-500/50 rounded-xl p-6">
                   <div className="flex items-center gap-3 mb-3">
                     <AlertTriangle className="w-6 h-6 text-yellow-400" />
-                    <h4 className="text-yellow-300 font-semibold">Zeka Çağında Eşitsizlik</h4>
+                    <h4 className="text-yellow-300 font-semibold">Inequality in the Intelligence Age</h4>
                   </div>
                   <p className="text-yellow-100">
-                    <strong>Dijital okur-yazarlık</strong> eksikliği, Zeka Çağının yeni eşitsizlik kaynağıdır. 
-                    Bu modül, seni teknolojiyi anlayan bir <strong>"Navigator"</strong> haline getirecek.
+                    Lack of <strong>digital literacy</strong> is the new source of inequality in the Intelligence Age. 
+                    This module will turn you into a <strong>"Navigator"</strong> who understands technology.
                   </p>
                 </div>
               </div>
@@ -405,11 +404,11 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
             >
               <h2 className="text-4xl font-bold text-white mb-4">
                 <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  İşe Alım Algoritmanı Tasarla
+                  Design a Hiring Algorithm
                 </span>
               </h2>
               <p className="text-xl text-gray-300">
-                Ağırlıkları değiştirerek algoritmanın kimi 'ideal aday' olarak gördüğünü keşfet.
+                Discover who the algorithm sees as the 'ideal candidate' by changing the weights.
               </p>
             </motion.div>
 
@@ -420,7 +419,7 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
                   <div>
                     <label className="flex items-center gap-3 text-white text-lg mb-3">
                       <Sliders className="w-5 h-5" />
-                      Deneyim Ağırlığı: {hiringAlgorithm.experience}%
+                      Experience Weight: {hiringAlgorithm.experience}%
                     </label>
                     <input
                       type="range"
@@ -435,7 +434,7 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
                   <div>
                     <label className="flex items-center gap-3 text-white text-lg mb-3">
                       <Sliders className="w-5 h-5" />
-                      Yaş Ağırlığı: {hiringAlgorithm.age}%
+                      Age Weight: {hiringAlgorithm.age}%
                     </label>
                     <input
                       type="range"
@@ -455,7 +454,7 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
                         onChange={(e) => setHiringAlgorithm(prev => ({ ...prev, genderBalance: e.target.checked }))}
                         className="w-5 h-5 text-purple-600"
                       />
-                      Cinsiyet Dengesi Kontrolü
+                      Gender Balance Control
                     </label>
                   </div>
                 </div>
@@ -465,11 +464,11 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
                   <div className="bg-slate-700/50 rounded-xl p-6">
                     <h4 className="text-white text-lg mb-4 flex items-center gap-2">
                       <BarChart3 className="w-5 h-5" />
-                      Çeşitlilik vs. Verimlilik Metre
+                      Diversity vs. Efficiency Meter
                     </h4>
                     <div className="space-y-3">
                       <div className="flex justify-between text-sm">
-                        <span className="text-gray-300">Çeşitlilik Puanı</span>
+                        <span className="text-gray-300">Diversity Score</span>
                         <span className="text-cyan-400">{diversityScore}%</span>
                       </div>
                       <div className="w-full bg-slate-600 rounded-full h-3">
@@ -494,9 +493,9 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
                         <div className="flex items-start gap-3">
                           <AlertTriangle className="w-6 h-6 text-red-400 flex-shrink-0 mt-1" />
                           <div>
-                            <h5 className="text-red-400 font-semibold mb-1">Dikkat!</h5>
+                            <h5 className="text-red-400 font-semibold mb-1">Warning!</h5>
                             <p className="text-red-200 text-sm">
-                              Algoritman yaş ayrımcılığı (ageism) yapmaya başladı. Deneyimli adaylar eleniyor!
+                              Your algorithm has started practicing ageism. Experienced candidates are being eliminated!
                             </p>
                           </div>
                         </div>
@@ -509,7 +508,7 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
           </div>
         </section>
 
-        {/* Knowledge Block 2: Algoritmik Önyargı ve Manipülasyon */}
+        {/* Knowledge Block 2: Algorithmic Bias and Manipulation */}
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-800/20">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -525,43 +524,43 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
                 </div>
                 <div>
                   <h3 className="text-3xl font-bold text-white mb-3">
-                    📊 Derin Analiz: Algoritmik Önyargı
+                    📊 Deep Analysis: Algorithmic Bias
                   </h3>
-                  <p className="text-red-200 text-lg">Şimdi deneyimlediğin simülasyonu analiz edelim</p>
+                  <p className="text-red-200 text-lg">Let's analyze the simulation you just experienced</p>
                 </div>
               </div>
               
               <div className="bg-red-950/30 border border-red-500/50 rounded-xl p-6 mb-6">
                 <h4 className="text-red-300 font-bold text-xl mb-3 flex items-center gap-2">
                   <Search className="w-6 h-6" />
-                  Kritik Gerçek
+                  Critical Reality
                 </h4>
                 <p className="text-red-100 text-lg leading-relaxed">
-                  <strong>Algoritmalar tarafsız değildir.</strong> Verideki önyargılar, AI tarafından büyütülür ve 
-                  işe alım gibi kritik süreçlerde ayrımcılığa yol açabilir. Az önce deneyimlediğin sliderlar, 
-                  gerçek dünyadaki AI kararlarının nasıl manipüle edilebileceğini gösteriyor.
+                  <strong>Algorithms are not neutral.</strong> Biases in data are amplified by AI and can lead to 
+                  discrimination in critical processes like hiring. The sliders you just experienced show how real-world 
+                  AI decisions can be manipulated.
                 </p>
               </div>
 
               <div className="grid md:grid-cols-3 gap-4">
                 <div className="bg-slate-800/50 rounded-xl p-4">
-                  <h5 className="text-yellow-400 font-semibold mb-2">Veri Önyargısı</h5>
-                  <p className="text-gray-300 text-sm">Eğitim verisindeki önyargılar AI'a aktarılır</p>
+                  <h5 className="text-yellow-400 font-semibold mb-2">Data Bias</h5>
+                  <p className="text-gray-300 text-sm">Biases in training data are transferred to AI</p>
                 </div>
                 <div className="bg-slate-800/50 rounded-xl p-4">
-                  <h5 className="text-orange-400 font-semibold mb-2">Algoritma Manipülasyonu</h5>
-                  <p className="text-gray-300 text-sm">Ağırlıklar önyargıları pekiştirebilir</p>
+                  <h5 className="text-orange-400 font-semibold mb-2">Algorithm Manipulation</h5>
+                  <p className="text-gray-300 text-sm">Weights can reinforce biases</p>
                 </div>
                 <div className="bg-slate-800/50 rounded-xl p-4">
-                  <h5 className="text-cyan-400 font-semibold mb-2">Sistem Şeffaflığı</h5>
-                  <p className="text-gray-300 text-sm">Karar süreçleri genellikle gizlidir</p>
+                  <h5 className="text-cyan-400 font-semibold mb-2">System Transparency</h5>
+                  <p className="text-gray-300 text-sm">Decision processes are usually hidden</p>
                 </div>
               </div>
             </motion.div>
           </div>
         </section>
 
-        {/* Knowledge Block 3: Ahlaki Seçimler ve Sorumluluk */}
+        {/* Knowledge Block 3: Moral Choices and Responsibility */}
         <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -577,31 +576,31 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
                 </div>
                 <div>
                   <h3 className="text-3xl font-bold text-white mb-3">
-                    🛡️ Aktif Etik Teorisi
+                    🛡️ Active Ethics Theory
                   </h3>
-                  <p className="text-green-200 text-lg">Algoritmik manipülasyona karşı bilişsel kalkan inşa et</p>
+                  <p className="text-green-200 text-lg">Build a cognitive shield against algorithmic manipulation</p>
                 </div>
               </div>
               
               <div className="space-y-6">
                 <div className="bg-green-950/30 border border-green-500/50 rounded-xl p-6">
-                  <h4 className="text-green-300 font-bold text-xl mb-3">Pasif Kabulden Aktif Denetime</h4>
+                  <h4 className="text-green-300 font-bold text-xl mb-3">From Passive Acceptance to Active Control</h4>
                   <p className="text-green-100 text-lg leading-relaxed">
-                    Teknolojinin kararlarını sorgulamadan kabul etmek yerine, <strong>"Kritik Denetim"</strong> 
-                    yaparak bilişsel egemenliğini koru. Her algoritma kararının arkasında insan tercihi vardır.
+                    Instead of accepting technology's decisions without question, maintain your cognitive sovereignty through 
+                    <strong>"Critical Auditing"</strong>. Behind every algorithm decision lies human choice.
                   </p>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="bg-slate-800/50 rounded-xl p-4">
                     <Lightbulb className="w-8 h-8 text-yellow-400 mb-3" />
-                    <h5 className="text-white font-semibold mb-2">Sorgulayıcı Zihniyet</h5>
-                    <p className="text-gray-300 text-sm">Her AI önerisini "Neden?" sorusuyla karşıla</p>
+                    <h5 className="text-white font-semibold mb-2">Questioning Mindset</h5>
+                    <p className="text-gray-300 text-sm">Meet every AI recommendation with the question "Why?"</p>
                   </div>
                   <div className="bg-slate-800/50 rounded-xl p-4">
                     <Shield className="w-8 h-8 text-blue-400 mb-3" />
-                    <h5 className="text-white font-semibold mb-2">Bilişsel Egemenlik</h5>
-                    <p className="text-gray-300 text-sm">Kararlarının kontrolünü makinelere bırakma</p>
+                    <h5 className="text-white font-semibold mb-2">Cognitive Sovereignty</h5>
+                    <p className="text-gray-300 text-sm">Don't surrender control of your decisions to machines</p>
                   </div>
                 </div>
               </div>
@@ -621,17 +620,17 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
             >
               <h2 className="text-4xl font-bold text-white mb-4">
                 <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
-                  Ahlaki Seçim Aynası
+                  Moral Choice Mirror
                 </span>
               </h2>
               <p className="text-xl text-gray-300">
-                Kararlarını analiz et ve toplumsal tercihlerle karşılaştır.
+                Analyze your decisions and compare them with societal preferences.
               </p>
             </motion.div>
 
             <div className="bg-slate-800/50 backdrop-blur-lg rounded-2xl p-8 border border-green-500/30">
               <h3 className="text-2xl font-bold text-white mb-6 text-center">
-                Frenleri patlayan otonom araç, yaşlı birini mi yoksa bir çocuğu mu kurtarmalı?
+                An autonomous car with failed brakes: should it save an elderly person or a child?
               </h3>
 
               {!carDilemmaChoice ? (
@@ -646,8 +645,8 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
                     }}
                     className="p-6 bg-green-600/20 hover:bg-green-600/30 border border-green-500/50 rounded-xl transition-all"
                   >
-                    <h4 className="text-white font-semibold mb-2">Çocuğu Kurtarmalı</h4>
-                    <p className="text-gray-300 text-sm">Genç yaşamı önceliklendirme</p>
+                    <h4 className="text-white font-semibold mb-2">Should Save the Child</h4>
+                    <p className="text-gray-300 text-sm">Prioritizing young life</p>
                   </motion.button>
 
                   <motion.button
@@ -660,15 +659,15 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
                     }}
                     className="p-6 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/50 rounded-xl transition-all"
                   >
-                    <h4 className="text-white font-semibold mb-2">Yaşlı Kişiyi Kurtarmalı</h4>
-                    <p className="text-gray-300 text-sm">Yaşam deneyimini önceliklendirme</p>
+                    <h4 className="text-white font-semibold mb-2">Should Save the Elderly</h4>
+                    <p className="text-gray-300 text-sm">Prioritizing life experience</p>
                   </motion.button>
                 </div>
               ) : (
                 <div className="text-center">
                   <p className="text-white mb-6">
-                    Seçimin: <span className="font-bold text-green-400">
-                      {carDilemmaChoice === 'child' ? 'Çocuğu Kurtarmalı' : 'Yaşlı Kişiyi Kurtarmalı'}
+                    Your choice: <span className="font-bold text-green-400">
+                      {carDilemmaChoice === 'child' ? 'Should Save the Child' : 'Should Save the Elderly'}
                     </span>
                   </p>
                 </div>
@@ -684,18 +683,18 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
                   >
                     <h4 className="text-white font-semibold mb-4 flex items-center gap-2">
                       <BarChart3 className="w-5 h-5" />
-                      Toplumsal Tercih Analizi
+                      Social Preference Analysis
                     </h4>
                     <div className="space-y-3">
                       <div className="flex justify-between items-center">
-                        <span className="text-gray-300">Çocukları kurtarmayı seçti</span>
+                        <span className="text-gray-300">Chose to save children</span>
                         <span className="text-green-400 font-bold">68%</span>
                       </div>
                       <div className="w-full bg-slate-600 rounded-full h-2">
                         <div className="bg-green-400 h-2 rounded-full w-[68%]"></div>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-gray-300">Yaşlıları kurtarmayı seçti</span>
+                        <span className="text-gray-300">Chose to save elderly</span>
                         <span className="text-blue-400 font-bold">32%</span>
                       </div>
                       <div className="w-full bg-slate-600 rounded-full h-2">
@@ -703,7 +702,7 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
                       </div>
                     </div>
                     <p className="text-yellow-300 text-sm mt-4 italic">
-                      * Öğrencilerin %68'i çocukları kurtarmayı seçti.
+                      * 68% of students chose to save children.
                     </p>
                   </motion.div>
                 )}
@@ -712,7 +711,7 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
           </div>
         </section>
 
-        {/* Knowledge Block 4: Dijital Gerçeklik ve Güven */}
+        {/* Knowledge Block 4: Digital Reality and Trust */}
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-800/20">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -728,9 +727,9 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
                 </div>
                 <div>
                   <h3 className="text-3xl font-bold text-white mb-3">
-                    🔍 Deepfake Tehlikesi
+                    🔍 Deepfake Threat
                   </h3>
-                  <p className="text-purple-200 text-lg">Dijital gerçeklikle sahte içeriği ayırt etmeyi öğren</p>
+                  <p className="text-purple-200 text-lg">Learn to distinguish between digital reality and fake content</p>
                 </div>
               </div>
               
@@ -738,17 +737,17 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
                 <div className="bg-purple-950/30 border border-purple-500/50 rounded-xl p-6">
                   <h4 className="text-purple-300 font-bold text-xl mb-3 flex items-center gap-2">
                     <AlertTriangle className="w-6 h-6" />
-                    Kritik Uyarı
+                    Critical Warning
                   </h4>
                   <p className="text-purple-100 text-lg leading-relaxed mb-4">
-                    Deepfake teknolojisi, sahte videolar ve ses kayıtları üreterek toplumsal güveni sarsabilir. 
-                    Gördüğün her şeye inanmak, Zeka Çağının en büyük tehlikelerinden biridir.
+                    Deepfake technology can undermine social trust by producing fake videos and audio recordings. 
+                    Believing everything you see is one of the greatest dangers of the Intelligence Age.
                   </p>
                   
                   <div className="bg-yellow-900/20 border border-yellow-500/50 rounded-lg p-4">
-                    <h5 className="text-yellow-300 font-semibold mb-2">Navigator Kuralı:</h5>
+                    <h5 className="text-yellow-300 font-semibold mb-2">Navigator Rule:</h5>
                     <p className="text-yellow-100 font-medium">
-                      "Gördüğün her şeye inanma. İnsan imzasını ve doğruluğu ara."
+                      "Don't believe everything you see. Look for human signature and verification."
                     </p>
                   </div>
                 </div>
@@ -756,18 +755,18 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
                 <div className="grid md:grid-cols-3 gap-4">
                   <div className="bg-slate-800/50 rounded-xl p-4 text-center">
                     <Search className="w-8 h-8 text-cyan-400 mx-auto mb-3" />
-                    <h5 className="text-white font-semibold mb-2">Doğrula</h5>
-                    <p className="text-gray-300 text-sm">Çoklu kaynaklardan kontrol et</p>
+                    <h5 className="text-white font-semibold mb-2">Verify</h5>
+                    <p className="text-gray-300 text-sm">Check from multiple sources</p>
                   </div>
                   <div className="bg-slate-800/50 rounded-xl p-4 text-center">
                     <Users className="w-8 h-8 text-green-400 mx-auto mb-3" />
-                    <h5 className="text-white font-semibold mb-2">İnsan İmzası</h5>
-                    <p className="text-gray-300 text-sm">Güvenilir insan kaynaklarını ara</p>
+                    <h5 className="text-white font-semibold mb-2">Human Signature</h5>
+                    <p className="text-gray-300 text-sm">Look for trusted human sources</p>
                   </div>
                   <div className="bg-slate-800/50 rounded-xl p-4 text-center">
                     <Brain className="w-8 h-8 text-purple-400 mx-auto mb-3" />
-                    <h5 className="text-white font-semibold mb-2">Eleştirel Düşünce</h5>
-                    <p className="text-gray-300 text-sm">Hemen inanma, sorgula</p>
+                    <h5 className="text-white font-semibold mb-2">Critical Thinking</h5>
+                    <p className="text-gray-300 text-sm">Don't believe immediately, question it</p>
                   </div>
                 </div>
               </div>
@@ -787,11 +786,11 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
             >
               <h2 className="text-4xl font-bold text-white mb-4">
                 <span className="bg-gradient-to-r from-red-400 to-pink-400 bg-clip-text text-transparent">
-                  Önyargı Radar Oyunu
+                  Bias Radar Game
                 </span>
               </h2>
               <p className="text-xl text-gray-300">
-                Bilinçaltı önyargılarını keşfet ve AI'ın nasıl öğrendiğini anla.
+                Discover your subconscious biases and understand how AI learns.
               </p>
             </motion.div>
 
@@ -800,10 +799,10 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
                 <div>
                   <div className="text-center mb-8">
                     <h3 className="text-2xl font-bold text-white mb-4">
-                      {biasRadarQuestions[biasRadar.currentQuestion].label} kimdir?
+                      Who is the {biasRadarQuestions[biasRadar.currentQuestion].label}?
                     </h3>
                     <p className="text-gray-300">
-                      Soru {biasRadar.currentQuestion + 1} / {biasRadarQuestions.length}
+                      Question {biasRadar.currentQuestion + 1} / {biasRadarQuestions.length}
                     </p>
                   </div>
 
@@ -830,28 +829,28 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
                   animate={{ opacity: 1, scale: 1 }}
                   className="text-center"
                 >
-                  <h3 className="text-2xl font-bold text-white mb-6">Önyargı Radar Sonuçların</h3>
+                  <h3 className="text-2xl font-bold text-white mb-6">Your Bias Radar Results</h3>
                   
                   <div className="grid md:grid-cols-3 gap-6 mb-8">
                     <div className="bg-slate-700/50 rounded-xl p-6">
-                      <h4 className="text-red-400 font-semibold mb-2">Cinsiyet Önyargısı</h4>
+                      <h4 className="text-red-400 font-semibold mb-2">Gender Bias</h4>
                       <div className="text-3xl font-bold text-white">{Math.round(calculateBiasRadar().genderBias)}%</div>
                     </div>
                     <div className="bg-slate-700/50 rounded-xl p-6">
-                      <h4 className="text-yellow-400 font-semibold mb-2">Yaş Önyargısı</h4>
+                      <h4 className="text-yellow-400 font-semibold mb-2">Age Bias</h4>
                       <div className="text-3xl font-bold text-white">{Math.round(calculateBiasRadar().ageBias)}%</div>
                     </div>
                     <div className="bg-slate-700/50 rounded-xl p-6">
-                      <h4 className="text-green-400 font-semibold mb-2">Çeşitlilik Bilinci</h4>
+                      <h4 className="text-green-400 font-semibold mb-2">Diversity Awareness</h4>
                       <div className="text-3xl font-bold text-white">{Math.round(calculateBiasRadar().diversityAwareness)}%</div>
                     </div>
                   </div>
 
                   <div className="bg-yellow-900/20 border border-yellow-500/50 rounded-xl p-6">
-                    <h4 className="text-yellow-400 font-semibold mb-3">💡 Anahtar Mesaj</h4>
+                    <h4 className="text-yellow-400 font-semibold mb-3">💡 Key Message</h4>
                     <p className="text-white">
-                      AI da tıpkı senin gibi toplumdaki önyargıları (bias) verilerden öğrenir. 
-                      Bu sonuçlar AI sistemlerinin nasıl öğrendiğini ve neden adil veriye ihtiyaç duyduğunu gösteriyor.
+                      AI learns biases from society's data just like you. These results show how AI systems learn 
+                      and why they need fair data.
                     </p>
                   </div>
                 </motion.div>
@@ -872,23 +871,23 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
             >
               <h2 className="text-4xl font-bold text-white mb-4">
                 <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-                  Kendi Bilişsel Kalkanını Oluştur
+                  Build Your Cognitive Shield
                 </span>
               </h2>
               <p className="text-xl text-gray-300">
-                Etik manifestonu oluştur ve Navigator kimliğini güçlendir
+                Create your ethical manifesto and strengthen your Navigator identity
               </p>
             </motion.div>
 
             <div className="space-y-8">
               <div className="bg-slate-800/50 backdrop-blur-lg rounded-2xl p-8 border border-indigo-500/30">
                 <h3 className="text-xl font-bold text-white mb-4">
-                  Geleceğin AI dünyasında en çok hangi etik kurala ihtiyaç var?
+                  What ethical rule is most needed in tomorrow's AI world?
                 </h3>
                 <textarea
                   value={ethicsJourney.notes}
                   onChange={(e) => setEthicsJourney(prev => ({ ...prev, notes: e.target.value }))}
-                  placeholder="Düşüncelerini buraya yaz... Örn: AI sistemleri şeffaf olmalı, kullanıcılar nasıl çalıştığını anlamalı..."
+                  placeholder="Write your thoughts here... E.g.: AI systems should be transparent, users should understand how they work..."
                   className="w-full p-4 bg-slate-700/50 border border-slate-600 rounded-xl text-white placeholder-gray-400 resize-none focus:border-indigo-500 focus:outline-none"
                   rows={4}
                 />
@@ -898,7 +897,7 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
                   className="mt-4 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-600 disabled:cursor-not-allowed text-white rounded-xl transition-all flex items-center gap-2"
                 >
                   <Target className="w-5 h-5" />
-                  Manifestoma Ekle
+                  Add to My Manifesto
                 </button>
               </div>
 
@@ -906,7 +905,7 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
                 <div className="bg-slate-800/50 backdrop-blur-lg rounded-2xl p-8 border border-purple-500/30">
                   <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
                     <FileText className="w-6 h-6" />
-                    Etik Manifestom
+                    My Ethical Manifesto
                   </h3>
                   
                   <div className="space-y-4 mb-6">
@@ -933,7 +932,7 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
                     className="w-full p-4 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white rounded-xl transition-all flex items-center justify-center gap-3 text-lg font-semibold"
                   >
                     <Download className="w-6 h-6" />
-                    Etik Manifestomu İndir (PDF)
+                    Download My Ethical Manifesto (PDF)
                   </motion.button>
                 </div>
               )}
@@ -952,7 +951,7 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
             >
               <h2 className="text-4xl font-bold text-white mb-8">
                 <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                  Bilişsel Egemenlik Yolculuğuna Devam Et
+                  Continue Your Cognitive Sovereignty Journey
                 </span>
               </h2>
               
@@ -963,7 +962,7 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
                 className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all"
               >
                 <Zap className="w-6 h-6" />
-                Diğer Modülleri Keşfet
+                Explore Other Modules
                 <ArrowRight className="w-5 h-5" />
               </motion.a>
             </motion.div>
@@ -992,22 +991,22 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
                     <Lightbulb className="w-8 h-8 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-white">🧠 Öğrenme Anı</h3>
-                    <p className="text-purple-200">Bilişsel Egemenlik Direği Aktifleştirildi</p>
+                    <h3 className="text-2xl font-bold text-white">🧠 Learning Moment</h3>
+                    <p className="text-purple-200">Cognitive Sovereignty Pillar Activated</p>
                   </div>
                 </div>
 
                 {learningMomentType === 'bias-radar' && (
                   <div className="space-y-4">
-                    <h4 className="text-xl font-semibold text-yellow-300">🎯 Önyargı Tespiti Tamamlandı</h4>
+                    <h4 className="text-xl font-semibold text-yellow-300">🎯 Bias Detection Completed</h4>
                     <p className="text-gray-300 leading-relaxed">
-                      Tebrikler! Az önce kendi bilinçaltı önyargılarını keşfettin. Bu deneyim, AI sistemlerinin 
-                      nasıl öğrendiğini ve toplumsal önyargıları nasıl yansıttığını gösteriyor.
+                      Congratulations! You just discovered your own unconscious biases. This experience shows 
+                      how AI systems learn and reflect societal biases.
                     </p>
                     <div className="bg-purple-900/30 rounded-lg p-4">
                       <p className="text-purple-100 font-medium">
-                        <strong>Navigator Becerisi Kazandın:</strong> "Eleştirel Veri Analizi" - 
-                        Artık AI kararlarının arkasındaki önyargıları fark edebilirsin.
+                        <strong>Navigator Skill Acquired:</strong> "Critical Data Analysis" - 
+                        You can now recognize biases behind AI decisions.
                       </p>
                     </div>
                   </div>
@@ -1015,15 +1014,15 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
 
                 {learningMomentType === 'moral-choice' && (
                   <div className="space-y-4">
-                    <h4 className="text-xl font-semibold text-green-300">⚖️ Etik Reasoning Aktif</h4>
+                    <h4 className="text-xl font-semibold text-green-300">⚖️ Ethical Reasoning Active</h4>
                     <p className="text-gray-300 leading-relaxed">
-                      Ahlaki seçimin, AI sistemlerinin nasıl programlandığını yansıtıyor. Gerçek dünyada 
-                      bu tür kararlar algoritmalarca milisaniyeler içinde alınıyor.
+                      Your moral choice reflects how AI systems are programmed. In the real world, 
+                      such decisions are made by algorithms in milliseconds.
                     </p>
                     <div className="bg-green-900/30 rounded-lg p-4">
                       <p className="text-green-100 font-medium">
-                        <strong>Navigator Becerisi Kazandın:</strong> "Algoritmik Empati" - 
-                        AI kararlarının arkasındaki değer yargılarını anlayabilirsin.
+                        <strong>Navigator Skill Acquired:</strong> "Algorithmic Empathy" - 
+                        You can understand the value judgments behind AI decisions.
                       </p>
                     </div>
                   </div>
@@ -1031,15 +1030,15 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
 
                 {learningMomentType === 'hiring-bias' && (
                   <div className="space-y-4">
-                    <h4 className="text-xl font-semibold text-red-300">🚨 Algoritmik Ayrımcılık Tespit Edildi</h4>
+                    <h4 className="text-xl font-semibold text-red-300">🚨 Algorithmic Discrimination Detected</h4>
                     <p className="text-gray-300 leading-relaxed">
-                      Yaş ağırlığını %80'in üzerine çıkardığında algoritma ayrımcılık yapmaya başladı! 
-                      Bu, gerçek dünyada milyonlarca kişiyi etkileyebilecek sistemik önyargıların nasıl oluştuğunu gösteriyor.
+                      When you raised the age weight above 80%, the algorithm started discriminating! 
+                      This shows how systemic biases that can affect millions of people are created in the real world.
                     </p>
                     <div className="bg-red-900/30 rounded-lg p-4">
                       <p className="text-red-100 font-medium">
-                        <strong>Navigator Becerisi Kazandın:</strong> "Önyargı Dedektörlüğü" - 
-                        Algoritmik ayrımcılığı anında fark edebilir ve müdahale edebilirsin.
+                        <strong>Navigator Skill Acquired:</strong> "Bias Detection" - 
+                        You can instantly recognize algorithmic discrimination and intervene.
                       </p>
                     </div>
                   </div>
@@ -1050,7 +1049,7 @@ Tarih: ${new Date().toLocaleDateString('tr-TR')}
                   className="mt-6 w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white py-3 px-6 rounded-xl transition-all flex items-center justify-center gap-2"
                 >
                   <CheckCircle className="w-5 h-5" />
-                  Navigator Yolculuğuna Devam Et
+                  Continue Your Navigator Journey
                 </button>
               </motion.div>
             </motion.div>
