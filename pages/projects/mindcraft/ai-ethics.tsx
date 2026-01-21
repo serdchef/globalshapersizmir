@@ -551,7 +551,7 @@ Date: ${new Date().toLocaleDateString('en-US')}
 
                 <div className="space-y-4">
                   <div className="flex items-center gap-3 mb-4">
-                    <Palette className="w-6 h-6 text-purple-400" />
+                    <Eye className="w-6 h-6 text-purple-400" />
                     <h4 className="text-lg font-bold text-white">Visual & Video</h4>
                   </div>
                   <div className="space-y-3">
