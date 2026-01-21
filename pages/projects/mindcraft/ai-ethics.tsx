@@ -31,7 +31,6 @@ import {
   AlertCircle,
   Search,
   Leaf,
-  Palette,
   Smartphone,
   Volume2,
   Map,
@@ -41,10 +40,6 @@ import {
   Factory,
   TreePine,
   Recycle,
-  Sparkles,
-  PenTool,
-  Copy,
-  Smile,
   Clock,
   Video
 } from 'lucide-react'
@@ -1016,93 +1011,6 @@ Date: ${new Date().toLocaleDateString('en-US')}
                 )}
               </AnimatePresence>
             </div>
-          </div>
-        </section>
-
-        {/* Impact on Creativity - Reflection Block */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="bg-gradient-to-br from-pink-900/30 to-purple-900/30 backdrop-blur-lg rounded-2xl p-8 border border-pink-500/30"
-            >
-              <div className="flex items-start gap-4 mb-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-purple-500 rounded-2xl flex items-center justify-center flex-shrink-0">
-                  <PenTool className="w-8 h-8 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-3xl font-bold text-white mb-3">
-                    🎨 Creativity in the AI Age
-                  </h3>
-                  <p className="text-pink-200 text-lg">The double-edged sword of AI-enhanced creativity</p>
-                </div>
-              </div>
-              
-              <div className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-pink-950/30 border border-pink-500/50 rounded-xl p-6">
-                    <div className="flex items-center gap-3 mb-4">
-                      <Sparkles className="w-6 h-6 text-pink-400" />
-                      <h4 className="text-pink-300 font-bold text-xl">Acceleration Benefits</h4>
-                    </div>
-                    <ul className="space-y-2 text-pink-100">
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="w-4 h-4 text-pink-400 mt-1 flex-shrink-0" />
-                        <span>Rapid idea generation and iteration</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="w-4 h-4 text-pink-400 mt-1 flex-shrink-0" />
-                        <span>Breaking through creative blocks</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="w-4 h-4 text-pink-400 mt-1 flex-shrink-0" />
-                        <span>Democratizing creative tools</span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div className="bg-red-950/30 border border-red-500/50 rounded-xl p-6">
-                    <div className="flex items-center gap-3 mb-4">
-                      <Copy className="w-6 h-6 text-red-400" />
-                      <h4 className="text-red-300 font-bold text-xl">Risk of Uniformity</h4>
-                    </div>
-                    <ul className="space-y-2 text-red-100">
-                      <li className="flex items-start gap-2">
-                        <AlertTriangle className="w-4 h-4 text-red-400 mt-1 flex-shrink-0" />
-                        <span>"Originality loss" - everyone using same AI tools</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <AlertTriangle className="w-4 h-4 text-red-400 mt-1 flex-shrink-0" />
-                        <span>Homogenization of creative expression</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <AlertTriangle className="w-4 h-4 text-red-400 mt-1 flex-shrink-0" />
-                        <span>Dependency on algorithmic suggestions</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="bg-purple-950/30 border border-purple-500/50 rounded-xl p-6">
-                  <h4 className="text-purple-300 font-bold text-xl mb-3 flex items-center gap-2">
-                    <Brain className="w-6 h-6" />
-                    Reflection Question
-                  </h4>
-                  <p className="text-purple-100 text-lg leading-relaxed mb-4">
-                    <em>"How will you maintain your unique creative voice while leveraging AI as a tool? 
-                    What makes your human perspective irreplaceable?"</em>
-                  </p>
-                  
-                  <div className="bg-indigo-900/20 border border-indigo-500/50 rounded-lg p-4">
-                    <h5 className="text-indigo-300 font-semibold mb-2">Navigator Strategy:</h5>
-                    <p className="text-indigo-100">Use AI as a <strong>collaborator, not a replacement</strong>. Let it enhance your ideas, but keep your human intuition as the navigator.</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
           </div>
         </section>
 
