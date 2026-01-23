@@ -148,9 +148,15 @@ export const members: Member[] = [
     name: "Ayşe Ada Altınbilek",
     role: "Shaper",
     shortBio: "Shaper",
-    longBio: "Member of the Hub.",
+    longBio: "Hello, I'm A. Ada Altınbilek, a fourth-year Business Administration student at Dokuz Eylül University. Alongside my academic studies, I actively engage in social responsibility projects and continuously seek opportunities to develop myself across diverse fields. I'm proud to be a Global Shaper!",
     photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=AA",
-    social: {}
+    image: "/images/members/ada-altinbilek.jpg",
+    email: "adaaltinbilek@gmail.com",
+    linkedin: "http://linkedin.com/in/ayseadaaltinbilek",
+    social: {
+      email: "adaaltinbilek@gmail.com",
+      linkedin: "http://linkedin.com/in/ayseadaaltinbilek"
+    }
   },
   {
     slug: "sena-ates",
