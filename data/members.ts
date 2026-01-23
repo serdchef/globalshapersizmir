@@ -298,5 +298,20 @@ export const members: Member[] = [
     email: "tutku.yildiz8@gmail.com",
     linkedin: "https://www.linkedin.com/in/tutkuyildiz",
     social: {}
+  },
+  {
+    slug: "alperen-kisi",
+    name: "Alperen Kişi",
+    role: "Shaper",
+    shortBio: "Shaper",
+    longBio: "As a member of the Global Shapers Izmir Hub while studying at Izmir Democracy University's Faculty of Medicine, I am not limiting myself to clinical knowledge. Instead, I am developing myself within the triangle of technology, social benefit and multidisciplinary leadership.",
+    photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=AK",
+    image: "/images/members/alperen-kisi.jpg",
+    email: "alperenkisi@gmail.com",
+    linkedin: "https://www.linkedin.com/in/alperen-ki%C5%9Fi-3504903a8/",
+    social: {
+      email: "alperenkisi@gmail.com",
+      linkedin: "https://www.linkedin.com/in/alperen-ki%C5%9Fi-3504903a8/"
+    }
   }
 ]
