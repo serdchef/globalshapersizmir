@@ -216,7 +216,13 @@ export const members: Member[] = [
     shortBio: "Shaper",
     longBio: "Member of the Hub.",
     photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=YD",
-    social: {}
+    image: "/images/members/yadigar-deniz-doksan.jpg",
+    email: "adadoksan90@gmail.com",
+    linkedin: "https://www.linkedin.com/in/deniz-doksan-086322229?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    social: {
+      email: "adadoksan90@gmail.com",
+      linkedin: "https://www.linkedin.com/in/deniz-doksan-086322229?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+    }
   },
   {
     slug: "gizem-donmez",
