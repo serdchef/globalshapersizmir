@@ -1931,27 +1931,6 @@ Powered by Human Creativity + AI Assistance
               </p>
             </div>
 
-            <div className="flex flex-col md:flex-row gap-4 justify-center">
-              <motion.a
-                href="/projects/mindcraft"
-                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white font-bold py-3 px-8 rounded-xl"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <ArrowRight className="w-5 h-5 rotate-180" />
-                Back to MindCraft
-              </motion.a>
-
-              <motion.a
-                href="/projects/mindcraft/playground"
-                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white font-bold py-3 px-8 rounded-xl"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Try AI Playground
-                <ArrowRight className="w-5 h-5" />
-              </motion.a>
-            </div>
           </motion.div>
         </div>
       </section>

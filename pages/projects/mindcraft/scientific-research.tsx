@@ -1753,29 +1753,6 @@ export default function ScientificResearchPage() {
               </div>
             </div>
 
-            {/* Navigation */}
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/projects/mindcraft">
-                <motion.span
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-bold py-4 px-8 rounded-xl transition-all cursor-pointer shadow-lg"
-                >
-                  <ArrowLeft className="w-5 h-5" />
-                  Back to MindCraft
-                </motion.span>
-              </Link>
-
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => window.location.reload()}
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold py-4 px-8 rounded-xl transition-all shadow-lg"
-              >
-                <RotateCcw className="w-5 h-5" />
-                Restart Labs
-              </motion.button>
-            </div>
           </motion.div>
         </div>
       </section>

@@ -818,46 +818,6 @@ ${reflection || 'No reflection written yet.'}
           </div>
         </section>
 
-        {/* Navigation */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-5xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="bg-orange-900/30 border border-amber-600/30 rounded-2xl p-8"
-            >
-              <h2 className="text-3xl font-bold text-amber-100 mb-4">
-                Continue Your Mindcraft Journey
-              </h2>
-              <p className="text-amber-100/80 mb-8">
-                Build deeper skills in research, ethics, and creative impact.
-              </p>
-              <div className="flex flex-col md:flex-row gap-4 justify-center">
-                <motion.a
-                  href="/projects/mindcraft"
-                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white font-bold py-3 px-8 rounded-xl"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <ArrowRight className="w-5 h-5 rotate-180" />
-                  Back to Mindcraft Hub
-                </motion.a>
-                <motion.a
-                  href="/projects/mindcraft/creative-innovation"
-                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-600 to-yellow-500 hover:from-amber-500 hover:to-yellow-400 text-white font-bold py-3 px-8 rounded-xl"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Explore Creative Innovation
-                  <ArrowRight className="w-5 h-5" />
-                </motion.a>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
         {/* Module Navigation */}
         <section className="py-12 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
           <div className="max-w-4xl mx-auto">
