@@ -15,13 +15,13 @@ export default function Navbar() {
   }, [])
 
   const navLinks = [
-    { name: 'Home', href: '/#hero' },
-    { name: 'About', href: '/#about' },
-    { name: 'Modules', href: '/#modules' },
-    { name: 'Impact', href: '/#impact' },
-    { name: 'Hubs', href: '/#hubs' },
-    { name: 'Partners', href: '/#partners' },
-    { name: 'Contact', href: '/#partners' },
+    { name: 'Home', href: '#hero' },
+    { name: 'About', href: '#about' },
+    { name: 'Modules', href: '#modules' },
+    { name: 'Impact', href: '#impact' },
+    { name: 'Hubs', href: '#partners' },
+    { name: 'Partners', href: '#partners' },
+    { name: 'Contact', href: '#partners' },
   ]
 
   return (
