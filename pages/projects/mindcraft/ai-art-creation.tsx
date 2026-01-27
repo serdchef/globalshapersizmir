@@ -40,6 +40,7 @@ export default function AIArtCreationPage() {
   const [selectedLighting, setSelectedLighting] = useState('Golden Hour')
   const [previewImage, setPreviewImage] = useState<string | null>(null)
   const [isPreviewLoading, setIsPreviewLoading] = useState(false)
+  const [isPreviewImageLoading, setIsPreviewImageLoading] = useState(false)
   const [previewError, setPreviewError] = useState<string | null>(null)
   
   // Human vs AI Test State
@@ -85,6 +86,7 @@ export default function AIArtCreationPage() {
     setIsPreviewLoading(true)
     setPreviewError(null)
     setPreviewImage(null)
+    setIsPreviewImageLoading(false)
 
     try {
       const response = await fetch('/api/generate-image', {
@@ -98,7 +100,11 @@ export default function AIArtCreationPage() {
       }
 
       const data = await response.json()
+      if (!data?.imageUrl) {
+        throw new Error('No image URL returned')
+      }
       setPreviewImage(data.imageUrl)
+      setIsPreviewImageLoading(true)
     } catch (error) {
       console.error(error)
       setPreviewError('Preview could not be generated. Please try again.')
@@ -848,7 +854,7 @@ This manifesto represents my journey in understanding AI art as a collaborative 
               {/* Preview */}
               <div className="bg-gradient-to-br from-slate-700 to-slate-800 rounded-xl p-8 text-center">
                 <div className="w-full max-w-md mx-auto bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-lg flex items-center justify-center mb-4 overflow-hidden">
-                  {isPreviewLoading ? (
+                  {isPreviewLoading || isPreviewImageLoading ? (
                     <div className="py-16 text-center">
                       <div className="w-12 h-12 mx-auto mb-3 rounded-full border-2 border-purple-400/40 border-t-purple-400 animate-spin" />
                       <p className="text-sm text-gray-200 font-medium">Generating preview…</p>
@@ -858,6 +864,12 @@ This manifesto represents my journey in understanding AI art as a collaborative 
                     <img
                       src={previewImage}
                       alt="Generated preview"
+                      onLoad={() => setIsPreviewImageLoading(false)}
+                      onError={() => {
+                        setIsPreviewImageLoading(false)
+                        setPreviewError('Image failed to load. Please try again.')
+                        setPreviewImage(null)
+                      }}
                       className="w-full h-auto rounded-lg"
                     />
                   ) : (
