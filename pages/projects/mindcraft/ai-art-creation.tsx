@@ -849,10 +849,10 @@ This manifesto represents my journey in understanding AI art as a collaborative 
               <div className="bg-gradient-to-br from-slate-700 to-slate-800 rounded-xl p-8 text-center">
                 <div className="w-full max-w-md mx-auto bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-lg flex items-center justify-center mb-4 overflow-hidden">
                   {isPreviewLoading ? (
-                    <div className="py-16 text-center animate-pulse">
-                      <Camera className="w-12 h-12 text-purple-400 mx-auto mb-2" />
-                      <p className="text-sm text-gray-300">Generating preview...</p>
-                      <p className="text-xs text-gray-400 mt-2">This may take a few moments.</p>
+                    <div className="py-16 text-center">
+                      <div className="w-12 h-12 mx-auto mb-3 rounded-full border-2 border-purple-400/40 border-t-purple-400 animate-spin" />
+                      <p className="text-sm text-gray-200 font-medium">Generating preview…</p>
+                      <p className="text-xs text-gray-400 mt-2">Please wait — this may take a few moments.</p>
                     </div>
                   ) : previewImage ? (
                     <img
