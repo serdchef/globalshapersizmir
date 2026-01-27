@@ -38,6 +38,9 @@ export default function AIArtCreationPage() {
   const [selectedSubject, setSelectedSubject] = useState('Forest')
   const [selectedStyle, setSelectedStyle] = useState('Cyberpunk')
   const [selectedLighting, setSelectedLighting] = useState('Golden Hour')
+  const [previewImage, setPreviewImage] = useState<string | null>(null)
+  const [isPreviewLoading, setIsPreviewLoading] = useState(false)
+  const [previewError, setPreviewError] = useState<string | null>(null)
   
   // Human vs AI Test State
   const [currentTestImage, setCurrentTestImage] = useState(0)
@@ -75,6 +78,33 @@ export default function AIArtCreationPage() {
   // Generate mock prompt based on selections
   const generateMockPrompt = () => {
     return `A beautiful ${selectedSubject.toLowerCase()} scene in ${selectedStyle} style, illuminated by ${selectedLighting.toLowerCase()}, high quality, detailed, artistic composition`
+  }
+
+  const handlePreviewGenerate = async () => {
+    const prompt = generateMockPrompt()
+    setIsPreviewLoading(true)
+    setPreviewError(null)
+    setPreviewImage(null)
+
+    try {
+      const response = await fetch('/api/generate-image', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt })
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to generate image')
+      }
+
+      const data = await response.json()
+      setPreviewImage(data.imageUrl)
+    } catch (error) {
+      console.error(error)
+      setPreviewError('Preview could not be generated. Please try again.')
+    } finally {
+      setIsPreviewLoading(false)
+    }
   }
 
   // Human vs AI Test Data
@@ -788,35 +818,62 @@ This manifesto represents my journey in understanding AI art as a collaborative 
                 <div className="flex items-center gap-3 mb-4">
                   <FileText className="w-5 h-5 text-purple-400" />
                   <h4 className="text-white font-semibold">Generated Prompt</h4>
-                  <button
-                    onClick={() => {
-                      setSelectedSubject(subjects[Math.floor(Math.random() * subjects.length)])
-                      setSelectedStyle(artStyles[Math.floor(Math.random() * artStyles.length)])
-                      setSelectedLighting(lightingOptions[Math.floor(Math.random() * lightingOptions.length)])
-                    }}
-                    className="ml-auto bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded-lg text-sm transition-colors flex items-center gap-2"
-                  >
-                    <Shuffle className="w-4 h-4" />
-                    Randomize
-                  </button>
+                  <div className="ml-auto flex items-center gap-2">
+                    <button
+                      onClick={() => {
+                        setSelectedSubject(subjects[Math.floor(Math.random() * subjects.length)])
+                        setSelectedStyle(artStyles[Math.floor(Math.random() * artStyles.length)])
+                        setSelectedLighting(lightingOptions[Math.floor(Math.random() * lightingOptions.length)])
+                      }}
+                      className="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded-lg text-sm transition-colors flex items-center gap-2"
+                    >
+                      <Shuffle className="w-4 h-4" />
+                      Randomize
+                    </button>
+                    <button
+                      onClick={handlePreviewGenerate}
+                      disabled={isPreviewLoading}
+                      className="bg-pink-600 hover:bg-pink-700 disabled:bg-pink-700/60 disabled:cursor-not-allowed text-white px-3 py-1 rounded-lg text-sm transition-colors flex items-center gap-2"
+                    >
+                      <Camera className="w-4 h-4" />
+                      {isPreviewLoading ? 'Generating...' : 'View Preview'}
+                    </button>
+                  </div>
                 </div>
                 <p className="text-gray-300 bg-slate-900/50 rounded-lg p-4 font-mono text-sm">
                   "{generateMockPrompt()}"
                 </p>
               </div>
 
-              {/* Mock Image Placeholder */}
+              {/* Preview */}
               <div className="bg-gradient-to-br from-slate-700 to-slate-800 rounded-xl p-8 text-center">
-                <div className="w-64 h-40 mx-auto bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-lg flex items-center justify-center mb-4">
-                  <div className="text-center">
-                    <Camera className="w-12 h-12 text-purple-400 mx-auto mb-2" />
-                    <p className="text-sm text-gray-400">Stylized preview would appear here</p>
-                  </div>
+                <div className="w-full max-w-md mx-auto bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-lg flex items-center justify-center mb-4 overflow-hidden">
+                  {isPreviewLoading ? (
+                    <div className="py-16 text-center animate-pulse">
+                      <Camera className="w-12 h-12 text-purple-400 mx-auto mb-2" />
+                      <p className="text-sm text-gray-300">Generating preview...</p>
+                    </div>
+                  ) : previewImage ? (
+                    <img
+                      src={previewImage}
+                      alt="Generated preview"
+                      className="w-full h-auto rounded-lg"
+                    />
+                  ) : (
+                    <div className="py-16 text-center">
+                      <Camera className="w-12 h-12 text-purple-400 mx-auto mb-2" />
+                      <p className="text-sm text-gray-400">Stylized preview would appear here</p>
+                    </div>
+                  )}
                 </div>
-                <p className="text-gray-300 text-sm">
-                  This demonstrates how different prompt elements affect the final artwork. In real AI art tools, 
-                  you would see dramatic changes based on your style and lighting choices.
-                </p>
+                {previewError ? (
+                  <p className="text-sm text-red-300">{previewError}</p>
+                ) : (
+                  <p className="text-gray-300 text-sm">
+                    This demonstrates how different prompt elements affect the final artwork. In real AI art tools, 
+                    you would see dramatic changes based on your style and lighting choices.
+                  </p>
+                )}
               </div>
             </motion.div>
           </div>
