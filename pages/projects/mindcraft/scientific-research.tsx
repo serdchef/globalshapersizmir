@@ -45,7 +45,10 @@ import {
   Clock,
   BookMarked,
   Flame,
-  Recycle
+  Recycle,
+  Calculator,
+  MessageSquare,
+  Palette
 } from 'lucide-react'
 
 // TypeScript Interfaces
@@ -1778,6 +1781,62 @@ export default function ScientificResearchPage() {
       </section>
 
       <Footer />
+
+      {/* Module Navigation */}
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-slate-800/50 backdrop-blur-lg rounded-2xl p-8 border border-slate-600">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center flex items-center justify-center gap-3">
+              <ArrowRight className="w-8 h-8 text-blue-400" />
+              Continue Your Learning Journey
+            </h3>
+            
+            <div className="grid md:grid-cols-3 gap-4">
+              {/* Previous Module */}
+              <a
+                href="/projects/mindcraft/ai-art-creation"
+                className="bg-gradient-to-br from-orange-600/20 to-red-600/20 hover:from-orange-600/30 hover:to-red-600/30 border border-orange-500/30 hover:border-orange-400/50 rounded-xl p-4 transition-all group"
+              >
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg mx-auto mb-3 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Palette className="w-6 h-6 text-white" />
+                  </div>
+                  <p className="text-white font-semibold">← Previous: AI Art Creation</p>
+                  <p className="text-orange-300 text-sm">Creative Amplifier</p>
+                </div>
+              </a>
+
+              {/* Back to Modules */}
+              <a
+                href="/projects/mindcraft#modules"
+                className="bg-gradient-to-br from-blue-600/20 to-cyan-600/20 hover:from-blue-600/30 hover:to-cyan-600/30 border border-blue-500/30 hover:border-blue-400/50 rounded-xl p-4 transition-all group"
+              >
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg mx-auto mb-3 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Brain className="w-6 h-6 text-white" />
+                  </div>
+                  <p className="text-white font-semibold">All Modules</p>
+                  <p className="text-blue-300 text-sm">Back to Overview</p>
+                </div>
+              </a>
+
+              {/* Next Module */}
+              <a
+                href="/projects/mindcraft/creative-innovation"
+                className="bg-gradient-to-br from-yellow-600/20 to-orange-600/20 hover:from-yellow-600/30 hover:to-orange-600/30 border border-yellow-500/30 hover:border-yellow-400/50 rounded-xl p-4 transition-all group"
+              >
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-lg mx-auto mb-3 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Sparkles className="w-6 h-6 text-white" />
+                  </div>
+                  <p className="text-white font-semibold">Next: Creative Innovation</p>
+                  <p className="text-yellow-300 text-sm">Global Impact →</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

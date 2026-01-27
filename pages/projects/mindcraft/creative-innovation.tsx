@@ -41,7 +41,10 @@ import {
   GraduationCap,
   Home,
   TreePine,
-  Scale
+  Scale,
+  ArrowLeft,
+  BookOpen,
+  Microscope
 } from 'lucide-react'
 
 // TypeScript Interfaces for Interactive Labs
@@ -1954,6 +1957,59 @@ Powered by Human Creativity + AI Assistance
       </section>
 
       <Footer />
+
+      {/* Module Navigation */}
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-slate-800/50 backdrop-blur-lg rounded-2xl p-8 border border-slate-600">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center flex items-center justify-center gap-3">
+              <CheckCircle className="w-8 h-8 text-green-400" />
+              Complete Your Learning Journey
+            </h3>
+            
+            <div className="grid md:grid-cols-3 gap-4">
+              {/* Previous Module */}
+              <a
+                href="/projects/mindcraft/scientific-research"
+                className="bg-gradient-to-br from-indigo-600/20 to-blue-600/20 hover:from-indigo-600/30 hover:to-blue-600/30 border border-indigo-500/30 hover:border-indigo-400/50 rounded-xl p-4 transition-all group"
+              >
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-blue-500 rounded-lg mx-auto mb-3 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Microscope className="w-6 h-6 text-white" />
+                  </div>
+                  <p className="text-white font-semibold">← Previous: Scientific Research</p>
+                  <p className="text-indigo-300 text-sm">Data to Wisdom</p>
+                </div>
+              </a>
+
+              {/* Back to Modules */}
+              <a
+                href="/projects/mindcraft#modules"
+                className="bg-gradient-to-br from-blue-600/20 to-cyan-600/20 hover:from-blue-600/30 hover:to-cyan-600/30 border border-blue-500/30 hover:border-blue-400/50 rounded-xl p-4 transition-all group"
+              >
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg mx-auto mb-3 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Brain className="w-6 h-6 text-white" />
+                  </div>
+                  <p className="text-white font-semibold">All Modules</p>
+                  <p className="text-blue-300 text-sm">Back to Overview</p>
+                </div>
+              </a>
+
+              {/* Next Module - None (last module) */}
+              <div className="bg-slate-700/30 rounded-xl p-4 opacity-50">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-gray-600 rounded-lg mx-auto mb-3 flex items-center justify-center">
+                    <CheckCircle className="w-6 h-6 text-gray-400" />
+                  </div>
+                  <p className="text-gray-400 text-sm">Journey Complete!</p>
+                  <p className="text-gray-400 text-xs">🎉 Navigator Status</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   )
 }
