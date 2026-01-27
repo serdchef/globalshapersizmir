@@ -1,673 +1,779 @@
 import Head from 'next/head'
-import { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Navbar from '@/components/mindcraft/layout/Navbar'
 import Footer from '@/components/mindcraft/layout/Footer'
-import { modulesData } from '@/utils/mindcraft/modulesData'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { 
   MessageSquare, 
   Target, 
   Zap, 
   AlertTriangle, 
-  Palette, 
+  Brain,
   CheckCircle, 
   ArrowRight, 
   Play, 
   Code,
-  Brain
+  Lightbulb,
+  Download,
+  Save,
+  Copy,
+  X,
+  Eye,
+  Layers,
+  User,
+  FileText,
+  List,
+  Filter,
+  Edit,
+  RotateCcw,
+  Sparkles,
+  Terminal,
+  Search,
+  ArrowLeft,
+  Plus,
+  Minus
 } from 'lucide-react'
 
-export default function PromptEngineeringPage() {
-  const [currentSection, setCurrentSection] = useState(0)
-  const [reflectionText, setReflectionText] = useState('')
+// TypeScript Interfaces
+interface PromptComponent {
+  id: string
+  name: string
+  description: string
+  examples: string[]
+}
 
-  const module = modulesData.find(m => m.id === 'prompt-engineering')
-  
-  if (!module) return null
+interface LegoPrompt {
+  role: string
+  context: string
+  task: string
+  constraint: string
+  format: string
+}
 
-  const learningObjectives = [
-    "Understand what prompts are and why they matter",
-    "Learn how different AI tools respond to prompts",
-    "Write clear and effective prompts for various tasks",
-    "Use popular AI tools like ChatGPT, DALL-E, and others",
-    "Improve prompt quality through testing and refinement",
-    "Apply ethical considerations when using AI tools"
-  ]
+interface HallucinationQuestion {
+  id: string
+  category: string
+  statements: {
+    text: string
+    isHallucination: boolean
+    explanation: string
+  }[]
+}
 
-  const popularAITools = [
+interface UserProgress {
+  completedSections: string[]
+  promptsBuilt: number
+  hallucinationsDetected: number
+  lastVisit: string
+}
+
+export default function PromptEngineeringPage(): JSX.Element {
+  // Core State Management
+  const [activeTab, setActiveTab] = useState('foundation')
+  const [userProgress, setUserProgress] = useState<UserProgress>({
+    completedSections: [],
+    promptsBuilt: 0,
+    hallucinationsDetected: 0,
+    lastVisit: new Date().toISOString()
+  })
+
+  // Lego Prompt Builder State
+  const [legoPrompt, setLegoPrompt] = useState<LegoPrompt>({
+    role: '',
+    context: '',
+    task: '',
+    constraint: '',
+    format: ''
+  })
+  const [generatedPrompt, setGeneratedPrompt] = useState('')
+  const [promptAnalysis, setPromptAnalysis] = useState('')
+
+  // Hallucination Hunter State
+  const [currentQuestion, setCurrentQuestion] = useState(0)
+  const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null)
+  const [showExplanation, setShowExplanation] = useState(false)
+  const [hunterScore, setHunterScore] = useState(0)
+
+  // Fix This Prompt State
+  const [sliderPosition, setSliderPosition] = useState(0)
+
+  // Load progress from localStorage
+  useEffect(() => {
+    const saved = localStorage.getItem('mindcraft-prompt-progress')
+    if (saved) {
+      setUserProgress(JSON.parse(saved))
+    }
+  }, [])
+
+  // Save progress to localStorage
+  const saveProgress = (newProgress: Partial<UserProgress>) => {
+    const updated = { ...userProgress, ...newProgress }
+    setUserProgress(updated)
+    localStorage.setItem('mindcraft-prompt-progress', JSON.stringify(updated))
+  }
+
+  // Prompt Engineering Foundation Content
+  const foundationContent = {
+    title: "Mastering the Dialogue: Prompt Engineering Fundamentals",
+    sections: [
+      {
+        id: "three-cs",
+        title: "The 3 C's of Prompt Engineering",
+        icon: <Target className="w-6 h-6" />,
+        content: [
+          {
+            name: "Clarity",
+            description: "Be precise and unambiguous in your instructions",
+            example: "Instead of 'write something about AI', use 'Write a 200-word explanation of how AI impacts education for high school students'"
+          },
+          {
+            name: "Context", 
+            description: "Provide relevant background information",
+            example: "Include your role, purpose, audience, and constraints"
+          },
+          {
+            name: "Constraints",
+            description: "Define boundaries and desired output format",
+            example: "Specify length, style, tone, and any limitations"
+          }
+        ]
+      },
+      {
+        id: "techniques",
+        title: "Core Prompting Techniques",
+        icon: <Brain className="w-6 h-6" />,
+        content: [
+          {
+            name: "Zero-Shot Prompting",
+            description: "Direct instruction without examples",
+            example: "Translate the following English text to French: 'Hello, how are you today?'"
+          },
+          {
+            name: "Few-Shot Prompting",
+            description: "Learn from examples before performing the task",
+            example: "Input: cat → Output: feline animal\nInput: dog → Output: canine animal\nInput: bird → ?"
+          },
+          {
+            name: "Chain of Thought (CoT)",
+            description: "Step-by-step reasoning process",
+            example: "Think step by step: If a train travels 60 miles in 2 hours, what is its speed?"
+          }
+        ]
+      }
+    ]
+  }
+
+  // Prompt Components for Lego Builder
+  const promptComponents: Record<string, PromptComponent[]> = {
+    role: [
+      { id: 'expert', name: 'Expert', description: 'Subject matter expert', examples: ['You are a biology expert...', 'As a marketing professional...'] },
+      { id: 'teacher', name: 'Teacher', description: 'Educational instructor', examples: ['You are a patient teacher...', 'As an experienced educator...'] },
+      { id: 'assistant', name: 'Assistant', description: 'Helpful aide', examples: ['You are a helpful assistant...', 'Acting as a research assistant...'] },
+      { id: 'analyst', name: 'Analyst', description: 'Data analyzer', examples: ['You are a data analyst...', 'As a business analyst...'] }
+    ],
+    context: [
+      { id: 'academic', name: 'Academic', description: 'Educational setting', examples: ['For a college-level course...', 'In an academic research context...'] },
+      { id: 'business', name: 'Business', description: 'Professional environment', examples: ['In a corporate setting...', 'For business decision-making...'] },
+      { id: 'creative', name: 'Creative', description: 'Artistic or innovative', examples: ['For creative brainstorming...', 'In a design thinking session...'] },
+      { id: 'technical', name: 'Technical', description: 'Engineering or IT', examples: ['In a software development context...', 'For technical documentation...'] }
+    ],
+    task: [
+      { id: 'analyze', name: 'Analyze', description: 'Break down and examine', examples: ['Analyze the following data...', 'Examine the key factors...'] },
+      { id: 'create', name: 'Create', description: 'Generate new content', examples: ['Create a comprehensive plan...', 'Generate innovative ideas...'] },
+      { id: 'explain', name: 'Explain', description: 'Clarify and describe', examples: ['Explain the concept clearly...', 'Describe the process step-by-step...'] },
+      { id: 'compare', name: 'Compare', description: 'Find similarities/differences', examples: ['Compare and contrast...', 'Evaluate the differences between...'] }
+    ],
+    constraint: [
+      { id: 'length', name: 'Length', description: 'Word/character limits', examples: ['In exactly 100 words...', 'Keep it under 500 characters...'] },
+      { id: 'audience', name: 'Audience', description: 'Target demographic', examples: ['For a general audience...', 'Suitable for experts in the field...'] },
+      { id: 'tone', name: 'Tone', description: 'Communication style', examples: ['Use a professional tone...', 'Keep it casual and friendly...'] },
+      { id: 'accuracy', name: 'Accuracy', description: 'Precision requirements', examples: ['Be factually accurate...', 'Include only verified information...'] }
+    ],
+    format: [
+      { id: 'list', name: 'List', description: 'Bulleted or numbered', examples: ['Present as a bulleted list...', 'Format as numbered steps...'] },
+      { id: 'essay', name: 'Essay', description: 'Structured writing', examples: ['Write in essay format...', 'Structure as introduction, body, conclusion...'] },
+      { id: 'table', name: 'Table', description: 'Tabular data', examples: ['Present in a table format...', 'Use columns and rows...'] },
+      { id: 'code', name: 'Code', description: 'Programming format', examples: ['Provide as code snippet...', 'Format as executable code...'] }
+    ]
+  }
+
+  // Hallucination Hunter Questions
+  const hallucinationQuestions: HallucinationQuestion[] = [
     {
-      name: "ChatGPT",
-      description: "A conversational AI that can help with writing, homework, coding, and creative tasks",
-      bestFor: "Writing assistance, explanations, problem-solving",
-      examplePrompt: "Help me write a short paragraph explaining photosynthesis for a 7th-grade science project. Use simple words and include why it's important for plants.",
-      icon: MessageSquare,
-      color: "from-green-500 to-emerald-500"
+      id: 'history',
+      category: 'Historical Facts',
+      statements: [
+        {
+          text: "The Great Wall of China was built in a single dynasty and took exactly 20 years to complete.",
+          isHallucination: true,
+          explanation: "The Great Wall was built over many dynasties spanning more than 2,000 years, not in a single 20-year period."
+        },
+        {
+          text: "World War II ended in 1945 with Japan's surrender after the atomic bombings.",
+          isHallucination: false,
+          explanation: "This is accurate. Japan surrendered on August 15, 1945, following the atomic bombings of Hiroshima and Nagasaki."
+        },
+        {
+          text: "The Berlin Wall was constructed in 1961 and divided East and West Berlin.",
+          isHallucination: false,
+          explanation: "Correct. The Berlin Wall was built in 1961 and served as a barrier between East and West Berlin until 1989."
+        }
+      ]
     },
     {
-      name: "DALL-E / Midjourney",
-      description: "AI tools that create images from text descriptions",
-      bestFor: "Art creation, visual projects, illustrations",
-      examplePrompt: "A friendly robot teaching children in a colorful classroom, cartoon style, bright lighting",
-      icon: Palette,
-      color: "from-purple-500 to-pink-500"
+      id: 'science',
+      category: 'Scientific Claims',
+      statements: [
+        {
+          text: "Water boils at 100°C at sea level under standard atmospheric pressure.",
+          isHallucination: false,
+          explanation: "This is scientifically accurate. Water's boiling point is 100°C (212°F) at sea level."
+        },
+        {
+          text: "Humans use only 10% of their brain capacity, leaving 90% unused potential.",
+          isHallucination: true,
+          explanation: "This is a persistent myth. Neuroimaging shows humans use virtually all of their brain, even during simple tasks."
+        },
+        {
+          text: "Photosynthesis converts sunlight, carbon dioxide, and water into glucose and oxygen.",
+          isHallucination: false,
+          explanation: "Correct. This accurately describes the basic process of photosynthesis in plants."
+        }
+      ]
     },
     {
-      name: "Claude",
-      description: "An AI assistant focused on helpful, harmless, and honest responses",
-      bestFor: "Research assistance, analysis, careful explanations",
-      examplePrompt: "Explain the main causes of World War I in a way that's easy to understand, with specific examples and dates.",
-      icon: Brain,
-      color: "from-blue-500 to-indigo-500"
-    },
-    {
-      name: "Google Gemini/Bard",
-      description: "Google's AI that can search the web and provide current information",
-      bestFor: "Current events, research, fact-checking",
-      examplePrompt: "What are the latest developments in renewable energy technology that might affect my generation?",
-      icon: Target,
-      color: "from-orange-500 to-red-500"
+      id: 'technology',
+      category: 'AI & Technology',
+      statements: [
+        {
+          text: "ChatGPT was trained on internet data up to its knowledge cutoff date.",
+          isHallucination: false,
+          explanation: "This is accurate. Large language models like ChatGPT are trained on text from the internet up to a specific cutoff date."
+        },
+        {
+          text: "AI systems consume zero energy and have no environmental impact.",
+          isHallucination: true,
+          explanation: "This is false. AI systems require significant computational power, leading to substantial energy consumption and environmental impact."
+        },
+        {
+          text: "Machine learning algorithms can learn patterns from large datasets.",
+          isHallucination: false,
+          explanation: "Correct. This is the fundamental principle of how machine learning works."
+        }
+      ]
     }
   ]
 
-  const promptBestPractices = [
+  // Prompt Examples for Fix This Prompt
+  const promptExamples = [
     {
-      title: "Be Specific",
-      description: "Instead of 'write a story,' try 'write a 200-word mystery story about a missing pet'",
-      example: "❌ Help with math\n✅ Explain how to solve quadratic equations using the quadratic formula, with step-by-step examples"
-    },
-    {
-      title: "Give Context",
-      description: "Tell the AI your grade level, subject, or purpose",
-      example: "❌ What is DNA?\n✅ I'm a 10th grader studying biology. Explain DNA structure and function for my upcoming test"
-    },
-    {
-      title: "Ask Step-by-Step",
-      description: "Break complex requests into smaller parts",
-      example: "❌ Plan my science project\n✅ Help me brainstorm 5 science project ideas about plants, then explain how to test one hypothesis"
-    },
-    {
-      title: "Provide Examples",
-      description: "Show the AI what style or format you want",
-      example: "❌ Summarize this article\n✅ Summarize this article in 3 bullet points, like this: • Main idea • Supporting detail • Conclusion"
-    },
-    {
-      title: "Test and Refine",
-      description: "Try different versions of your prompt to get better results",
-      example: "Start simple, then add details if the response isn't what you need"
-    }
-  ]
-
-  const learningContent = [
-    {
-      title: "Introduction to Prompt Engineering",
-      subtitle: "Lesson 1: Speaking AI's Language",
-      description: "Learn what prompts are and why they're the key to getting great results from AI",
-      keyPoints: ["What is a Prompt", "Why Quality Matters", "AI Communication Basics"],
-      interactive: "Try Your First Prompt",
-      icon: MessageSquare,
-      content: "A prompt is like giving instructions to a very smart assistant who takes everything literally. Imagine telling your friend to 'get something from the store' versus 'please buy 2 liters of milk from the grocery store on Main Street.' The more specific you are, the more likely you'll get exactly what you want! AI works the same way - clear, detailed prompts lead to much better results.",
-      scenarios: [
-        "Asking AI to help with homework vs. asking for answers",
-        "Getting creative writing help vs. having AI write everything",
-        "Using AI for research vs. trusting it blindly"
-      ],
-      reflectionQuestions: [
-        "Think of a time when someone misunderstood your instructions. How could clearer communication have helped?",
-        "What's the difference between getting help and having someone do your work?"
-      ]
-    },
-    {
-      title: "How AI Tools Respond to Prompts",
-      subtitle: "Lesson 2: Understanding AI Behavior",
-      description: "Discover how different types of prompts create different AI responses",
-      keyPoints: ["Context Importance", "Specificity Effects", "AI Limitations"],
-      interactive: "Prompt Comparison Lab",
-      icon: Target,
-      content: "AI is like a very knowledgeable student who wants to please but needs clear directions. If you ask 'tell me about dogs,' you might get a general essay. But if you ask 'explain why dogs make good pets for families with young children, including care requirements,' you'll get focused, useful information. Context, specificity, and clarity are the three pillars of great prompts.",
-      scenarios: [
-        "Vague prompt: 'Help with science' vs. Specific: 'Explain photosynthesis for my 8th grade presentation'",
-        "No context: 'Write a story' vs. With context: 'Write a 300-word adventure story for a school magazine'",
-        "Too broad: 'Math help' vs. Just right: 'Show me how to solve this algebra problem step-by-step'"
-      ],
-      reflectionQuestions: [
-        "How does giving context change the type of help you receive?",
-        "What happens when you're too vague vs. too specific in your requests?"
-      ]
-    },
-    {
-      title: "Prompt Writing Best Practices",
-      subtitle: "Lesson 3: The Formula for Success",
-      description: "Master the essential techniques for writing effective prompts",
-      keyPoints: ["Structure Templates", "Role Assignment", "Output Formatting"],
-      interactive: "Build Perfect Prompts",
-      icon: Zap,
-      content: "Great prompts follow a simple formula: WHO (give the AI a role) + WHAT (clear task) + HOW (desired format) + WHY (context/purpose). For example: 'You are a friendly tutor (WHO). Explain the water cycle (WHAT) in simple bullet points (HOW) for my 6th-grade science study guide (WHY).' This structure helps AI understand exactly what you need.",
-      scenarios: [
-        "School project: Getting AI to act as a historical figure for an interview",
-        "Creative writing: Asking AI to help brainstorm story ideas with specific themes",
-        "Study help: Having AI create practice questions for an upcoming test"
-      ],
-      reflectionQuestions: [
-        "How does giving AI a specific role change its responses?",
-        "What's the benefit of specifying the output format you want?"
-      ]
-    },
-    {
-      title: "Common Mistakes and How to Fix Them",
-      subtitle: "Lesson 4: Learning from Prompt Problems",
-      description: "Identify and avoid the most common prompt engineering mistakes",
-      keyPoints: ["Vague Language", "Missing Context", "Unrealistic Expectations"],
-      interactive: "Prompt Debugging Challenge",
-      icon: AlertTriangle,
-      content: "Even experienced users make prompt mistakes! Common problems include being too vague ('help me write'), giving no context ('what should I do?'), or expecting AI to read your mind. Learning to spot these issues and fix them is like becoming a detective for better AI communication. Remember: AI is powerful but needs clear guidance.",
-      scenarios: [
-        "Problem: 'Do my homework' → Solution: 'Help me understand this math concept so I can solve similar problems'",
-        "Problem: 'Make it better' → Solution: 'Improve this paragraph by adding specific examples and clearer transitions'",
-        "Problem: 'What's the answer?' → Solution: 'Explain how to approach this type of problem and show the thinking process'"
-      ],
-      reflectionQuestions: [
-        "Why is it better to ask for help understanding rather than asking for answers?",
-        "How can you tell if your prompt is too vague?"
-      ]
-    },
-    {
-      title: "Real-World Applications and Ethics",
-      subtitle: "Lesson 5: Using AI Responsibly",
-      description: "Apply prompt engineering skills to real situations while maintaining ethical standards",
-      keyPoints: ["Academic Integrity", "Creative Collaboration", "Critical Thinking"],
-      interactive: "Ethical Prompt Designer",
-      icon: Palette,
-      content: "Prompt engineering isn't just about getting results - it's about using AI as a learning partner, not a shortcut. Whether you're writing stories, solving problems, or learning new topics, the goal is to enhance your thinking, not replace it. Good prompts help you learn and grow, while poor ones might lead to dependence or academic dishonesty.",
-      scenarios: [
-        "Acceptable: 'Help me brainstorm essay topics about climate change for my English class'",
-        "Not acceptable: 'Write my entire essay about climate change'",
-        "Good practice: 'Check my understanding of this math concept and point out any errors'",
-        "Poor practice: 'Give me all the answers to this worksheet'"
-      ],
-      reflectionQuestions: [
-        "What's the difference between getting help and cheating when using AI?",
-        "How can you use AI to become a better learner rather than becoming dependent on it?"
+      weak: "Write something about climate change.",
+      strong: "As an environmental science educator, create a 300-word explanation of how climate change affects ocean ecosystems, written for high school students, including specific examples and actionable solutions they can implement.",
+      improvements: [
+        "Added specific role (environmental science educator)",
+        "Defined clear scope (ocean ecosystems)",
+        "Specified target audience (high school students)",
+        "Set word limit (300 words)",
+        "Requested specific examples and solutions"
       ]
     }
   ]
 
-  const promptChallenges = [
-    {
-      title: "Homework Help Challenge",
-      scenario: "You're struggling with a science assignment about the solar system. Which prompt will help you learn without cheating?",
-      options: [
-        "Do my science homework",
-        "What are the planets?",
-        "I'm working on a solar system project for 7th grade. Can you explain what makes each planet unique and help me organize this information for a poster?",
-        "Give me facts about space"
-      ],
-      correct: 2,
-      explanation: "This prompt asks for understanding and organization help rather than completed work, includes grade level context, and specifies the project format."
-    },
-    {
-      title: "Creative Writing Assistant",
-      scenario: "You want to write a short story for your English class. What's the best way to get AI help?",
-      options: [
-        "Write my story",
-        "I need to write a 300-word mystery story for English class. Can you help me brainstorm interesting plot ideas and suggest how to create suspense?",
-        "Give me a story",
-        "Help with writing"
-      ],
-      correct: 1,
-      explanation: "This prompt asks for brainstorming and guidance rather than a finished product, includes specific requirements, and focuses on learning writing techniques."
-    },
-    {
-      title: "Study Buddy Challenge",
-      scenario: "You're preparing for a history test about World War II. How should you prompt AI for the best study help?",
-      options: [
-        "Tell me about World War II",
-        "What should I know for my test?",
-        "I have a test on WWII causes and major events. Can you create 5 practice questions with explanations to help me study?",
-        "Help me study"
-      ],
-      correct: 2,
-      explanation: "This prompt specifies the test topic, asks for active study materials (practice questions), and focuses on understanding rather than memorization."
+  // Generate Lego Prompt
+  const generateLegoPrompt = () => {
+    if (!legoPrompt.role || !legoPrompt.task) return
+
+    const parts = []
+    if (legoPrompt.role) parts.push(legoPrompt.role)
+    if (legoPrompt.context) parts.push(legoPrompt.context)
+    if (legoPrompt.task) parts.push(legoPrompt.task)
+    if (legoPrompt.constraint) parts.push(legoPrompt.constraint)
+    if (legoPrompt.format) parts.push(legoPrompt.format)
+
+    const generated = parts.join(' ')
+    setGeneratedPrompt(generated)
+    
+    // Simple analysis
+    const analysis = `
+Prompt Quality: ${parts.length >= 4 ? 'High' : parts.length >= 3 ? 'Medium' : 'Basic'}
+Components: ${parts.length}/5
+Clarity: ${legoPrompt.task ? '✓' : '✗'}
+Context: ${legoPrompt.context ? '✓' : '✗'}
+Constraints: ${legoPrompt.constraint ? '✓' : '✗'}
+    `
+    setPromptAnalysis(analysis)
+    
+    saveProgress({ promptsBuilt: userProgress.promptsBuilt + 1 })
+  }
+
+  // Handle Hallucination Answer
+  const handleHallucinationAnswer = (index: number) => {
+    setSelectedAnswer(index)
+    setShowExplanation(true)
+    
+    const isCorrect = hallucinationQuestions[currentQuestion].statements[index].isHallucination
+    if (isCorrect) {
+      setHunterScore(hunterScore + 1)
+      saveProgress({ hallucinationsDetected: userProgress.hallucinationsDetected + 1 })
     }
-  ]
+  }
+
+  // Export Progress
+  const exportHandbook = () => {
+    const handbook = {
+      progress: userProgress,
+      prompts: generatedPrompt ? [generatedPrompt] : [],
+      exportDate: new Date().toISOString(),
+      version: '1.0'
+    }
+    
+    const blob = new Blob([JSON.stringify(handbook, null, 2)], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = 'mindcraft-prompt-engineering-handbook.json'
+    a.click()
+  }
 
   return (
     <>
       <Head>
-        <title>Prompt Engineering: Mastering AI Communication | Mindcraft</title>
-        <meta name="description" content="Learn to communicate effectively with AI systems through advanced prompt engineering techniques. Part of the Mindcraft Global Multiplier Network." />
-        <meta name="keywords" content="prompt engineering, AI communication, GPT prompts, machine learning, artificial intelligence education" />
-        <meta property="og:title" content="Prompt Engineering: Mastering AI Communication" />
-        <meta property="og:description" content="Master the art of communicating with AI systems for amazing results" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Interactive Communication Laboratory - Mindcraft</title>
+        <meta name="description" content="Master the art of AI communication through hands-on prompt engineering training" />
       </Head>
 
-      <div className="min-h-screen bg-gradient-to-br from-emerald-900 via-teal-900 to-slate-900">
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-emerald-900 to-slate-900">
         <Navbar />
         
         {/* Hero Section */}
-        <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
           <div className="max-w-6xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="mb-12"
+              className="relative"
             >
-              {/* MessageSquare Icon */}
-              <div className="relative mx-auto mb-8 w-32 h-32">
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-full animate-pulse"></div>
-                <div className="relative w-full h-full bg-white rounded-full flex items-center justify-center shadow-2xl">
-                  <MessageSquare className="w-16 h-16 text-emerald-600" />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/30 to-teal-400/30 rounded-full blur-xl"></div>
+              <div className="mx-auto w-20 h-20 bg-emerald-400/20 rounded-2xl flex items-center justify-center mb-8">
+                <Terminal className="w-10 h-10 text-emerald-400" />
               </div>
 
-              <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-                Prompt Engineering
-                <span className="block text-3xl md:text-4xl bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent mt-4">
-                  Mastering AI Communication
+              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+                <span className="bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">
+                  Interactive Communication Laboratory
                 </span>
               </h1>
-
-              <div className="bg-slate-800/50 backdrop-blur-lg rounded-2xl p-8 border border-emerald-500/30 mb-8">
-                <h2 className="text-2xl md:text-3xl text-emerald-300 mb-4 font-semibold">
-                  Klaus Schwab's Vision
-                </h2>
-                <p className="text-xl text-gray-300 italic">
-                  "The future belongs to those who can effectively communicate with artificial intelligence"
-                </p>
-              </div>
-
-              <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8">
-                {module.description}
+              
+              <p className="text-xl text-white/80 mb-8 max-w-3xl mx-auto leading-relaxed">
+                Master the art of AI communication through hands-on training. Learn the science behind effective prompting, 
+                detect AI hallucinations, and build your prompt engineering expertise.
               </p>
 
-              {/* Learning Objectives */}
-              <div className="bg-slate-800/50 backdrop-blur-lg rounded-2xl p-8 border border-teal-500/30 mb-8">
-                <h3 className="text-2xl font-bold text-teal-300 mb-4 text-center">What You'll Master</h3>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {learningObjectives.map((objective, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-300 text-sm">{objective}</span>
-                    </div>
-                  ))}
+              <div className="flex flex-wrap justify-center gap-4 mb-12">
+                <div className="bg-white/10 backdrop-blur-lg rounded-lg border border-white/20 p-4">
+                  <div className="text-emerald-400 text-2xl font-bold">{userProgress.promptsBuilt}</div>
+                  <div className="text-white/70 text-sm">Prompts Built</div>
                 </div>
-              </div>
-            </motion.div>
-
-            {/* Quick Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16"
-            >
-              <div className="bg-slate-800/50 backdrop-blur-lg rounded-xl p-6 border border-emerald-500/30">
-                <div className="text-3xl font-bold text-emerald-400">5</div>
-                <div className="text-gray-300">Learning Lessons</div>
-              </div>
-              <div className="bg-slate-800/50 backdrop-blur-lg rounded-xl p-6 border border-teal-500/30">
-                <div className="text-3xl font-bold text-teal-400">Ages 9-18</div>
-                <div className="text-gray-300">All Levels</div>
-              </div>
-              <div className="bg-slate-800/50 backdrop-blur-lg rounded-xl p-6 border border-cyan-500/30">
-                <div className="text-3xl font-bold text-cyan-400">Interactive</div>
-                <div className="text-gray-300">Hands-on Learning</div>
+                <div className="bg-white/10 backdrop-blur-lg rounded-lg border border-white/20 p-4">
+                  <div className="text-blue-400 text-2xl font-bold">{userProgress.hallucinationsDetected}</div>
+                  <div className="text-white/70 text-sm">Hallucinations Caught</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-lg rounded-lg border border-white/20 p-4">
+                  <div className="text-purple-400 text-2xl font-bold">{userProgress.completedSections.length}</div>
+                  <div className="text-white/70 text-sm">Sections Completed</div>
+                </div>
               </div>
             </motion.div>
           </div>
         </section>
 
-        {/* Core Learning Sections */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8">
+        {/* Navigation Tabs */}
+        <section className="py-8 px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-bold text-white text-center mb-16">
-              Your Journey to <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">AI Communication Mastery</span>
-            </h2>
-
-            <div className="space-y-12">
-              {learningContent.map((section, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="bg-slate-800/50 backdrop-blur-lg rounded-2xl p-8 border border-slate-700/50"
+            <div className="flex flex-wrap justify-center gap-2 mb-8 bg-white/10 backdrop-blur-lg rounded-xl p-2 border border-white/20">
+              {[
+                { id: 'foundation', label: 'Foundation', icon: <Brain className="w-4 h-4" /> },
+                { id: 'builder', label: 'Lego Builder', icon: <Layers className="w-4 h-4" /> },
+                { id: 'hunter', label: 'Hallucination Hunter', icon: <AlertTriangle className="w-4 h-4" /> },
+                { id: 'fixer', label: 'Prompt Fixer', icon: <Edit className="w-4 h-4" /> }
+              ].map((tab) => (
+                <motion.button
+                  key={tab.id}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all ${
+                    activeTab === tab.id
+                      ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/25'
+                      : 'text-white/70 hover:text-white hover:bg-white/10'
+                  }`}
                 >
-                  <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
-                    <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                      <div className="flex items-center gap-4 mb-6">
-                        <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center">
-                          <section.icon className="w-6 h-6 text-white" />
-                        </div>
-                        <div>
-                          <h3 className="text-2xl font-bold text-white">{section.title}</h3>
-                          <p className="text-emerald-300">{section.subtitle}</p>
-                        </div>
-                      </div>
+                  {tab.icon}
+                  {tab.label}
+                </motion.button>
+              ))}
+              
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={exportHandbook}
+                className="flex items-center gap-2 px-6 py-3 rounded-lg font-semibold bg-purple-500 hover:bg-purple-600 text-white transition-all"
+              >
+                <Download className="w-4 h-4" />
+                Export Handbook
+              </motion.button>
+            </div>
 
-                      <p className="text-gray-300 text-lg leading-relaxed mb-6">
-                        {section.content}
-                      </p>
-
-                      {/* Real-world scenarios */}
-                      <div className="bg-slate-700/30 rounded-xl p-4 mb-6">
-                        <h4 className="text-white font-semibold mb-3">Examples in Action:</h4>
-                        <ul className="space-y-2">
-                          {section.scenarios?.map((scenario, i) => (
-                            <li key={i} className="flex items-start gap-2">
-                              <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
-                              <span className="text-gray-300 text-sm">{scenario}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-                        {section.keyPoints.map((point, i) => (
-                          <div key={i} className="flex items-center gap-2 text-sm">
-                            <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
-                            <span className="text-gray-300">{point}</span>
+            {/* Tab Content */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                {activeTab === 'foundation' && (
+                  <div className="space-y-8">
+                    <div className="bg-white/10 backdrop-blur-lg rounded-xl border border-white/20 p-8">
+                      <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                        <Brain className="w-8 h-8 text-emerald-400" />
+                        {foundationContent.title}
+                      </h2>
+                      
+                      <div className="grid md:grid-cols-2 gap-8">
+                        {foundationContent.sections.map((section) => (
+                          <div key={section.id} className="bg-black/30 rounded-xl p-6">
+                            <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
+                              <div className="text-emerald-400">{section.icon}</div>
+                              {section.title}
+                            </h3>
+                            
+                            <div className="space-y-4">
+                              {section.content.map((item, index) => (
+                                <div key={index} className="border-l-4 border-emerald-400/50 pl-4">
+                                  <h4 className="font-semibold text-emerald-400 mb-2">{item.name}</h4>
+                                  <p className="text-white/80 text-sm mb-2">{item.description}</p>
+                                  <div className="bg-slate-800/50 rounded-lg p-3 text-white/70 text-sm font-mono">
+                                    {item.example}
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
                           </div>
                         ))}
                       </div>
 
-                      {/* Reflection Questions */}
-                      <div className="bg-teal-900/20 rounded-xl p-4 mb-6">
-                        <h4 className="text-teal-300 font-semibold mb-3">Think About This:</h4>
-                        <div className="space-y-2">
-                          {section.reflectionQuestions?.map((question, i) => (
-                            <p key={i} className="text-gray-300 text-sm italic">• {question}</p>
-                          ))}
-                        </div>
-                      </div>
-
-                      <button className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-emerald-700 hover:to-teal-700 transition-all">
-                        <Play className="w-5 h-5" />
-                        {section.interactive}
-                      </button>
-                    </div>
-
-                    <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
-                      <div className="bg-gradient-to-br from-emerald-600/20 to-teal-600/20 rounded-2xl p-8 border border-emerald-500/30">
-                        <div className="text-center">
-                          <section.icon className="w-24 h-24 text-emerald-400 mx-auto mb-4" />
-                          <h4 className="text-xl font-semibold text-white mb-2">Interactive Learning</h4>
-                          <p className="text-gray-300">{section.description}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Popular AI Tools */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-white mb-4">
-                <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
-                  Popular AI Tools You Can Use
-                </span>
-              </h2>
-              <p className="text-xl text-gray-300">
-                Learn about different AI tools and how to write great prompts for each one
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              {popularAITools.map((tool, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="bg-slate-800/50 backdrop-blur-lg rounded-2xl p-6 border border-emerald-500/30"
-                >
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className={`w-12 h-12 bg-gradient-to-br ${tool.color} rounded-xl flex items-center justify-center`}>
-                      <tool.icon className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-white">{tool.name}</h3>
-                      <p className="text-emerald-300 text-sm">{tool.bestFor}</p>
-                    </div>
-                  </div>
-                  
-                  <p className="text-gray-300 mb-4">{tool.description}</p>
-                  
-                  <div className="bg-slate-700/50 rounded-lg p-4">
-                    <h4 className="text-emerald-300 font-semibold mb-2">Example Prompt:</h4>
-                    <p className="text-gray-300 text-sm italic">"{tool.examplePrompt}"</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Best Practices Guide */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/30">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-white mb-4">
-                <span className="bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent">
-                  Prompt Writing Best Practices
-                </span>
-              </h2>
-              <p className="text-xl text-gray-300">
-                Follow these guidelines to write prompts that get great results
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {promptBestPractices.map((practice, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="bg-slate-800/50 backdrop-blur-lg rounded-xl p-6 border border-teal-500/30"
-                >
-                  <h3 className="text-lg font-bold text-white mb-3">{practice.title}</h3>
-                  <p className="text-gray-300 text-sm mb-4">{practice.description}</p>
-                  <div className="bg-slate-700/50 rounded-lg p-3">
-                    <pre className="text-xs text-gray-300 whitespace-pre-wrap font-mono">{practice.example}</pre>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Live Prompt Laboratory */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-white mb-4">
-                <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
-                  Practice Your Skills
-                </span>
-              </h2>
-              <p className="text-xl text-gray-300">
-                Test what you've learned with these real student scenarios
-              </p>
-            </div>
-
-            <div className="space-y-8">
-              {promptChallenges.map((challenge, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
-                  viewport={{ once: true }}
-                  className="bg-slate-800/50 backdrop-blur-lg rounded-2xl p-8 border border-emerald-500/30"
-                >
-                  <h3 className="text-2xl font-bold text-white mb-4">{challenge.title}</h3>
-                  <p className="text-gray-300 text-lg mb-6">{challenge.scenario}</p>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                    {challenge.options.map((option, i) => (
-                      <button
-                        key={i}
-                        className="text-left p-4 bg-slate-700/50 hover:bg-emerald-600/30 border border-slate-600 hover:border-emerald-500 rounded-xl transition-all"
+                      {/* Energy Consumption Warning */}
+                      <motion.div 
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.5 }}
+                        className="mt-8 bg-orange-400/20 border border-orange-400/30 rounded-xl p-6"
                       >
-                        <span className="text-white">{option}</span>
-                      </button>
-                    ))}
-                  </div>
-
-                  <div className="bg-emerald-900/30 rounded-xl p-4 border border-emerald-500/50">
-                    <h4 className="text-emerald-300 font-semibold mb-2">Expert Analysis</h4>
-                    <p className="text-gray-300 text-sm">{challenge.explanation}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Personal Reflection */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="bg-gradient-to-br from-slate-800/50 to-emerald-800/30 backdrop-blur-lg rounded-2xl p-8 border border-emerald-500/30"
-            >
-              <h2 className="text-3xl font-bold text-white mb-6 text-center">
-                My Prompt Engineering Learning
-              </h2>
-              <p className="text-gray-300 text-lg mb-8 text-center">
-                Reflect on what you've learned about communicating with AI effectively
-              </p>
-
-              <div className="space-y-6">
-                <div>
-                  <label className="block text-white font-semibold mb-2">
-                    Before this lesson: How I used to ask AI for help
-                  </label>
-                  <textarea
-                    placeholder="I used to ask AI things like 'help me' or 'do this'..."
-                    className="w-full p-4 bg-slate-700/50 border border-slate-600 rounded-xl text-white placeholder-gray-400 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all"
-                    rows={3}
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-white font-semibold mb-2">
-                    After this lesson: How I will write better prompts
-                  </label>
-                  <textarea
-                    value={reflectionText}
-                    onChange={(e) => setReflectionText(e.target.value)}
-                    placeholder="Now I know that good prompts need context, clear goals, and..."
-                    className="w-full p-4 bg-slate-700/50 border border-slate-600 rounded-xl text-white placeholder-gray-400 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all"
-                    rows={3}
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-white font-semibold mb-2">
-                    My go-to prompt template for school
-                  </label>
-                  <textarea
-                    placeholder="For school assignments, I will start my prompts with..."
-                    className="w-full p-4 bg-slate-700/50 border border-slate-600 rounded-xl text-white placeholder-gray-400 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all"
-                    rows={2}
-                  />
-                </div>
-
-                <button className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-emerald-700 hover:to-teal-700 transition-all">
-                  Save My Prompt Engineering Skills
-                </button>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Next Steps */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/30">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-4xl font-bold text-white mb-6">
-                Continue Your <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">Mindcraft Journey</span>
-              </h2>
-              <p className="text-xl text-gray-300 mb-12">
-                You've mastered AI communication! Ready to explore the next frontier?
-              </p>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <motion.a
-                  href="/projects/mindcraft/coding-automation"
-                  className="group bg-gradient-to-br from-emerald-600/20 to-teal-600/20 backdrop-blur-lg rounded-2xl p-8 border border-emerald-500/30 hover:border-emerald-400/50 transition-all"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center">
-                      <Code className="w-6 h-6 text-white" />
-                    </div>
-                    <div className="text-left">
-                      <h3 className="text-xl font-bold text-white">Next Module</h3>
-                      <p className="text-emerald-300">Coding & Automation</p>
+                        <h3 className="text-xl font-bold text-orange-400 mb-4 flex items-center gap-3">
+                          <AlertTriangle className="w-6 h-6" />
+                          Sustainability Alert: AI Energy Impact
+                        </h3>
+                        <p className="text-white/80 mb-4">
+                          Complex AI queries consume significant water and energy. A single ChatGPT conversation can use as much 
+                          electricity as powering a home for 30 minutes. Always consider:
+                        </p>
+                        <ul className="list-disc list-inside text-white/70 space-y-1">
+                          <li>Use efficient, specific prompts to reduce computation</li>
+                          <li>Avoid unnecessary iterative refinements</li>
+                          <li>Batch similar queries together</li>
+                          <li>Consider the environmental cost of AI assistance</li>
+                        </ul>
+                      </motion.div>
                     </div>
                   </div>
-                  <p className="text-gray-300 text-left group-hover:text-white transition-colors">
-                    Learn to automate tasks and create solutions with AI-powered coding
-                  </p>
-                  <ArrowRight className="w-5 h-5 text-emerald-400 ml-auto mt-4 group-hover:translate-x-1 transition-transform" />
-                </motion.a>
+                )}
 
-                <motion.a
-                  href="/projects/mindcraft/ai-ethics"
-                  className="group bg-gradient-to-br from-slate-600/20 to-purple-600/20 backdrop-blur-lg rounded-2xl p-8 border border-slate-500/30 hover:border-slate-400/50 transition-all"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-slate-500 to-purple-500 rounded-xl flex items-center justify-center">
-                      <Brain className="w-6 h-6 text-white" />
-                    </div>
-                    <div className="text-left">
-                      <h3 className="text-xl font-bold text-white">Previous Module</h3>
-                      <p className="text-slate-300">AI & Ethics</p>
+                {activeTab === 'builder' && (
+                  <div className="space-y-8">
+                    <div className="bg-white/10 backdrop-blur-lg rounded-xl border border-white/20 p-8">
+                      <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                        <Layers className="w-8 h-8 text-emerald-400" />
+                        Lego Prompt Builder
+                      </h2>
+                      
+                      <div className="grid lg:grid-cols-2 gap-8">
+                        <div className="space-y-6">
+                          {Object.entries(promptComponents).map(([category, components]) => (
+                            <div key={category} className="bg-black/30 rounded-xl p-6">
+                              <h3 className="text-lg font-semibold text-white mb-4 capitalize">
+                                {category} Component
+                              </h3>
+                              
+                              <div className="grid grid-cols-2 gap-3">
+                                {components.map((component) => (
+                                  <motion.button
+                                    key={component.id}
+                                    whileHover={{ scale: 1.02 }}
+                                    whileTap={{ scale: 0.98 }}
+                                    onClick={() => {
+                                      setLegoPrompt(prev => ({
+                                        ...prev,
+                                        [category]: component.examples[0]
+                                      }))
+                                    }}
+                                    className={`p-3 rounded-lg border text-left transition-all ${
+                                      legoPrompt[category as keyof LegoPrompt] === component.examples[0]
+                                        ? 'bg-emerald-500/20 border-emerald-400 text-emerald-400'
+                                        : 'bg-white/10 border-white/20 text-white/70 hover:bg-white/20'
+                                    }`}
+                                  >
+                                    <div className="font-semibold text-sm">{component.name}</div>
+                                    <div className="text-xs opacity-70">{component.description}</div>
+                                  </motion.button>
+                                ))}
+                              </div>
+                            </div>
+                          ))}
+                          
+                          <motion.button
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            onClick={generateLegoPrompt}
+                            disabled={!legoPrompt.role || !legoPrompt.task}
+                            className="w-full py-4 bg-emerald-500 hover:bg-emerald-600 disabled:bg-gray-400 text-white rounded-lg font-semibold transition-all"
+                          >
+                            Generate Prompt
+                          </motion.button>
+                        </div>
+                        
+                        <div className="space-y-6">
+                          {generatedPrompt && (
+                            <div className="bg-black/30 rounded-xl p-6">
+                              <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-3">
+                                <Code className="w-5 h-5 text-emerald-400" />
+                                Generated Prompt
+                              </h3>
+                              <div className="bg-slate-800 rounded-lg p-4 text-white font-mono text-sm mb-4">
+                                {generatedPrompt}
+                              </div>
+                              <div className="flex gap-2">
+                                <button
+                                  onClick={() => navigator.clipboard.writeText(generatedPrompt)}
+                                  className="flex items-center gap-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-sm transition-all"
+                                >
+                                  <Copy className="w-4 h-4" />
+                                  Copy
+                                </button>
+                                <button
+                                  onClick={() => {
+                                    setLegoPrompt({role: '', context: '', task: '', constraint: '', format: ''})
+                                    setGeneratedPrompt('')
+                                    setPromptAnalysis('')
+                                  }}
+                                  className="flex items-center gap-2 px-4 py-2 bg-gray-500 hover:bg-gray-600 text-white rounded-lg text-sm transition-all"
+                                >
+                                  <RotateCcw className="w-4 h-4" />
+                                  Reset
+                                </button>
+                              </div>
+                            </div>
+                          )}
+                          
+                          {promptAnalysis && (
+                            <div className="bg-black/30 rounded-xl p-6">
+                              <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-3">
+                                <Target className="w-5 h-5 text-blue-400" />
+                                Analysis
+                              </h3>
+                              <pre className="text-white/80 text-sm whitespace-pre-wrap">{promptAnalysis}</pre>
+                            </div>
+                          )}
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <p className="text-gray-300 text-left group-hover:text-white transition-colors">
-                    Revisit cognitive sovereignty and ethical AI thinking
-                  </p>
-                  <ArrowRight className="w-5 h-5 text-slate-400 ml-auto mt-4 group-hover:translate-x-1 transition-transform" />
-                </motion.a>
-              </div>
+                )}
 
-              <div className="mt-8">
-                <motion.a
-                  href="/projects/mindcraft"
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-emerald-700 hover:to-teal-700 transition-all"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Brain className="w-5 h-5" />
-                  Back to Mindcraft Hub
-                </motion.a>
-              </div>
-            </motion.div>
+                {activeTab === 'hunter' && (
+                  <div className="space-y-8">
+                    <div className="bg-white/10 backdrop-blur-lg rounded-xl border border-white/20 p-8">
+                      <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                        <AlertTriangle className="w-8 h-8 text-emerald-400" />
+                        Hallucination Hunter
+                      </h2>
+                      
+                      <div className="mb-6 flex items-center justify-between">
+                        <div className="flex items-center gap-4">
+                          <div className="text-white/70">Question {currentQuestion + 1} of {hallucinationQuestions.length}</div>
+                          <div className="text-emerald-400 font-semibold">Score: {hunterScore}</div>
+                        </div>
+                        <div className="text-white/70 text-sm">
+                          Category: {hallucinationQuestions[currentQuestion]?.category}
+                        </div>
+                      </div>
+
+                      {hallucinationQuestions[currentQuestion] && (
+                        <div className="bg-black/30 rounded-xl p-6">
+                          <h3 className="text-lg font-semibold text-white mb-6">
+                            Identify the hallucination (false statement):
+                          </h3>
+                          
+                          <div className="space-y-4 mb-6">
+                            {hallucinationQuestions[currentQuestion].statements.map((statement, index) => (
+                              <motion.button
+                                key={index}
+                                whileHover={{ scale: 1.01 }}
+                                whileTap={{ scale: 0.99 }}
+                                onClick={() => handleHallucinationAnswer(index)}
+                                disabled={selectedAnswer !== null}
+                                className={`w-full p-4 rounded-lg border text-left transition-all ${
+                                  selectedAnswer === index
+                                    ? statement.isHallucination
+                                      ? 'bg-green-500/20 border-green-400 text-green-400'
+                                      : 'bg-red-500/20 border-red-400 text-red-400'
+                                    : 'bg-white/10 border-white/20 text-white/80 hover:bg-white/20'
+                                }`}
+                              >
+                                {statement.text}
+                              </motion.button>
+                            ))}
+                          </div>
+                          
+                          {showExplanation && selectedAnswer !== null && (
+                            <motion.div
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              className="bg-slate-800/50 rounded-lg p-4 mb-6"
+                            >
+                              <h4 className="font-semibold text-white mb-2">Explanation:</h4>
+                              <p className="text-white/80">
+                                {hallucinationQuestions[currentQuestion].statements[selectedAnswer].explanation}
+                              </p>
+                            </motion.div>
+                          )}
+                          
+                          {showExplanation && (
+                            <div className="flex gap-4">
+                              <motion.button
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
+                                onClick={() => {
+                                  if (currentQuestion < hallucinationQuestions.length - 1) {
+                                    setCurrentQuestion(currentQuestion + 1)
+                                    setSelectedAnswer(null)
+                                    setShowExplanation(false)
+                                  }
+                                }}
+                                disabled={currentQuestion >= hallucinationQuestions.length - 1}
+                                className="px-6 py-3 bg-emerald-500 hover:bg-emerald-600 disabled:bg-gray-400 text-white rounded-lg font-semibold transition-all"
+                              >
+                                Next Question
+                              </motion.button>
+                              
+                              <motion.button
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
+                                onClick={() => {
+                                  setCurrentQuestion(0)
+                                  setSelectedAnswer(null)
+                                  setShowExplanation(false)
+                                  setHunterScore(0)
+                                }}
+                                className="px-6 py-3 bg-gray-500 hover:bg-gray-600 text-white rounded-lg font-semibold transition-all"
+                              >
+                                Reset Quiz
+                              </motion.button>
+                            </div>
+                          )}
+                        </div>
+                      )}
+                      
+                      {/* Human Checkpoint Notice */}
+                      <motion.div 
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.5 }}
+                        className="mt-8 bg-blue-400/20 border border-blue-400/30 rounded-xl p-6"
+                      >
+                        <h3 className="text-xl font-bold text-blue-400 mb-4 flex items-center gap-3">
+                          <User className="w-6 h-6" />
+                          Critical: Human Checkpoint Required
+                        </h3>
+                        <p className="text-white/80">
+                          Always verify AI-generated information through human expertise and reliable sources. 
+                          AI systems can confidently present false information that appears credible. 
+                          Your role as a human in the loop is essential for quality control.
+                        </p>
+                      </motion.div>
+                    </div>
+                  </div>
+                )}
+
+                {activeTab === 'fixer' && (
+                  <div className="space-y-8">
+                    <div className="bg-white/10 backdrop-blur-lg rounded-xl border border-white/20 p-8">
+                      <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                        <Edit className="w-8 h-8 text-emerald-400" />
+                        Fix This Prompt
+                      </h2>
+                      
+                      <div className="bg-black/30 rounded-xl p-6">
+                        <div className="mb-6">
+                          <label className="block text-white/70 mb-2">
+                            Slide to reveal improvements: {sliderPosition}%
+                          </label>
+                          <input
+                            type="range"
+                            min="0"
+                            max="100"
+                            value={sliderPosition}
+                            onChange={(e) => setSliderPosition(Number(e.target.value))}
+                            className="w-full h-2 bg-gray-600 rounded-lg appearance-none cursor-pointer"
+                          />
+                        </div>
+                        
+                        <div className="grid md:grid-cols-2 gap-6">
+                          <div>
+                            <h3 className="text-lg font-semibold text-red-400 mb-4">Weak Prompt</h3>
+                            <div className="bg-red-900/20 border border-red-500/30 rounded-lg p-4 text-white/80">
+                              {promptExamples[0].weak}
+                            </div>
+                          </div>
+                          
+                          <div>
+                            <h3 className="text-lg font-semibold text-emerald-400 mb-4">Master Version</h3>
+                            <div className="bg-emerald-900/20 border border-emerald-500/30 rounded-lg p-4 text-white/80 relative overflow-hidden">
+                              <div 
+                                className="absolute inset-0 bg-black/80 transition-transform duration-500 ease-in-out z-10"
+                                style={{ transform: `translateX(${sliderPosition - 100}%)` }}
+                              />
+                              <div className="relative z-20">
+                                {promptExamples[0].strong}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        {sliderPosition > 50 && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="mt-6 bg-slate-800/50 rounded-lg p-4"
+                          >
+                            <h4 className="font-semibold text-white mb-4">Key Improvements:</h4>
+                            <ul className="space-y-2">
+                              {promptExamples[0].improvements.map((improvement, index) => (
+                                <li key={index} className="flex items-start gap-3 text-white/80">
+                                  <CheckCircle className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
+                                  {improvement}
+                                </li>
+                              ))}
+                            </ul>
+                          </motion.div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </motion.div>
+            </AnimatePresence>
           </div>
         </section>
 
