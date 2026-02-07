@@ -141,13 +141,11 @@ export default function Home() {
 							{/* Video Container - Responsive with proper aspect ratio */}
 							<div className="flex justify-center">
 								<div className="relative w-full max-w-4xl mx-auto">
-									{/* Local video player with rounded corners and shadow */}
-									<div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300">
+									{/* Local video player with rounded corners and shadow - optimized for perfect fit */}
+									<div className="relative bg-black rounded-2xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 aspect-[16/9]">
 										<video
-											className="w-full block"
-											width="800"
-											height="450"
-											style={{ aspectRatio: '16/9' }}
+											className="w-full h-full object-cover block"
+											style={{ objectFit: 'cover' }}
 											controls
 											preload="metadata"
 											playsInline
