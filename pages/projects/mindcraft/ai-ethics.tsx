@@ -96,6 +96,11 @@ export default function AIEthicsPage() {
     manifesto: []
   })
 
+  // Visual interactive cards states
+  const [showCreativePositives, setShowCreativePositives] = useState(false)
+  const [showCreativeNegatives, setShowCreativeNegatives] = useState(false)
+  const [flippedCards, setFlippedCards] = useState<{ [key: string]: boolean }>({})
+
   // Learning moment states
   const [showLearningMoment, setShowLearningMoment] = useState(false)
   const [learningMomentType, setLearningMomentType] = useState('')
@@ -833,27 +838,81 @@ Date: ${new Date().toLocaleDateString('en-US')}
                   </div>
                 </div>
 
-                {/* Real-time Results */}
+                {/* Real-time Results - Enhanced Visual Decision Meter */}
                 <div className="space-y-6">
-                  <div className="bg-slate-700/50 rounded-xl p-6">
+                  <div className="bg-gradient-to-br from-slate-700/50 to-slate-800/80 rounded-xl p-6 border-2 border-cyan-500/30 shadow-xl">
                     <h4 className="text-white text-lg mb-4 flex items-center gap-2">
                       <BarChart3 className="w-5 h-5" />
-                      Diversity vs. Efficiency Meter
+                      🎯 Decision Meter: Ethical Impact
                     </h4>
-                    <div className="space-y-3">
-                      <div className="flex justify-between text-sm">
-                        <span className="text-gray-300">Diversity Score</span>
-                        <span className="text-cyan-400">{diversityScore}%</span>
-                      </div>
-                      <div className="w-full bg-slate-600 rounded-full h-3">
-                        <motion.div
-                          className="bg-gradient-to-r from-cyan-400 to-blue-500 h-3 rounded-full"
-                          initial={{ width: "50%" }}
-                          animate={{ width: `${diversityScore}%` }}
+                    
+                    {/* Visual Score Display */}
+                    <div className="relative mb-6">
+                      <div className="flex justify-between items-center mb-3">
+                        <span className="text-gray-300 font-medium">Diversity Score</span>
+                        <motion.span 
+                          className="text-3xl font-black"
+                          animate={{ 
+                            color: diversityScore > 70 ? '#10b981' : diversityScore > 40 ? '#fbbf24' : '#ef4444',
+                            scale: [1, 1.1, 1]
+                          }}
                           transition={{ duration: 0.5 }}
-                        />
+                        >
+                          {diversityScore}%
+                        </motion.span>
+                      </div>
+                      
+                      {/* Enhanced Progress Bar with Color Zones */}
+                      <div className="relative w-full h-8 bg-slate-600 rounded-full overflow-hidden shadow-inner">
+                        {/* Background gradient zones */}
+                        <div className="absolute inset-0 flex">
+                          <div className="flex-1 bg-red-500/20"></div>
+                          <div className="flex-1 bg-yellow-500/20"></div>
+                          <div className="flex-1 bg-green-500/20"></div>
+                        </div>
+                        
+                        {/* Animated progress */}
+                        <motion.div
+                          className="relative h-full flex items-center justify-end pr-2"
+                          initial={{ width: "50%" }}
+                          animate={{ 
+                            width: `${diversityScore}%`,
+                            background: diversityScore > 70 
+                              ? 'linear-gradient(to right, #10b981, #34d399)'
+                              : diversityScore > 40
+                              ? 'linear-gradient(to right, #fbbf24, #fcd34d)'
+                              : 'linear-gradient(to right, #ef4444, #f87171)'
+                          }}
+                          transition={{ duration: 0.5, ease: "easeOut" }}
+                        >
+                          <motion.div
+                            animate={{ scale: [1, 1.2, 1] }}
+                            transition={{ repeat: Infinity, duration: 1.5 }}
+                            className="w-3 h-3 bg-white rounded-full shadow-lg"
+                          />
+                        </motion.div>
+                      </div>
+                      
+                      {/* Zone Labels */}
+                      <div className="flex justify-between text-xs mt-2 text-gray-400">
+                        <span>❌ Biased</span>
+                        <span>⚠️ Neutral</span>
+                        <span>✅ Fair</span>
                       </div>
                     </div>
+
+                    {/* Visual Status Indicator */}
+                    <motion.div
+                      animate={{ 
+                        backgroundColor: diversityScore > 70 ? 'rgba(16, 185, 129, 0.1)' : diversityScore > 40 ? 'rgba(251, 191, 36, 0.1)' : 'rgba(239, 68, 68, 0.1)',
+                        borderColor: diversityScore > 70 ? 'rgba(16, 185, 129, 0.3)' : diversityScore > 40 ? 'rgba(251, 191, 36, 0.3)' : 'rgba(239, 68, 68, 0.3)'
+                      }}
+                      className="border-2 rounded-lg p-4 text-center"
+                    >
+                      <p className="text-white font-semibold">
+                        {diversityScore > 70 ? '🎉 Excellent! Fair algorithm' : diversityScore > 40 ? '🤔 Moderate bias detected' : '⚠️ High bias risk!'}
+                      </p>
+                    </motion.div>
                   </div>
 
                   <AnimatePresence>
@@ -999,19 +1058,68 @@ Date: ${new Date().toLocaleDateString('en-US')}
                   <strong className="text-white"> cognitive atrophy</strong> - the weakening of our mental abilities.
                 </p>
                 
+                {/* Interactive Flip Cards - Click to Reveal */}
                 <div className="grid md:grid-cols-3 gap-4">
-                  <div className="bg-orange-950/30 border border-orange-500/50 rounded-xl p-6">
-                    <h3 className="text-lg font-semibold text-white mb-2">🧠 Cognitive Load</h3>
-                    <p className="text-sm text-gray-300">AI reduces mental effort, potentially weakening our thinking muscles over time.</p>
-                  </div>
-                  <div className="bg-orange-950/30 border border-orange-500/50 rounded-xl p-6">
-                    <h3 className="text-lg font-semibold text-white mb-2">🎯 Instant Gratification</h3>
-                    <p className="text-sm text-gray-300">AI provides immediate answers, reducing tolerance for uncertainty and deep thinking.</p>
-                  </div>
-                  <div className="bg-orange-950/30 border border-orange-500/50 rounded-xl p-6">
-                    <h3 className="text-lg font-semibold text-white mb-2">🔄 Feedback Loops</h3>
-                    <p className="text-sm text-gray-300">The more we use AI, the more we feel we need it - creating dependency cycles.</p>
-                  </div>
+                  {[
+                    { 
+                      id: 'cognitive', 
+                      icon: '🧠', 
+                      title: 'Cognitive Load', 
+                      front: 'What happens to your thinking muscles?',
+                      back: 'AI reduces mental effort, potentially weakening our thinking muscles over time. Like physical muscles, cognitive abilities atrophy without exercise.'
+                    },
+                    { 
+                      id: 'gratification', 
+                      icon: '🎯', 
+                      title: 'Instant Gratification', 
+                      front: 'Why do we crave quick AI answers?',
+                      back: 'AI provides immediate answers, reducing tolerance for uncertainty and deep thinking. This rewires our patience circuits.'
+                    },
+                    { 
+                      id: 'feedback', 
+                      icon: '🔄', 
+                      title: 'Feedback Loops', 
+                      front: 'What creates the dependency cycle?',
+                      back: 'The more we use AI, the more we feel we need it - creating dependency cycles. Each use reinforces the habit loop.'
+                    }
+                  ].map((card, idx) => (
+                    <motion.div
+                      key={card.id}
+                      className="relative h-48 cursor-pointer"
+                      style={{ perspective: '1000px' }}
+                      onClick={() => setFlippedCards(prev => ({ ...prev, [card.id]: !prev[card.id] }))}
+                      whileHover={{ scale: 1.05 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: idx * 0.1 }}
+                    >
+                      <motion.div 
+                        className="relative w-full h-full transition-transform duration-500"
+                        style={{ 
+                          transformStyle: 'preserve-3d',
+                          transform: flippedCards[card.id] ? 'rotateY(180deg)' : 'rotateY(0deg)'
+                        }}
+                      >
+                        {/* Front */}
+                        <div className="absolute w-full h-full bg-gradient-to-br from-orange-600/30 to-orange-800/30 border-2 border-orange-500/50 rounded-xl p-6 flex flex-col justify-center items-center text-center"
+                          style={{ backfaceVisibility: 'hidden' }}
+                        >
+                          <div className="text-5xl mb-3">{card.icon}</div>
+                          <h3 className="text-lg font-bold text-white mb-2">{card.title}</h3>
+                          <p className="text-sm text-orange-200">{card.front}</p>
+                          <p className="text-xs text-orange-300 mt-3">👆 Click to reveal</p>
+                        </div>
+                        
+                        {/* Back */}
+                        <div className="absolute w-full h-full bg-gradient-to-br from-orange-500/40 to-orange-700/40 border-2 border-orange-400 rounded-xl p-6 flex flex-col justify-center text-center"
+                          style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
+                        >
+                          <p className="text-sm text-white leading-relaxed">{card.back}</p>
+                          <p className="text-xs text-orange-200 mt-3">👆 Click to flip back</p>
+                        </div>
+                      </motion.div>
+                    </motion.div>
+                  ))}
                 </div>
               </div>
             </motion.div>
@@ -1049,60 +1157,107 @@ Date: ${new Date().toLocaleDateString('en-US')}
                   <strong className="text-white"> authenticity, originality, and human creative development</strong>.
                 </p>
                 
+                {/* Visual Impact Cards - Click & Discover */}
                 <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-green-950/30 border border-green-500/50 rounded-xl p-6">
-                    <h3 className="text-xl font-semibold text-green-400 mb-4">✅ Positive Impacts</h3>
-                    <div className="space-y-3">
-                      <div className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-green-400 rounded-full mt-2"></div>
-                        <div>
-                          <strong className="text-white">Creative Democratization:</strong>
-                          <p className="text-sm text-gray-300 mt-1">AI tools make creative expression accessible to non-artists</p>
+                  {/* Positive Impacts - Visual Card */}
+                  <motion.div 
+                    className="relative bg-gradient-to-br from-green-500/20 to-emerald-500/20 border-2 border-green-500/50 rounded-2xl p-8 overflow-hidden cursor-pointer group"
+                    whileHover={{ scale: 1.02, borderColor: 'rgb(34 197 94)' }}
+                    onClick={() => setShowCreativePositives(!showCreativePositives)}
+                  >
+                    {/* Large Visual Icon */}
+                    <motion.div 
+                      className="text-8xl mb-4 text-center"
+                      animate={{ rotate: showCreativePositives ? 360 : 0 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      ✨
+                    </motion.div>
+                    
+                    <h3 className="text-2xl font-black text-green-400 mb-4 text-center">POSITIVE IMPACTS</h3>
+                    
+                    {showCreativePositives ? (
+                      <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="space-y-4"
+                      >
+                        <div className="flex items-start gap-3 p-3 bg-green-950/30 rounded-lg">
+                          <div className="text-3xl">🎨</div>
+                          <div>
+                            <strong className="text-white block">Creative Democratization</strong>
+                            <p className="text-sm text-gray-300">AI tools make art accessible to everyone</p>
+                          </div>
                         </div>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-green-400 rounded-full mt-2"></div>
-                        <div>
-                          <strong className="text-white">Inspiration Catalyst:</strong>
-                          <p className="text-sm text-gray-300 mt-1">AI can spark new ideas and creative directions</p>
+                        <div className="flex items-start gap-3 p-3 bg-green-950/30 rounded-lg">
+                          <div className="text-3xl">💡</div>
+                          <div>
+                            <strong className="text-white block">Inspiration Catalyst</strong>
+                            <p className="text-sm text-gray-300">Sparks new creative directions</p>
+                          </div>
                         </div>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-green-400 rounded-full mt-2"></div>
-                        <div>
-                          <strong className="text-white">Efficiency Boost:</strong>
-                          <p className="text-sm text-gray-300 mt-1">Automating routine tasks frees time for pure creativity</p>
+                        <div className="flex items-start gap-3 p-3 bg-green-950/30 rounded-lg">
+                          <div className="text-3xl">⚡</div>
+                          <div>
+                            <strong className="text-white block">Efficiency Boost</strong>
+                            <p className="text-sm text-gray-300">Automates routine, frees creativity</p>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                  </div>
+                      </motion.div>
+                    ) : (
+                      <p className="text-center text-green-200 font-medium">👆 Click to explore benefits</p>
+                    )}
+                  </motion.div>
                   
-                  <div className="bg-red-950/30 border border-red-500/50 rounded-xl p-6">
-                    <h3 className="text-xl font-semibold text-red-400 mb-4">⚠️ Concerning Risks</h3>
-                    <div className="space-y-3">
-                      <div className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-red-400 rounded-full mt-2"></div>
-                        <div>
-                          <strong className="text-white">Creative Muscle Atrophy:</strong>
-                          <p className="text-sm text-gray-300 mt-1">Over-reliance may weaken natural creative abilities</p>
+                  {/* Negative Impacts - Visual Card */}
+                  <motion.div 
+                    className="relative bg-gradient-to-br from-red-500/20 to-pink-500/20 border-2 border-red-500/50 rounded-2xl p-8 overflow-hidden cursor-pointer group"
+                    whileHover={{ scale: 1.02, borderColor: 'rgb(239 68 68)' }}
+                    onClick={() => setShowCreativeNegatives(!showCreativeNegatives)}
+                  >
+                    {/* Large Visual Icon */}
+                    <motion.div 
+                      className="text-8xl mb-4 text-center"
+                      animate={{ rotate: showCreativeNegatives ? 360 : 0 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      ⚠️
+                    </motion.div>
+                    
+                    <h3 className="text-2xl font-black text-red-400 mb-4 text-center">CONCERNING RISKS</h3>
+                    
+                    {showCreativeNegatives ? (
+                      <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="space-y-4"
+                      >
+                        <div className="flex items-start gap-3 p-3 bg-red-950/30 rounded-lg">
+                          <div className="text-3xl">💪❌</div>
+                          <div>
+                            <strong className="text-white block">Creative Muscle Atrophy</strong>
+                            <p className="text-sm text-gray-300">Over-reliance weakens natural abilities</p>
+                          </div>
                         </div>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-red-400 rounded-full mt-2"></div>
-                        <div>
-                          <strong className="text-white">Homogenization:</strong>
-                          <p className="text-sm text-gray-300 mt-1">AI training data may lead to similar, predictable outputs</p>
+                        <div className="flex items-start gap-3 p-3 bg-red-950/30 rounded-lg">
+                          <div className="text-3xl">👥➡️👤</div>
+                          <div>
+                            <strong className="text-white block">Homogenization</strong>
+                            <p className="text-sm text-gray-300">Similar outputs, predictable results</p>
+                          </div>
                         </div>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-red-400 rounded-full mt-2"></div>
-                        <div>
-                          <strong className="text-white">Authenticity Questions:</strong>
-                          <p className="text-sm text-gray-300 mt-1">Blurred lines between human and machine creativity</p>
+                        <div className="flex items-start gap-3 p-3 bg-red-950/30 rounded-lg">
+                          <div className="text-3xl">❓🎭</div>
+                          <div>
+                            <strong className="text-white block">Authenticity Questions</strong>
+                            <p className="text-sm text-gray-300">Blurred lines: human vs machine</p>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                  </div>
+                      </motion.div>
+                    ) : (
+                      <p className="text-center text-red-200 font-medium">👆 Click to explore risks</p>
+                    )}
+                  </motion.div>
                 </div>
                 
                 <div className="bg-purple-950/30 border border-purple-500/50 rounded-xl p-6">
