@@ -170,8 +170,14 @@ export const members: Member[] = [
     role: "Shaper",
     shortBio: "Shaper",
     longBio: "Member of the Hub.",
-    photo: "https://via.placeholder.com/400x400/36B37E/FFFFFF?text=SA",
-    social: {}
+    photo: "/images/members/sena-ates.jpg",
+    image: "/images/members/sena-ates.jpg",
+    email: "senaates669@gmail.com",
+    linkedin: "https://www.linkedin.com/in/sena-ates1/",
+    social: {
+      email: "senaates669@gmail.com",
+      linkedin: "https://www.linkedin.com/in/sena-ates1/"
+    }
   },
   {
     slug: "begum-ece-elcekin",
