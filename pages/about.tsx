@@ -11,7 +11,7 @@ export default function AboutPage() {
         <title>About Us - Global Shapers Izmir Hub</title>
         <meta name="description" content="Learn about Global Shapers Izmir Hub - Building a better future by unlocking the potential of young people" />
       </Head>
-
+ 
       <Navbar />
 
       <main className="pt-20">
